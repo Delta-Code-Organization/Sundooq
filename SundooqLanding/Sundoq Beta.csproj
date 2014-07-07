@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2158BDCE-F435-45CC-929A-82C62C665D92}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SundooqLanding</RootNamespace>
+    <AssemblyName>SundooqLanding</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TopicsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admins.cs">
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helpers.cs" />
+    <Compile Include="Models\History.cs">
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JSONReply.cs" />
+    <Compile Include="Models\Sources.cs">
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SundooqDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SundooqDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SundooqDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SundooqDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SundooqDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Topics.cs">
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopicsModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>SundooqDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontello-arrows\css\animation.css" />
+    <Content Include="fonts\fontello-arrows\css\fontello-codes.css" />
+    <Content Include="fonts\fontello-arrows\css\fontello-embedded.css" />
+    <Content Include="fonts\fontello-arrows\css\fontello-ie7-codes.css" />
+    <Content Include="fonts\fontello-arrows\css\fontello-ie7.css" />
+    <Content Include="fonts\fontello-arrows\css\fontello.css" />
+    <Content Include="fonts\fontello-arrows\demo.html" />
+    <Content Include="fonts\fontello-arrows\font\fontello.svg" />
+    <Content Include="fonts\fontello-arrows\LICENSE.txt" />
+    <Content Include="fonts\fontello-arrows\README.txt" />
+    <Content Include="fonts\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="fonts\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="fonts\simple-line-icons\icons-lte-ie7.js" />
+    <Content Include="fonts\simple-line-icons\index.html" />
+    <Content Include="fonts\simple-line-icons\License.txt" />
+    <Content Include="fonts\simple-line-icons\Readme.txt" />
+    <Content Include="fonts\simple-line-icons\simple-line-icons.css" />
+    <Content Include="fonts\simple-line-icons\style.css" />
+    <Content Include="Global.asax" />
+    <Content Include="img\app.png" />
+    <Content Include="img\Icon.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\multiplatform.png" />
+    <Content Include="img\not.png" />
+    <Content Include="img\twitter-login-button.png" />
+    <Content Include="img\facebook-login-button.png" />
+    <Content Include="js\enquire.js" />
+    <Content Include="js\jquery-2.1.0.min.js" />
+    <Content Include="js\jquery.imagesloaded.js" />
+    <Content Include="js\jquery.touchwipe.1.1.1.js" />
+    <Content Include="screen_scripts\activate.js" />
+    <Content Include="screen_scripts\sendreset.js" />
+    <Content Include="screen_scripts\reset.js" />
+    <Content Include="screen_scripts\view.js" />
+    <Content Include="screen_scripts\userhome.js" />
+    <Content Include="screen_scripts\login.js" />
+    <Content Include="screen_scripts\index.js" />
+    <None Include="js\jquery.validate-vsdoc.js" />
+    <Content Include="js\jquery.validate.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jquery.validate.pack.js" />
+    <Content Include="js\jquery.validate.unobtrusive.js" />
+    <Content Include="js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\modernizr-2.6.2.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\scrollspy.js" />
+    <Content Include="js\tooltip.js" />
+    <Content Include="js\transit.js" />
+    <Content Include="js\transition.js" />
+    <Content Include="js\waypoints.min.js" />
+    <Content Include="less\custom.css" />
+    <Content Include="img\loader.gif" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\User\Activate.cshtml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Views\Topics\filter.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\User\reset.cshtml" />
+    <Content Include="Views\User\sendreset.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome-4.0.3\FontAwesome.otf" />
+    <Content Include="fonts\fontello-arrows\config.json" />
+    <Content Include="fonts\fontello-arrows\font\fontello.eot" />
+    <Content Include="fonts\fontello-arrows\font\fontello.ttf" />
+    <Content Include="fonts\fontello-arrows\font\fontello.woff" />
+    <Content Include="fonts\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="fonts\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="fonts\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="less\about.less" />
+    <Content Include="less\animations.less" />
+    <Content Include="less\bootstrap-3.1.1\alerts.less" />
+    <Content Include="less\bootstrap-3.1.1\badges.less" />
+    <Content Include="less\bootstrap-3.1.1\bootstrap.less" />
+    <Content Include="less\bootstrap-3.1.1\breadcrumbs.less" />
+    <Content Include="less\bootstrap-3.1.1\button-groups.less" />
+    <Content Include="less\bootstrap-3.1.1\buttons.less" />
+    <Content Include="less\bootstrap-3.1.1\carousel.less" />
+    <Content Include="less\bootstrap-3.1.1\close.less" />
+    <Content Include="less\bootstrap-3.1.1\code.less" />
+    <Content Include="less\bootstrap-3.1.1\component-animations.less" />
+    <Content Include="less\bootstrap-3.1.1\dropdowns.less" />
+    <Content Include="less\bootstrap-3.1.1\forms.less" />
+    <Content Include="less\bootstrap-3.1.1\glyphicons.less" />
+    <Content Include="less\bootstrap-3.1.1\grid.less" />
+    <Content Include="less\bootstrap-3.1.1\input-groups.less" />
+    <Content Include="less\bootstrap-3.1.1\jumbotron.less" />
+    <Content Include="less\bootstrap-3.1.1\labels.less" />
+    <Content Include="less\bootstrap-3.1.1\list-group.less" />
+    <Content Include="less\bootstrap-3.1.1\media.less" />
+    <Content Include="less\bootstrap-3.1.1\mixins.less" />
+    <Content Include="less\bootstrap-3.1.1\modals.less" />
+    <Content Include="less\bootstrap-3.1.1\navbar.less" />
+    <Content Include="less\bootstrap-3.1.1\navs.less" />
+    <Content Include="less\bootstrap-3.1.1\normalize.less" />
+    <Content Include="less\bootstrap-3.1.1\pager.less" />
+    <Content Include="less\bootstrap-3.1.1\pagination.less" />
+    <Content Include="less\bootstrap-3.1.1\panels.less" />
+    <Content Include="less\bootstrap-3.1.1\popovers.less" />
+    <Content Include="less\bootstrap-3.1.1\print.less" />
+    <Content Include="less\bootstrap-3.1.1\progress-bars.less" />
+    <Content Include="less\bootstrap-3.1.1\responsive-utilities.less" />
+    <Content Include="less\bootstrap-3.1.1\scaffolding.less" />
+    <Content Include="less\bootstrap-3.1.1\tables.less" />
+    <Content Include="less\bootstrap-3.1.1\theme.less" />
+    <Content Include="less\bootstrap-3.1.1\thumbnails.less" />
+    <Content Include="less\bootstrap-3.1.1\tooltip.less" />
+    <Content Include="less\bootstrap-3.1.1\type.less" />
+    <Content Include="less\bootstrap-3.1.1\utilities.less" />
+    <Content Include="less\bootstrap-3.1.1\variables.less" />
+    <Content Include="less\bootstrap-3.1.1\wells.less" />
+    <Content Include="less\contact.less" />
+    <Content Include="less\custom.less" />
+    <Content Include="less\elements.less" />
+    <Content Include="less\features.less" />
+    <Content Include="less\font-awesome\bordered-pulled.less" />
+    <Content Include="less\font-awesome\core.less" />
+    <Content Include="less\font-awesome\fixed-width.less" />
+    <Content Include="less\font-awesome\font-awesome.less" />
+    <Content Include="less\font-awesome\icons.less" />
+    <Content Include="less\font-awesome\larger.less" />
+    <Content Include="less\font-awesome\list.less" />
+    <Content Include="less\font-awesome\mixins.less" />
+    <Content Include="less\font-awesome\path.less" />
+    <Content Include="less\font-awesome\rotated-flipped.less" />
+    <Content Include="less\font-awesome\spinning.less" />
+    <Content Include="less\font-awesome\stacked.less" />
+    <Content Include="less\font-awesome\variables.less" />
+    <Content Include="less\fontello.less" />
+    <Content Include="less\footer.less" />
+    <Content Include="less\gallery.less" />
+    <Content Include="less\home.less" />
+    <Content Include="less\lesshat-prefixed.less" />
+    <Content Include="less\navbar.less" />
+    <Content Include="less\newsletter.less" />
+    <Content Include="less\owl-carousel.less" />
+    <Content Include="less\responsive.less" />
+    <Content Include="less\screenshot.less" />
+    <Content Include="less\simple-line-icons.less" />
+    <Content Include="less\social-media.less" />
+    <Content Include="less\team.less" />
+    <Content Include="less\testimonials.less" />
+    <Content Include="less\video-section.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\SundooqDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SundooqDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\SundooqDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SundooqDB.edmx</DependentUpon>
+      <LastGenOutput>SundooqDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SundooqDB.edmx.diagram">
+      <DependentUpon>SundooqDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SundooqDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SundooqDB.edmx</DependentUpon>
+      <LastGenOutput>SundooqDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Topics\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\History.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4508/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

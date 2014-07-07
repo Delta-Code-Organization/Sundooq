@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sundoq- Stay Updated !</title>
+    <meta name="description" content="">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon"
+        type="image/png"
+        href="/img/icon.png">
+    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/less/custom.css">
+    <script src="/js/jquery-2.1.0.min.js"></script>
+    <script src="/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/screen_scripts/userhome.js"></script>
+    <script src="~/js/jquery.touchwipe.1.1.1.js"></script>
+</head>
+<body class="yo-anim-enabled">
+    <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
+        <div class="nav">
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-12">
+                        <div class="logo pull-left">
+                            <a href="/user/home/@ViewBag.Sorting">
+                                <figure>
+                                    <img src="/img/logo.png" alt="MniamTheme" />
+                                </figure>
+                            </a>
+                        </div>
+                        <ul class="main-nav pull-right nav-height">
+                            <li>
+                                <a href="/user/home/@ViewBag.Sorting" data-hover="" class="">Home</a>
+                            </li>
+                            <li>
+                                <a href="/user/index" data-hover="" class="">My Account</a>
+                            </li>
+                            <li>
+                                <a href="/user/history" data-hover="" class="">History</a>
+                            </li>
+                            <li>
+                                <a href="/user/logout" data-hover="" class="">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mobile-nav" class="visible-xs visible-sm">
+        <div class="" id="flyout-container">
+            <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
+                <li class="menu-item">
+                    <a href="/user/home/@ViewBag.Sorting" data-hover="" class="">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/index" data-hover="" class="">My Account</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/history" data-hover="" class="">History</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/logout" data-hover="" class="">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <header>
+            <div class="container">
+                <ul class="menu-header">
+                    <li class="pull-left">
+                        <a href="/user/home/@ViewBag.Sorting">
+                            <figure>
+                                <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="MniamTheme" />
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <section id="topics" class="container">
+        <br />
+        <br />
+        <p id="currenttags" style="display: none">@ViewBag.currenttags</p>
+        @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"].Length > 0)
+        {
+            <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"];</div>
+        }
+        @if (ViewBag.Sorting == 1)
+        {
+            <a href="/user/home/0" class="btn btn-outline-dark" data-hover="Button">Most Recent</a>
+            <a href="/user/home/1" class="btn btn-color" data-hover="Button">Most Popular</a>
+        }
+        else
+        {
+            <a href="/user/home/0" class="btn btn-color" data-hover="Button">Most Recent</a>
+            <a href="/user/home/1" class="btn btn-outline-dark" data-hover="Button">Most Popular</a>
+        }
+        @if (ViewBag.Topics.Count > 1)
+        {
+            <div id="scroll0" class="row">
+                <div class="col-sm-7 col-md-7">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[0].Tags"></i>
+                    <a style="color:#000" href="/Topics/View/@ViewBag.Topics[0].Id">
+                        <img class="timg" src="@ViewBag.Topics[0].Img" />
+                        <h3>@ViewBag.Topics[0].Title</h3>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[0].FB" data-twn="@ViewBag.Topics[0].TW">@(ViewBag.Topics[0].FB + @ViewBag.Topics[0].TW)</h4>
+                        <p style="font-size: 14px">@ViewBag.Topics[0].Descr</p>
+                    </a>
+                    <p style="font-size: 12px; color: #888"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[0].Sources.SourceName)">@ViewBag.Topics[0].Sources.SourceName </a>on @ViewBag.Topics[0].PubDate.ToShortDateString()</p>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[1].Tags"></i>
+                    <a style="color:#000" href="/Topics/View/@ViewBag.Topics[1].Id">
+                        <img class="timg" src="@ViewBag.Topics[1].Img" />
+                        <h3>@ViewBag.Topics[1].Title</h3>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[1].FB" data-twn="@ViewBag.Topics[1].TW">@(ViewBag.Topics[1].FB + @ViewBag.Topics[1].TW)</h4>
+                        <p style="font-size: 14px">@ViewBag.Topics[1].Descr</p>
+                    </a>
+                    <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[1].Sources.SourceName)">@ViewBag.Topics[1].Sources.SourceName </a>on @ViewBag.Topics[1].PubDate.ToShortDateString()</p>
+                </div>
+            </div>
+        }
+        <div class="row">
+            @if (ViewBag.Topics.Count > 2)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[2].Tags"></i>
+                    <a style="color:#000" href="/Topics/View/@ViewBag.Topics[2].Id">
+                        <img class="timg" src="@ViewBag.Topics[2].Img" />
+                        <h3>@ViewBag.Topics[2].Title</h3>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[2].FB" data-twn="@ViewBag.Topics[2].TW">@(ViewBag.Topics[2].FB + @ViewBag.Topics[2].TW)</h4>
+                        <p style="font-size: 14px">@ViewBag.Topics[2].Descr</p>
+                    </a>
+                    <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[2].Sources.SourceName)">@ViewBag.Topics[2].Sources.SourceName </a>on @ViewBag.Topics[2].PubDate.ToShortDateString()</p>
+                </div>
+            }
+            @if (ViewBag.Topics.Count > 3)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[3].Tags"></i>
+                    <a style="color:#000" href="/Topics/View/@ViewBag.Topics[3].Id">
+                        <img class="timg" src="@ViewBag.Topics[3].Img" />
+                        <h3>@ViewBag.Topics[3].Title</h3>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[3].FB" data-twn="@ViewBag.Topics[3].TW">@(ViewBag.Topics[3].FB + @ViewBag.Topics[3].TW)</h4>
+                        <p style="font-size: 14px">@ViewBag.Topics[3].Descr</p>
+                    </a>
+                    <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[3].Sources.SourceName)">@ViewBag.Topics[3].Sources.SourceName </a>on @ViewBag.Topics[3].PubDate.ToShortDateString()</p>
+                </div>
+            }
+            @if (ViewBag.Topics.Count > 4)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[4].Tags"></i>
+                    <a style="color:#000"href="/Topics/View/@ViewBag.Topics[4].Id">
+                        <img class="timg" src="@ViewBag.Topics[4].Img" />
+                        <h3>@ViewBag.Topics[4].Title</h3>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[4].FB" data-twn="@ViewBag.Topics[4].TW">@(ViewBag.Topics[4].FB + @ViewBag.Topics[4].TW)</h4>
+                        <p style="font-size: 14px">@ViewBag.Topics[4].Descr</p>
+                    </a>
+                    <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[4].Sources.SourceName)">@ViewBag.Topics[4].Sources.SourceName </a>on @ViewBag.Topics[4].PubDate.ToShortDateString()</p>
+                </div>
+            }
+        </div>
+    </section>
+    <section id="footer" class="">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-12">
+                    <ul class="main-nav pull-right nav-height">
+                        <li>
+                            <a href="/user/home" data-hover="" class="">Home</a>
+                        </li>
+                        <li>
+                            <a href="/user/index" data-hover="" class="">My Account</a>
+                        </li>
+                        <li>
+                            <a href="/user/history" data-hover="" class="">History</a>
+                        </li>
+                        <li>
+                            <a href="/user/logout" data-hover="" class="">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <div class="gallery-wrapper"></div>
+    <script src="/js/enquire.js"></script>
+    <script src="/js/jquery.imagesloaded.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/owl.carousel.js"></script>
+    <script src="/js/tooltip.js"></script>
+    <script src="/js/transit.js"></script>
+    <script src="/js/transition.js"></script>
+    <script src="/js/scrollspy.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

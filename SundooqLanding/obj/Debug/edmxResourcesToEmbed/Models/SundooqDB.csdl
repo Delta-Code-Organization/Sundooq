@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SundooqDBEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="SundooqDBModel.Admins" />
+    <EntitySet Name="History" EntityType="SundooqDBModel.History" />
+    <EntitySet Name="Sources" EntityType="SundooqDBModel.Sources" />
+    <EntitySet Name="Topics" EntityType="SundooqDBModel.Topics" />
+    <EntitySet Name="Users" EntityType="SundooqDBModel.Users" />
+    <AssociationSet Name="FK_History_Topics" Association="SundooqDBModel.FK_History_Topics">
+      <End Role="Topics" EntitySet="Topics" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_Users" Association="SundooqDBModel.FK_History_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topics_Sources" Association="SundooqDBModel.FK_Topics_Sources">
+      <End Role="Sources" EntitySet="Sources" />
+      <End Role="Topics" EntitySet="Topics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="TopicId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="TopicId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Impression" Type="Int32" />
+    <NavigationProperty Name="Topics" Relationship="SundooqDBModel.FK_History_Topics" FromRole="History" ToRole="Topics" />
+    <NavigationProperty Name="Users" Relationship="SundooqDBModel.FK_History_Users" FromRole="History" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LogoURL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Tags" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="URL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Topics" Relationship="SundooqDBModel.FK_Topics_Sources" FromRole="Sources" ToRole="Topics" />
+  </EntityType>
+  <EntityType Name="Topics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EncodedTitle" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Source" Type="Int32" />
+    <Property Name="Descr" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="PubDate" Type="DateTime" Precision="3" />
+    <Property Name="FB" Type="Int32" />
+    <Property Name="TW" Type="Int32" />
+    <Property Name="LocalViews" Type="Int32" />
+    <Property Name="LocalShares" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Tags" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="URL" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Img" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="History" Relationship="SundooqDBModel.FK_History_Topics" FromRole="Topics" ToRole="History" />
+    <NavigationProperty Name="Sources" Relationship="SundooqDBModel.FK_Topics_Sources" FromRole="Topics" ToRole="Sources" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Tags" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="AccountStatus" Type="Int32" />
+    <Property Name="RegisteredWith" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="Int32" />
+    <NavigationProperty Name="History" Relationship="SundooqDBModel.FK_History_Users" FromRole="Users" ToRole="History" />
+  </EntityType>
+  <Association Name="FK_History_Topics">
+    <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
+    <End Role="History" Type="SundooqDBModel.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topics">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_Users">
+    <End Role="Users" Type="SundooqDBModel.Users" Multiplicity="1" />
+    <End Role="History" Type="SundooqDBModel.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topics_Sources">
+    <End Role="Sources" Type="SundooqDBModel.Sources" Multiplicity="0..1" />
+    <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sources">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Topics">
+        <PropertyRef Name="Source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

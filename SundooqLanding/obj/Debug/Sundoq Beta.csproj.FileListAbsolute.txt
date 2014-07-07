@@ -1,0 +1,56 @@
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\SundooqLanding.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\SundooqLanding.pdb
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\EntityFramework.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\Microsoft.Web.Infrastructure.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Http.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Razor.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\EntityFramework.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Http.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.Razor.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.xml
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\obj\Debug\Sundoq Beta.csprojResolveAssemblyReference.cache
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.dll
+E:\Current\Sundoq\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.pdb
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\SundooqLanding.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\SundooqLanding.pdb
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\EntityFramework.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\Microsoft.Web.Infrastructure.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Http.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Razor.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\EntityFramework.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Http.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.Razor.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.xml
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\obj\Debug\Sundoq Beta.csprojResolveAssemblyReference.cache
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.dll
+F:\A Part\Projects\Delta Code\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.pdb

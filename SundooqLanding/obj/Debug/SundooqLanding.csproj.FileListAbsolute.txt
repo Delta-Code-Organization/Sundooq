@@ -1,0 +1,56 @@
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\SundooqLanding.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\SundooqLanding.pdb
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\Microsoft.Web.Infrastructure.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Http.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Razor.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Http.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.Razor.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.pdb
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\EntityFramework.dll
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\bin\EntityFramework.xml
+c:\users\amir\documents\visual studio 2012\Projects\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.csprojResolveAssemblyReference.cache
+E:\Current\SundooqLanding\SundooqLanding\bin\SundooqLanding.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\SundooqLanding.pdb
+E:\Current\SundooqLanding\SundooqLanding\bin\EntityFramework.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\Microsoft.Web.Infrastructure.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Http.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Razor.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.dll
+E:\Current\SundooqLanding\SundooqLanding\bin\EntityFramework.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\Newtonsoft.Json.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Net.Http.Formatting.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Helpers.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Http.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Http.WebHost.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Mvc.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.Razor.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Deployment.xml
+E:\Current\SundooqLanding\SundooqLanding\bin\System.Web.WebPages.Razor.xml
+E:\Current\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.dll
+E:\Current\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.pdb
+E:\Current\SundooqLanding\SundooqLanding\obj\Debug\SundooqLanding.csprojResolveAssemblyReference.cache

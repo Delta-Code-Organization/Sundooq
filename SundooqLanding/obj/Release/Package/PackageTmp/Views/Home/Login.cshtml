@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sundooq-Login</title>
+    <meta name="description" content="">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon"
+        type="image/png"
+        href="/img/icon.png">
+    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/less/custom.css">
+    <script src="/js/jquery-2.1.0.min.js"></script>
+    <script src="/js/modernizr-2.6.2.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.js"></script>
+    <script src="/screen_scripts/login.js"></script>
+</head>
+<body class="yo-anim-enabled">
+    <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
+        <div class="nav">
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-12">
+                        <div class="logo pull-left">
+                            <a href="/">
+                                <figure>
+                                    <img src="/img/logo.png" alt="MniamTheme" />
+                                </figure>
+                            </a>
+                        </div>
+                        <ul class="main-nav pull-right nav-height">
+                            <li>
+                                <a href="index.html#features" data-target="#features" data-hover="features" class="home-page">Features</a>
+                            </li>
+                            <li>
+                                <a href="index.html#about" data-target="#about" data-hover="about" class="home-page">About</a>
+                            </li>
+                            <li>
+                                <a href="index.html#contact" data-target="#contact" data-hover="contact" class="home-page">Register</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mobile-nav" class="visible-xs visible-sm">
+        <div class="" id="flyout-container">
+            <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
+                <li class="menu-item">
+                    <a title="" href="index.html" data-target="#about" class="home-page">About</a>
+                </li>
+                <li class="menu-item">
+                    <a title="" href="index.html" data-target="#features" class="home-page">Features</a>
+                </li>
+                <li class="menu-item">
+                    <a title="" href="index.html" data-target="#contact" class="home-page">Register</a>
+                </li>
+            </ul>
+        </div>
+        <header>
+            <div class="container">
+                <ul class="menu-header">
+                    <li class="pull-left">
+                        <a href="/">
+                            <figure>
+                                <img src="/img/logo.png" alt="MniamTheme" />
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <section id="contact" class="main-section light-section">
+        <header class="section-header clearfix">
+            <h1 class="pull-right dark-header">Login</h1>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 contact-form">
+                    
+                    <form id="login-form" name="login-form" class="form">
+                        <div id="msg" class="alert alert-success hidden"></div>
+                        <div class="input-wrapper">
+                            <a href="/user/sendreset">Did you forgot your password?</a>
+                        </div>
+                        <div class="input-wrapper">
+                            <a href="#" onclick="fb_login();">
+                                <img style="width: 100%;" src="~/img/facebook-login-button.png"></a>
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="contact-form form-name-error" type="text" placeholder="Your email address" name="email" id="email">
+                        </div>
+                        <div class="input-wrapper">
+                            <input class="contact-form form-subject-error" type="password" placeholder="Your password" name="password" id="password">
+                        </div>
+                        <div class="button-submit btn-submit">
+                            <input type="submit" id="log-form-btn" value="Sign In" class="btn btn-default pull-right button-send btn-lg">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer" class="">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-12">
+                    <ul class="pull-right footer-nav">
+                        <li>
+                            <a href="index.html" data-target="#about" data-hover="" class="current-menu home-page">About</a>
+                        </li>
+                        <li>
+                            <a href="index.html" data-target="#features" data-hover="" class="home-page">Features</a>
+                        </li>
+                        <li>
+                            <a href="index.html" data-target="#contact" data-hover="" class="home-page">Register</a>
+                        </li>
+                    </ul>
+                    <div class="pull-left copyright">Copyright 2014 © <a href="http://sundooq.com" title="Sundooq INC">Sundooq</a></div>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <div class="gallery-wrapper"></div>
+    <script src="/js/enquire.js"></script>
+    <script src="/js/jquery.imagesloaded.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/owl.carousel.js"></script>
+    <script src="/js/tooltip.js"></script>
+    <script src="/js/transit.js"></script>
+    <script src="/js/transition.js"></script>
+    <script src="/js/scrollspy.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
