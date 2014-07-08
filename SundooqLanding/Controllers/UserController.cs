@@ -22,6 +22,7 @@ namespace SundooqLanding.Controllers
             }
             return RedirectToAction("index", "Home");
         }
+
         public ActionResult Index()
         {
             SundooqDBEntities2 db = new SundooqDBEntities2();
@@ -36,13 +37,51 @@ namespace SundooqLanding.Controllers
             string[] Health = WebConfigurationManager.AppSettings["Health"].ToString().Split('#');
             string[] News = WebConfigurationManager.AppSettings["News"].ToString().Split('#');
             string[] Sources = WebConfigurationManager.AppSettings["Sources"].ToString().Split('#');
+            List<Sources> LOSources = db.Sources.ToList();
+            List<string> LOSToBeConverted = new List<string>();
+            string[] AutoComSources;
+            foreach (Sources item in LOSources)
+            {
+                LOSToBeConverted.Add(item.SourceName);
+            }
+            AutoComSources = LOSToBeConverted.ToArray();
+            TempData["AllSources"] = AutoComSources;
+            List<Topics> LOTopics = db.Topics.ToList();
+            string LOTagsToBeConverted = "";
+            string[] AutoComTags;
+            foreach (Topics item in LOTopics)
+            {
+                LOTagsToBeConverted += item.Tags;
+            }
+            AutoComTags = LOTagsToBeConverted.Split('#');
+            TempData["AllTags"] = AutoComTags;
             ViewBag.Tech = Tech;
             ViewBag.Business = Business;
             ViewBag.Health = Health;
             ViewBag.News = News;
             ViewBag.Sources = Sources;
+            TempData.Keep();
             return View();
         }
+
+        [HttpPost]
+        public JsonResult GetAllTags()
+        {
+            string[] LOT = TempData["AllTags"] as string[];
+            LOT = LOT.Distinct().ToArray();
+            TempData.Keep();
+            return Json(LOT);
+        }
+
+        [HttpPost]
+        public JsonResult GetAllSources()
+        {
+            string[] LOT = TempData["AllSources"] as string[];
+            LOT = LOT.Distinct().ToArray();
+            TempData.Keep();
+            return Json(LOT);
+        }
+
         public ActionResult Home(string id = "0")
         {
             Session["Sorting"] = id;

@@ -35,6 +35,7 @@
                             var data = {'_mail':mail,'_password':pass};
                             $("#log-form-btn").attr('disabled', 'disabled');
                             $("#log-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            ShowLoader('Signing in ...');
                             $.ajax({
                                 url: '/user/login',
                                 type: 'post',
@@ -57,7 +58,7 @@
                                     }
                                     //hide the message slowly than show the button
                                     $("#log-form-btn").removeAttr('disabled');
-
+                                    HideLoader();
                                 },
                                 error: function (data) {
 

@@ -32,7 +32,7 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[0].Id + '">\
                         <img class="timg" src="' + data[0].Img + '" />\
                         <h3>'+ data[0].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="'+data[0].FB+'" data-twn="'+data[0].TW+'">'+data[0].TW+data[0].FB+'</h4>\
+                        <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + data[0].TW + data[0].FB + '</h4>\
                         <p style="font-size: 14px">'+ data[0].Descr + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\

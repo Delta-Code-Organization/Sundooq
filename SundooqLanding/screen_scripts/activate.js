@@ -78,8 +78,9 @@
                             };
                             //disable the button 
                             
-                            $("#act-form-btn").attr('disabled', 'disabled');
-                            $("#act-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            //$("#act-form-btn").attr('disabled', 'disabled');
+                            //$("#act-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            ShowLoader('Updating Profile ...');
                             $.ajax({
                                 url: '/user/Update',
                                 type: 'post',
@@ -99,13 +100,13 @@
                                         $("#msg").html(data.Msg);
                                     }
                                     //hide the message slowly than show the button
-                                    $("#act-form-btn").removeAttr('disabled');
-                                    $("#loader").remove();
+                                    //$("#act-form-btn").removeAttr('disabled');
+                                    //$("#loader").remove();
                                     $('html,body').animate({
                                         scrollTop: $("#msg").offset().top
                                     },
            'slow');
-                                    
+                                    HideLoader();
                                 },
                                 error: function (data) {
 
@@ -129,6 +130,7 @@
             $(this).removeClass('btn-color');
         });
     });
+
     $('.btn-color').click(function () {
         $(this).addClass('btn-default');
         $(this).removeClass('btn-color');
@@ -138,3 +140,17 @@
         });
     });
 });
+
+function ChangeColor(Color,ele)
+{
+    if (Color == 1) {
+        $("#NM" + ele).removeClass('btn-color');
+        $("#NM" + ele).addClass('btn-default');
+        $("#NM" + ele).attr('href', 'javascript:ChangeColor(0,' + ele + ')');
+    }
+    else {
+        $("#NM" + ele).addClass('btn-color');
+        $("#NM" + ele).removeClass('btn-default');
+        $("#NM" + ele).attr('href', 'javascript:ChangeColor(1,' + ele + ')');
+    }
+}
