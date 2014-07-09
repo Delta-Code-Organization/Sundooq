@@ -69,6 +69,9 @@ namespace SundooqLanding.Controllers
         {
             string[] LOT = TempData["AllTags"] as string[];
             LOT = LOT.Distinct().ToArray();
+            Users currentUser = (Users)Session["User"];
+            string[] AlreadyTag = currentUser.Tags.Split('#');
+            LOT = LOT.Except(AlreadyTag).ToArray();
             TempData.Keep();
             return Json(LOT);
         }
@@ -78,6 +81,9 @@ namespace SundooqLanding.Controllers
         {
             string[] LOT = TempData["AllSources"] as string[];
             LOT = LOT.Distinct().ToArray();
+            Users currentUser = (Users)Session["User"];
+            string[] AlreadyTag = currentUser.Tags.Split('#');
+            LOT = LOT.Except(AlreadyTag).ToArray();
             TempData.Keep();
             return Json(LOT);
         }

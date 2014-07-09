@@ -9,6 +9,8 @@
     <link rel="icon"
         type="image/png"
         href="/img/icon.png">
+    <link href="~/js/jquery-ui-1.11.0.custom/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/js/jquery-ui-1.11.0.custom/jquery-ui.min.css" rel="stylesheet" />
     <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -53,6 +55,10 @@
                 async: false,
                 data: {},
                 success: function (data) {
+                    //$(".btn-color").each(function (index) {
+                    //    console.log("This.Text = " + $(this).text());
+                    //    console.log("This.Val = " + $(this).val());
+                    //});
                     avSources = data;
                 },
                 error: function (data) {
@@ -69,10 +75,11 @@
                     }
                 },
                 select: function (a, b) {
+
                     var Exsit = false;
                     $('.btn-color').each(function () {
                         if ($(this).text().length > 0) {
-                            if (b.item.value.trim() == $(this).text().trim()) {
+                            if (b.item.value.toLowerCase().trim() == $(this).text().toLowerCase().trim()) {
                                 Exsit = true;
                                 return false;
                             }
@@ -89,6 +96,7 @@
                         XSX++;
                         $('#FollowMoreToAppend').append('<a href="javascript:ChangeColor(0,' + XSX + ')" id="NM' + XSX + '" class="btn btn-default">' + b.item.value.trim() + '</a> &nbsp');
                     }
+                    $(this).text('');
                 }
             });
 
@@ -104,7 +112,7 @@
                     var Exsit = false;
                     $('.btn-color').each(function () {
                         if ($(this).text().length > 0) {
-                            if (b.item.value.trim() == $(this).text().trim()) {
+                            if (b.item.value.toLowerCase().trim() == $(this).text().toLowerCase().trim()) {
                                 Exsit = true;
                                 return false;
                             }
@@ -121,6 +129,7 @@
                         XSX++;
                         $('#FollowSourcesToAppend').append('<a href="javascript:ChangeColor(0,' + XSX + ')" id="NM' + XSX + '" class="btn btn-default">' + b.item.value.trim() + '</a> &nbsp');
                     }
+                    $(this).text('');
                 }
             });
         });
@@ -277,7 +286,7 @@
                                     {
                                         if (!SourcesToCompare.Any(p => p.ToLower().Trim() == tg.ToLower().Trim()))
                                         {
-                                            <a class="btn btn-color">@tg</a>
+                                <a class="btn btn-color">@tg</a>
                                         }
                                     }
                                 }
@@ -306,7 +315,7 @@
                         </div>
                         <div class="input-wrapper">
                             <h3>Search more tags</h3>
-                            <input class="contact-form form-name-error" id="tags" type="text" value="">
+                            <input class="contact-form form-name-error" style="border: 1px solid #6d6d6d;" id="tags" type="text" value="">
                         </div>
                         <div class="col-md-12">
                             <div id="FollowMoreToAppend"></div>
@@ -321,7 +330,7 @@
                         </div>
                         <div class="input-wrapper">
                             <h3>Search more sources</h3>
-                            <input class="contact-form form-name-error" id="sources" type="text" value="">
+                            <input class="contact-form form-name-error" style="border: 1px solid #6d6d6d;" id="sources" type="text" value="">
                         </div>
                         <div class="col-md-12">
                             <div id="FollowSourcesToAppend"></div>
