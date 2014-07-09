@@ -2,11 +2,26 @@
 var scroll = 1;
 var _throttleTimer = null;
 var _throttleDelay = 100;
+var loading = 0;
 $(document).ready(function () {
     $(window)
         .off('scroll', ScrollHandler)
         .on('scroll', ScrollHandler);
+    //setInterval(update(), 36000000);
 });
+function update() {
+    $.ajax({
+        url: '/topics/reload',
+        type: 'post',
+        data: { },
+        success: function (data) {
+            console.debug("session updated");
+        },
+        error: function (data) {
+
+        }
+    });
+}
 function ScrollHandler(e) {
     //throttle event:
     clearTimeout(_throttleTimer);
@@ -18,7 +33,10 @@ function ScrollHandler(e) {
     });
 }
 function loadMore() {
-    $("body").append('<img id="loader" class="loaderimg" src="/img/loader.gif"/>');
+    if (loading == 1)
+        return;
+    loading = 1;
+    ShowLoader('Loading more topics...');
     $.ajax({
         url: '/Topics/load',
         type: 'post',
@@ -32,8 +50,8 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[0].Id + '">\
                         <img class="timg" src="' + data[0].Img + '" />\
                         <h3>'+ data[0].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + data[0].TW + data[0].FB + '</h4>\
-                        <p style="font-size: 14px">'+ data[0].Descr + '</p>\
+                        <h4 class="RankBadge" data-fbn="'+data[0].FB+'" data-twn="'+data[0].TW+'">'+parseInt(data[0].TW)+parseInt(data[0].FB)+'</h4>\
+                        <p style="font-size: 14px">' + data[0].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\
                         </div>\
@@ -42,8 +60,8 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[1].Id + '">\
                         <img class="timg" src="' + data[1].Img + '" />\
                         <h3>'+ data[1].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="' + data[1].FB + '" data-twn="' + data[1].TW + '">' + data[1].TW + data[1].FB + '</h4>\
-                        <p style="font-size: 14px">'+ data[1].Descr + '</p>\
+                        <h4 class="RankBadge" data-fbn="' + data[1].FB + '" data-twn="' + data[1].TW + '">' + parseInt(data[1].TW) + parseInt(data[1].FB) + '</h4>\
+                        <p style="font-size: 14px">' + data[1].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[1].Source.SourceName) + '">' + data[1].Source.SourceName + '</a> on ' + data[1].formatedDate + '</p>\
                         </div>\
@@ -56,8 +74,8 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[2].Id + '">\
                         <img class="timg" src="' + data[2].Img + '" />\
                         <h3>'+ data[2].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + data[2].TW + data[2].FB + '</h4>\
-                        <p style="font-size: 14px">'+ data[2].Descr + '</p>\
+                        <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + parseInt(data[2].TW) + parseInt(data[2].FB) + '</h4>\
+                        <p style="font-size: 14px">' + data[2].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p>\
                         </div>';
@@ -69,8 +87,8 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[3].Id + '">\
                         <img class="timg" src="' + data[3].Img + '" />\
                         <h3>'+ data[3].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + data[3].TW + data[3].FB + '</h4>\
-                        <p style="font-size: 14px">'+ data[3].Descr + '</p>\
+                        <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + (parseInt(data[3].TW) + parseInt(data[3].FB)) + '</h4>\
+                        <p style="font-size: 14px">' + data[3].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p>\
                         </div>';
@@ -82,13 +100,13 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[4].Id + '">\
                         <img class="timg" src="' + data[4].Img + '" />\
                         <h3>'+ data[4].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + data[4].TW + data[4].FB + '</h4>\
-                        <p style="font-size: 14px">'+ data[4].Descr + '</p>\
+                        <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + parseInt(data[4].TW) + parseInt(data[4].FB) + '</h4>\
+                        <p style="font-size: 14px">' + data[4].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p>\
                         </div>';
             }
-            $("#loader").remove();
+            HideLoader();
             $('#topics').append(html);
             handleTagClick();
             handleBadges();
@@ -98,6 +116,7 @@ function loadMore() {
             'slow');
             current++;
             scroll = current;
+            loading = 0;
         },
         error: function (data) {
             alert(data);
@@ -111,20 +130,17 @@ $(document).keydown(function (e) {
             return false;
         }
         else {
-            $("body").append('<img id="loader" class="loaderimg" src="/img/loader.gif"/>');
             scroll = scroll + 1;
             $('html,body').animate({
                 scrollTop: $("#scroll" + scroll).offset().top
             },
                'slow');
-            $("#loader").remove();
             return false;
         }
     }
     else if (e.keyCode == 37) {
         if (scroll == 0)
             return false;
-        $("body").append('<img id="loader" class="loaderimg" src="/img/loader.gif"/>');
         if (scroll == current)
             scroll = scroll - 2;
         else
@@ -133,7 +149,6 @@ $(document).keydown(function (e) {
             scrollTop: $("#scroll" + scroll).offset().top
         },
            'slow');
-        $("#loader").remove();
         return false;
     }
 });

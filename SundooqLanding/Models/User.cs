@@ -127,7 +127,6 @@ namespace SundooqLanding.Models
                 string Msg = "Welcome " + this.Email;
                 Msg += " <br/> Please follow the link below to reset your password <br/> ";
                 Msg += "<a href='" + baseUrl + "User/reset/" + user.Password + "'>Reset my password</a>";
-                db.Users.Add(this);
                 db.SaveChanges();
                 Helpers.sendEmail(user.Email, "Sundooq.com, Reset your password", Msg);
                 return "Please check your email in minutes to reset your password";

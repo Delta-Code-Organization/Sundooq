@@ -178,12 +178,14 @@
     <Content Include="Global.asax" />
     <Content Include="img\app.png" />
     <Content Include="img\Icon.png" />
+    <Content Include="img\logo-loader.gif" />
     <Content Include="img\logo.png" />
     <Content Include="img\multiplatform.png" />
     <Content Include="img\not.png" />
     <Content Include="img\twitter-login-button.png" />
     <Content Include="img\facebook-login-button.png" />
     <Content Include="js\enquire.js" />
+    <Content Include="js\HegabLoader.js" />
     <Content Include="js\jquery-2.1.0.min.js" />
     <Content Include="js\jquery.imagesloaded.js" />
     <Content Include="js\jquery.touchwipe.1.1.1.js" />

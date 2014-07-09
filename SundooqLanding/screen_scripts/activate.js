@@ -60,11 +60,11 @@
                                 if ($(this).text().length > 0)
                                 tags += "#" + $(this).text().trim();
                             });
-                            if (tags.split('#').length < 3) {
+                            if (tags.split('#').length < 10) {
                                 $("#msg").removeClass("hidden");
                                 $("#msg").removeClass("alert-success");
                                 $("#msg").addClass("alert-danger");
-                                $("#msg").html("You should select 3 tags/sources to build your content");
+                                $("#msg").html("You should select 5 tags and 5 sources to build your content");
                                 $("#act-form-btn").removeAttr('disabled');
                                 $("#loader").remove();
                                 return;

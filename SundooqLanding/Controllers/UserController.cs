@@ -82,7 +82,7 @@ namespace SundooqLanding.Controllers
             return Json(LOT);
         }
 
-        public ActionResult Home(string id = "0")
+        public ActionResult Home(string id = "1")
         {
             Session["Sorting"] = id;
             Users currentUser = (Users)Session["User"];

@@ -25,7 +25,7 @@ namespace SundooqLanding.Controllers
             var TopicsInJSON = (from TT in topics.Skip(5 * ticks)
                                 select new
                                 {
-                                    TT.Descr,
+                                    TT.ReadyDescription,
                                     TT.EncodedTitle,
                                     TT.FB,
                                     TT.Id,
@@ -50,6 +50,10 @@ namespace SundooqLanding.Controllers
                                 }).ToList();
             #endregion
             return Json(TopicsInJSON);
+        }
+        public void reload()
+        {
+            Session["topics"] = new Topics().GetUserTopics().ToList();
         }
         public ActionResult View(string id)
         {

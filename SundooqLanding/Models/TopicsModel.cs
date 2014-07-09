@@ -17,6 +17,16 @@ namespace SundooqLanding.Models
                 return ((DateTime)PubDate).ToShortDateString();
             }
         }
+        public string ReadyDescription
+        {
+            get
+            {
+                if (Descr.Length > 300)
+                    return Descr.Substring(0, 300) + "...";
+                else
+                    return Descr;
+            }
+        }
         public int CustomRank
         {
             get
