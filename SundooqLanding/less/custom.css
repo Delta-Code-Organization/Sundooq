@@ -7189,19 +7189,11 @@ button.close {
     .hidden-xs {
         display: none !important;
     }
-
-    #topicframe {
-        margin-top: 90px;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .hidden-sm {
         display: none !important;
-    }
-
-    #topicframe {
-        margin-top: 90px;
     }
 }
 
@@ -13876,6 +13868,10 @@ blockquote {
 }
 
 @media (min-width: 0) and (max-width: 991px) {
+    body {
+        padding-top:50px;
+    }
+
     #home .slide-text .app-buttons a {
         padding: 0 15px;
     }
