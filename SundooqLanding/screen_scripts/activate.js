@@ -109,7 +109,7 @@
                                     HideLoader();
                                 },
                                 error: function (data) {
-
+                                    console.log(data.responseText);
                                 }
                             });
                         });

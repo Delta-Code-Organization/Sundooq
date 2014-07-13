@@ -59,7 +59,7 @@
                                     $("#log-form-btn").removeAttr('disabled');
                                 },
                                 error: function (data) {
-
+                                    console.log(data.responseText);
                                 }
                             });
                         });

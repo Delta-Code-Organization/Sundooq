@@ -14,7 +14,7 @@ function update() {
     $.ajax({
         url: '/topics/reload',
         type: 'post',
-        data: { },
+        data: {},
         success: function (data) {
             console.debug("session updated");
         },
@@ -51,7 +51,7 @@ function loadMore() {
                         <a style="color:#000" href="/Topics/View/' + data[0].Id + '">\
                         <img class="timg" src="' + data[0].Img + '" />\
                         <h3>'+ data[0].Title + '</h3>\
-                        <h4 class="RankBadge" data-fbn="'+data[0].FB+'" data-twn="'+data[0].TW+'">'+parseInt(data[0].TW)+parseInt(data[0].FB)+'</h4>\
+                        <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + parseInt(data[0].TW) + parseInt(data[0].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[0].ReadyDescription + '</p>\
                         </a>\
                         <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\
@@ -68,9 +68,9 @@ function loadMore() {
                         </div>\
                         </div>';
             }
+            html += '<div class="row">';
             if (data.length > 2) {
-                html += '<div class="row">\
-                        <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
+                html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[2].Tags + '"></i>\
                         <a style="color:#000" href="/Topics/View/' + data[2].Id + '">\
                         <img class="timg" src="' + data[2].Img + '" />\
@@ -78,12 +78,10 @@ function loadMore() {
                         <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + parseInt(data[2].TW) + parseInt(data[2].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[2].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p>\
-                        </div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p></div>';
             }
             if (data.length > 3) {
-                html += '<div class="row">\
-                        <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
+                html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[3].Tags + '"></i>\
                         <a style="color:#000" href="/Topics/View/' + data[3].Id + '">\
                         <img class="timg" src="' + data[3].Img + '" />\
@@ -91,12 +89,10 @@ function loadMore() {
                         <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + (parseInt(data[3].TW) + parseInt(data[3].FB)) + '</h4>\
                         <p style="font-size: 14px">' + data[3].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p>\
-                        </div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p></div>';
             }
             if (data.length > 4) {
-                html += '<div class="row">\
-                        <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
+                html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[4].Tags + '"></i>\
                         <a style="color:#000" href="/Topics/View/' + data[4].Id + '">\
                         <img class="timg" src="' + data[4].Img + '" />\
@@ -104,9 +100,9 @@ function loadMore() {
                         <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + parseInt(data[4].TW) + parseInt(data[4].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[4].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p>\
-                        </div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p></div>';
             }
+            html += '</div>';
             HideLoader();
             $('#topics').append(html);
             handleTagClick();
@@ -120,7 +116,7 @@ function loadMore() {
             loading = 0;
         },
         error: function (data) {
-            alert(data);
+            console.log(data.responseText);
         }
     });
 }
@@ -128,12 +124,12 @@ function loadSuggested() {
     $.ajax({
         url: '/User/GetSuggested',
         type: 'post',
-        data: { },
+        data: {},
         success: function (data) {
             var tags = data.split("#");
             for (var i = 0 ; i < tags.length; i++) {
                 if (tags[i].length > 0)
-                $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-outline-color">' + tags[i] + '</a>');
+                    $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-outline-color">' + tags[i] + '</a>');
             }
             if (tags.length > 1) {
                 $("#suggestedTags").removeClass("hidden");
@@ -154,12 +150,12 @@ function closeSuggested() {
     $.ajax({
         url: '/user/ignore',
         type: 'post',
-        data: {'ignored':suggested},
+        data: { 'ignored': suggested },
         success: function (data) {
-            console.debug("tags ignored: "+suggested);
+            console.debug("tags ignored: " + suggested);
         },
         error: function (data) {
-
+            console.log(data.responseText);
         }
     });
 }
@@ -226,7 +222,7 @@ function Manage(tag) {
         success: function (data) {
         },
         error: function (data) {
-
+            console.log(data.responseText);
         }
     });
 }

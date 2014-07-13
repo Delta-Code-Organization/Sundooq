@@ -45,7 +45,7 @@ function Manage(tag) {
         success: function (data) {
         },
         error: function (data) {
-
+            console.log(data.responseText);
         }
     });
 }

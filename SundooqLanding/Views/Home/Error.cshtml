@@ -1,9 +1,4 @@
-﻿@{
-    ViewBag.Title = "Sundoq";  
-}
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -23,7 +18,7 @@
     <script src="/screen_scripts/index.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
 </head>
-<body class="yo-anim-enabled">
+<body class="yo-anim-enabled" style="padding:0;">
     <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
         <div class="nav">
             <div class="container">
@@ -56,7 +51,7 @@
         </div>
     </section>
 
-    <div id="mobile-nav" class="visible-xs visible-sm navbar-fixed-top">
+    <div id="mobile-nav" class="visible-xs visible-sm">
         <div class="" id="flyout-container">
             <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
                 <li class="menu-item">
@@ -69,7 +64,7 @@
                     <a title="" href="index.html" data-target="#contact" class="home-page">Register</a>
                 </li>
                 <li class="menu-item">
-                     <a href="/home/login">Login</a>
+                    <a href="/home/login">Login</a>
                 </li>
             </ul>
         </div>
@@ -79,7 +74,7 @@
                     <li class="pull-left">
                         <a href="/">
                             <figure>
-                                <img src="/img/logo.png" alt="MniamTheme" />
+                                <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="MniamTheme" />
                             </figure>
                         </a>
                     </li>
@@ -88,7 +83,7 @@
             </div>
         </header>
     </div>
-    <section id="home" class="">
+    <section id="home" class="" style="height:420px;">
         <section id="navbar" class="main-navbar yo-anim yo-anim-fade-ttb" data-animation-delay="1500">
             <div class="nav hidden-xs hidden-sm">
                 <div class="container">
@@ -127,19 +122,24 @@
                         <div class="row">
                             <div class="col-md-7 col-sm-8 slide-content">
                                 <header class="yo-anim yo-anim-fade" data-animation-delay="200">
-                                    <h2> Oops! We are sorry,</h2>
+                                    <h2>Sorry !</h2>
                                 </header>
                                 <div class="slide-text clearfix">
-                                    <p >
-                                       something went wrong. It happens!. <br> Why don't you go back and <a href="/">try again</a>.
+                                    <p class="yo-anim yo-anim-fade" data-animation-delay="400">
+                                        <strong>something went wrong</strong>, Please go back and try again.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+            <svg id="bg-polygon" class="bg-polygon hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="0 0 100 102" preserveAspectRatio="none">
+                <polygon points="0,0 100,0 80,70 0,100 " />
+            </svg>
+            <svg id="bg-triangle-xs" class="bg-polygon visible-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,0 100,0 100,100"></polygon>
+            </svg>
         </div>
     </section>
 

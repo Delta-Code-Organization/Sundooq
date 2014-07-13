@@ -74,7 +74,7 @@ $(document).ready(function () {
                                 '_dob': dob
                             };
                             //disable the button 
-                            
+
                             //$("#act-form-btn").attr('disabled', 'disabled');
                             //$("#act-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
                             ShowLoader('Please wait, Updating your account...');
@@ -118,23 +118,17 @@ $(document).ready(function () {
         });
 
     })(jQuery, window, document);
-    $('.btn-default').click(function () {
+    $(document).on('click', '.btn-default', function () {
         Manage($(this).text());
         $(this).removeClass('btn-default');
         $(this).addClass('btn-color');
-        $('.btn-color').click(function () {
-            $(this).addClass('btn-default');
-            $(this).removeClass('btn-color');
-        });
+        $(this).blur();
     });
-    $('.btn-color').click(function () {
+    $(document).on('click', '.btn-color', function () {
         Manage($(this).text());
-        $(this).addClass('btn-default');
         $(this).removeClass('btn-color');
-        $('.btn-default').click(function () {
-            $(this).removeClass('btn-default');
-            $(this).addClass('btn-color');
-        });
+        $(this).addClass('btn-default');
+        $(this).blur();
     });
     $('.tab').click(function () {
         $('.tab').removeClass('btn-dark');
@@ -142,7 +136,7 @@ $(document).ready(function () {
         $(this).addClass('btn-dark');
         $(this).removeClass('btn-outline-dark');
         $('.contenttab').addClass('hidden');
-        $('.'+$(this).data('div')).removeClass('hidden');
+        $('.' + $(this).data('div')).removeClass('hidden');
     });
 });
 function filtertags() {
@@ -167,7 +161,7 @@ function filtersources() {
 }
 function filtermoresources() {
     $('.moresourcebtn').each(function () {
-        if ($('#moresourcefilter').val()!=""&& $(this).html().toLowerCase().indexOf($('#moresourcefilter').val().toLowerCase()) > -1) {
+        if ($('#moresourcefilter').val() != "" && $(this).html().toLowerCase().indexOf($('#moresourcefilter').val().toLowerCase()) > -1) {
             $(this).removeClass("hidden");
         }
         else {
