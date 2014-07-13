@@ -34,31 +34,29 @@
                             //disable the button 
                             var data = {'_mail':mail,'_password':pass};
                             $("#log-form-btn").attr('disabled', 'disabled');
-                            $("#log-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
-                            ShowLoader('Signing in ...');
+                            ShowLoader('Welcome Back! Please hold on while loading Your Feeds.');
                             $.ajax({
                                 url: '/user/login',
                                 type: 'post',
                                 data: data,
                                 success: function (data) {
                                     if (data.result == true) {
-                                        $("#msg").removeClass("alert-danger");
-                                        $("#msg").addClass("alert-success");
                                         $("#msg").removeClass("hidden");
+                                        $("#msg").addClass("alert-success");
+                                        $("#msg").removeClass("alert-danger");
                                         $("#msg").html(data.Msg);
-                                        $("#msg").after('<img id="loader" src="/img/loader.gif"/>');
                                         location.href = "/user/Home";
+                                        HideLoader();
                                     }
                                     else {
                                         $("#msg").removeClass("hidden");
                                         $("#msg").removeClass("alert-success");
                                         $("#msg").addClass("alert-danger");
                                         $("#msg").html(data.Msg);
-                                        $("#loader").remove();
+                                        HideLoader();
                                     }
                                     //hide the message slowly than show the button
                                     $("#log-form-btn").removeAttr('disabled');
-                                    HideLoader();
                                 },
                                 error: function (data) {
 

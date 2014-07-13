@@ -1,10 +1,22 @@
-﻿$(document).ready(function () {
+﻿function Manage(tag) {
+    $.ajax({
+        url: '/user/Manage',
+        type: 'post',
+        data: { 'tag': tag },
+        success: function (data) {
+        },
+        error: function (data) {
+
+        }
+    });
+}
+$(document).ready(function () {
     (function ($, W, D) {
         var JQUERY4U = {};
         JQUERY4U.UTIL =
         {
             setupFormValidation: function () {
-                $("#activate-form").validate({
+                $("#update-form").validate({
                     rules: {
                         email: {
                             required: true,
@@ -55,26 +67,11 @@
                             var pass = $('#password').val();
                             var gender = $('#gender').val();
                             var dob = $('#dob').val();
-                            var tags = "";
-                            $('.btn-color').each(function () {
-                                if ($(this).text().length > 0)
-                                tags += "#" + $(this).text().trim();
-                            });
-                            if (tags.split('#').length < 10) {
-                                $("#msg").removeClass("hidden");
-                                $("#msg").removeClass("alert-success");
-                                $("#msg").addClass("alert-danger");
-                                $("#msg").html("What do you want to Stay Updated about? Follow at least 5 sources/tags");
-                                $("#act-form-btn").removeAttr('disabled');
-                                $("#loader").remove();
-                                return;
-                            }
                             var data = {
                                 '_mail': mail,
                                 '_password': pass,
                                 '_gender': gender,
-                                '_dob': dob,
-                                '_tags': tags
+                                '_dob': dob
                             };
                             //disable the button 
                             
@@ -91,7 +88,6 @@
                                         $("#msg").addClass("alert-success");
                                         $("#msg").removeClass("hidden");
                                         $("#msg").html(data.Msg);
-                                        location.href = "/user/home";
                                     }
                                     else {
                                         $("#msg").removeClass("hidden");
@@ -123,6 +119,7 @@
 
     })(jQuery, window, document);
     $('.btn-default').click(function () {
+        Manage($(this).text());
         $(this).removeClass('btn-default');
         $(this).addClass('btn-color');
         $('.btn-color').click(function () {
@@ -131,6 +128,7 @@
         });
     });
     $('.btn-color').click(function () {
+        Manage($(this).text());
         $(this).addClass('btn-default');
         $(this).removeClass('btn-color');
         $('.btn-default').click(function () {
@@ -147,17 +145,33 @@
         $('.'+$(this).data('div')).removeClass('hidden');
     });
 });
-
-function ChangeColor(Color,ele)
-{
-    if (Color == 1) {
-        $("#NM" + ele).removeClass('btn-color');
-        $("#NM" + ele).addClass('btn-default');
-        $("#NM" + ele).attr('href', 'javascript:ChangeColor(0,' + ele + ')');
-    }
-    else {
-        $("#NM" + ele).addClass('btn-color');
-        $("#NM" + ele).removeClass('btn-default');
-        $("#NM" + ele).attr('href', 'javascript:ChangeColor(1,' + ele + ')');
-    }
+function filtertags() {
+    $('.tagsbtn').each(function () {
+        if ($(this).html().toLowerCase().indexOf($('#tagfilter').val().toLowerCase()) > -1) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
+}
+function filtersources() {
+    $('.sourcebtn').each(function () {
+        if ($(this).html().toLowerCase().indexOf($('#sourcefilter').val().toLowerCase()) > -1) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
+}
+function filtermoresources() {
+    $('.moresourcebtn').each(function () {
+        if ($('#moresourcefilter').val()!=""&& $(this).html().toLowerCase().indexOf($('#moresourcefilter').val().toLowerCase()) > -1) {
+            $(this).removeClass("hidden");
+        }
+        else {
+            $(this).addClass("hidden");
+        }
+    });
 }

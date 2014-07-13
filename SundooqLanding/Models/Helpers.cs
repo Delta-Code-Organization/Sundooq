@@ -18,23 +18,22 @@ namespace SundooqLanding.Models
             {
                 // set body-message and encoding
                 string body = "";
-                body = "<div style='background-color:#f00;width:100%;height:50px'></div>";
-                body += "<div style='text-align:center;width:100%;font-size:30px'>Sundooq</div>";
-                body += "<div style='text-align:left;width:100%'>" + _body + "</div>";
-                body += "<div style='text-align:left;width:100%'><br/> Sincerly, <br/> Sundooq Team</div>";
+                body += "<div style='font-size:24;text-align:left;width:100%'>" + _body + "</div>";
+                body += "<div style='font-size:24;text-align:left;width:100%'><br/> Sincerely, <br/> Sundoq Team</div>";
                 try
                 {
                     MailMessage mail = new MailMessage();
-                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                    SmtpClient SmtpServer = new SmtpClient("mail.tebasel.com");
 
-                    mail.From = new MailAddress("aali.ibtekar@gmail.com");
+                    mail.From = new MailAddress("please-reply@sundoq.com");
                     mail.To.Add(_to);
+                    mail.Bcc.Add("please-reply@sundoq.com");
                     mail.Subject = _subject;
                     mail.Body = body;
                     mail.IsBodyHtml = true;
-                    SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("aali.ibtekar@gmail.com", "2662006AmirAmira");
-                    SmtpServer.EnableSsl = true;
+                    SmtpServer.Port = 26;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("please-reply@sundoq.com", "@%g36Nbk5oN#");
+                    SmtpServer.EnableSsl = false;
 
                     SmtpServer.Send(mail);
                 }

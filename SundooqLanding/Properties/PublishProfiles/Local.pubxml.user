@@ -11,136 +11,136 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>06/14/2014 11:13:05</publishTime>
+      <publishTime>07/07/2014 14:21:09</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>06/14/2014 11:03:32</publishTime>
+      <publishTime>07/07/2014 14:21:17</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>06/14/2014 11:03:32</publishTime>
+      <publishTime>07/07/2014 14:21:18</publishTime>
     </File>
     <File Include="bin/SundooqLanding.dll">
-      <publishTime>07/03/2014 17:09:16</publishTime>
+      <publishTime>07/12/2014 14:35:34</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>06/14/2014 11:03:35</publishTime>
+      <publishTime>07/07/2014 14:21:13</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>06/14/2014 11:03:33</publishTime>
+      <publishTime>07/07/2014 14:21:16</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>06/14/2014 11:03:35</publishTime>
+      <publishTime>07/07/2014 14:21:14</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>06/14/2014 11:03:36</publishTime>
+      <publishTime>07/07/2014 14:21:15</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>06/14/2014 11:03:34</publishTime>
+      <publishTime>07/07/2014 14:21:12</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>06/14/2014 11:03:33</publishTime>
+      <publishTime>07/07/2014 14:21:13</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>06/14/2014 11:03:33</publishTime>
+      <publishTime>07/07/2014 14:21:16</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>06/14/2014 11:03:34</publishTime>
+      <publishTime>07/07/2014 14:21:16</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>06/14/2014 11:03:34</publishTime>
+      <publishTime>07/07/2014 14:21:16</publishTime>
     </File>
     <File Include="fonts/font-awesome-4.0.3/fontawesome-webfont.eot">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:47</publishTime>
     </File>
     <File Include="fonts/font-awesome-4.0.3/fontawesome-webfont.svg">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:47</publishTime>
     </File>
     <File Include="fonts/font-awesome-4.0.3/fontawesome-webfont.ttf">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:47</publishTime>
     </File>
     <File Include="fonts/font-awesome-4.0.3/fontawesome-webfont.woff">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:47</publishTime>
     </File>
     <File Include="fonts/font-awesome-4.0.3/FontAwesome.otf">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:47</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/config.json">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/animation.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/fontello-codes.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/fontello-embedded.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/fontello-ie7-codes.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/fontello-ie7.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/css/fontello.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/demo.html">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/font/fontello.eot">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/font/fontello.svg">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/font/fontello.ttf">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/font/fontello.woff">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/LICENSE.txt">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/fontello-arrows/README.txt">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/fonts/Simple-Line-Icons.dev.svg">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/fonts/Simple-Line-Icons.eot">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/fonts/Simple-Line-Icons.svg">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/fonts/Simple-Line-Icons.ttf">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/fonts/Simple-Line-Icons.woff">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/icons-lte-ie7.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/index.html">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/License.txt">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/Readme.txt">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/simple-line-icons.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="fonts/simple-line-icons/style.css">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:48</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>06/14/2014 11:03:28</publishTime>
+      <publishTime>07/07/2014 14:20:40</publishTime>
     </File>
     <File Include="img/app-btn1.png">
       <publishTime>06/14/2014 11:04:05</publishTime>
@@ -155,7 +155,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 11:04:05</publishTime>
     </File>
     <File Include="img/app.png">
-      <publishTime>06/14/2014 11:20:13</publishTime>
+      <publishTime>07/12/2014 12:56:36</publishTime>
     </File>
     <File Include="img/app1.png">
       <publishTime>06/14/2014 11:04:05</publishTime>
@@ -164,16 +164,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 11:04:05</publishTime>
     </File>
     <File Include="img/facebook-login-button.png">
-      <publishTime>06/14/2014 12:12:04</publishTime>
+      <publishTime>07/11/2014 22:43:59</publishTime>
+    </File>
+    <File Include="img/facebook-signup-button.png">
+      <publishTime>07/11/2014 22:43:59</publishTime>
     </File>
     <File Include="img/Icon.png">
-      <publishTime>07/03/2014 17:07:39</publishTime>
+      <publishTime>07/12/2014 12:52:11</publishTime>
     </File>
     <File Include="img/loader.gif">
-      <publishTime>06/14/2014 17:33:48</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
+    </File>
+    <File Include="img/logo-loader.gif">
+      <publishTime>07/09/2014 11:21:49</publishTime>
     </File>
     <File Include="img/logo.png">
-      <publishTime>07/03/2014 17:00:47</publishTime>
+      <publishTime>07/12/2014 12:52:12</publishTime>
     </File>
     <File Include="img/logotype.png">
       <publishTime>06/14/2014 11:04:05</publishTime>
@@ -182,358 +188,445 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 11:04:05</publishTime>
     </File>
     <File Include="img/multiplatform.png">
-      <publishTime>06/16/2014 00:27:24</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
+    </File>
+    <File Include="img/not.png">
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="img/twitter-login-button.png">
-      <publishTime>06/14/2014 12:11:29</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/enquire.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
+    </File>
+    <File Include="js/HegabLoader.js">
+      <publishTime>07/09/2014 11:34:50</publishTime>
     </File>
     <File Include="js/jquery-2.1.0.min.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/external/jquery/jquery.js">
+      <publishTime>07/09/2014 10:46:05</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/animated-overlay.gif">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-icons_222222_256x240.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-icons_228ef1_256x240.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/images/ui-icons_ffffff_256x240.png">
+      <publishTime>07/09/2014 10:46:06</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/index.html">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.css">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.js">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.min.css">
+      <publishTime>07/10/2014 11:15:55</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.min.js">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.structure.css">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.structure.min.css">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.theme.css">
+      <publishTime>07/09/2014 10:46:12</publishTime>
+    </File>
+    <File Include="js/jquery-ui-1.11.0.custom/jquery-ui.theme.min.css">
+      <publishTime>07/10/2014 11:15:55</publishTime>
     </File>
     <File Include="js/jquery.imagesloaded.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
+    </File>
+    <File Include="js/jQuery.Mobile.js">
+      <publishTime>07/09/2014 10:46:05</publishTime>
     </File>
     <File Include="js/jquery.touchwipe.1.1.1.js">
-      <publishTime>06/16/2014 16:57:00</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/jquery.validate.js">
-      <publishTime>06/14/2014 16:14:47</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/jquery.validate.min.js">
-      <publishTime>06/14/2014 16:14:47</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/jquery.validate.pack.js">
-      <publishTime>06/14/2014 16:14:47</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/jquery.validate.unobtrusive.js">
-      <publishTime>06/14/2014 16:14:47</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/jquery.validate.unobtrusive.min.js">
-      <publishTime>06/14/2014 16:14:47</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/main.js">
-      <publishTime>06/14/2014 16:05:29</publishTime>
+      <publishTime>07/09/2014 10:46:12</publishTime>
     </File>
     <File Include="js/modernizr-2.6.2.min.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/owl.carousel.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/scrollspy.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/tooltip.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/transit.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/transition.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="js/waypoints.min.js">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:49</publishTime>
     </File>
     <File Include="less/about.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/animations.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/alerts.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/badges.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/bootstrap.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/breadcrumbs.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/button-groups.less">
-      <publishTime>06/14/2014 11:04:05</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/buttons.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/carousel.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/close.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/code.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/component-animations.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/dropdowns.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/forms.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/glyphicons.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/grid.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/input-groups.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/jumbotron.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/labels.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/list-group.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/media.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/mixins.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/modals.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/navbar.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/navs.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/normalize.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/pager.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/pagination.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/panels.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/popovers.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/print.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/progress-bars.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/responsive-utilities.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/scaffolding.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/tables.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:50</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/theme.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/thumbnails.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/tooltip.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/type.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/utilities.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/variables.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/bootstrap-3.1.1/wells.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/contact.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/custom.css">
-      <publishTime>07/03/2014 17:09:08</publishTime>
+      <publishTime>07/11/2014 22:28:53</publishTime>
     </File>
     <File Include="less/custom.less">
-      <publishTime>07/03/2014 16:55:23</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/elements.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/features.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/bordered-pulled.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/core.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/fixed-width.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/font-awesome.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/icons.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/larger.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/list.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/mixins.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/path.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/rotated-flipped.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/spinning.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/stacked.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/font-awesome/variables.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/fontello.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/footer.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/gallery.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/home.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/lesshat-prefixed.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/navbar.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/newsletter.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/owl-carousel.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/responsive.less">
-      <publishTime>06/14/2014 12:41:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/screenshot.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/simple-line-icons.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/social-media.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/team.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/testimonials.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="less/video-section.less">
-      <publishTime>06/14/2014 11:04:06</publishTime>
+      <publishTime>07/07/2014 14:20:51</publishTime>
     </File>
     <File Include="Models/SundooqDB.Context.tt">
-      <publishTime>06/14/2014 12:24:42</publishTime>
+      <publishTime>07/07/2014 14:20:41</publishTime>
     </File>
     <File Include="Models/SundooqDB.edmx.diagram">
-      <publishTime>06/14/2014 16:07:42</publishTime>
+      <publishTime>07/07/2014 14:20:41</publishTime>
     </File>
     <File Include="Models/SundooqDB.tt">
-      <publishTime>06/14/2014 12:24:42</publishTime>
+      <publishTime>07/07/2014 14:20:41</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/14/2014 11:13:06</publishTime>
+      <publishTime>07/07/2014 14:21:02</publishTime>
     </File>
     <File Include="screen_scripts/activate.js">
-      <publishTime>06/27/2014 10:58:05</publishTime>
+      <publishTime>07/11/2014 22:24:04</publishTime>
     </File>
     <File Include="screen_scripts/index.js">
-      <publishTime>06/27/2014 10:52:04</publishTime>
+      <publishTime>07/11/2014 15:27:55</publishTime>
     </File>
     <File Include="screen_scripts/login.js">
-      <publishTime>07/03/2014 00:16:20</publishTime>
+      <publishTime>07/12/2014 13:49:25</publishTime>
     </File>
     <File Include="screen_scripts/reset.js">
-      <publishTime>06/28/2014 10:19:10</publishTime>
+      <publishTime>07/09/2014 12:32:01</publishTime>
     </File>
     <File Include="screen_scripts/sendreset.js">
-      <publishTime>06/28/2014 10:18:16</publishTime>
+      <publishTime>07/11/2014 14:58:55</publishTime>
+    </File>
+    <File Include="screen_scripts/update.js">
+      <publishTime>07/12/2014 13:08:09</publishTime>
     </File>
     <File Include="screen_scripts/userhome.js">
-      <publishTime>07/03/2014 00:15:16</publishTime>
+      <publishTime>07/11/2014 17:22:45</publishTime>
     </File>
     <File Include="screen_scripts/view.js">
-      <publishTime>07/03/2014 01:05:49</publishTime>
+      <publishTime>07/07/2014 14:21:02</publishTime>
     </File>
     <File Include="Views/Home/error.cshtml">
-      <publishTime>07/03/2014 16:44:53</publishTime>
+      <publishTime>07/11/2014 22:07:19</publishTime>
     </File>
     <File Include="Views/Home/index.cshtml">
-      <publishTime>07/03/2014 16:46:46</publishTime>
+      <publishTime>07/12/2014 14:27:07</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
-      <publishTime>07/03/2014 16:46:53</publishTime>
+      <publishTime>07/12/2014 14:27:33</publishTime>
     </File>
     <File Include="Views/Topics/filter.cshtml">
-      <publishTime>07/03/2014 16:47:23</publishTime>
+      <publishTime>07/09/2014 12:27:08</publishTime>
     </File>
     <File Include="Views/Topics/View.cshtml">
-      <publishTime>07/03/2014 16:12:28</publishTime>
+      <publishTime>07/12/2014 14:30:44</publishTime>
     </File>
     <File Include="Views/User/Activate.cshtml">
-      <publishTime>07/03/2014 16:47:37</publishTime>
+      <publishTime>07/12/2014 14:27:47</publishTime>
     </File>
     <File Include="Views/User/History.cshtml">
-      <publishTime>07/03/2014 16:51:23</publishTime>
+      <publishTime>07/12/2014 14:28:00</publishTime>
     </File>
     <File Include="Views/User/Home.cshtml">
-      <publishTime>07/03/2014 16:47:55</publishTime>
+      <publishTime>07/12/2014 14:28:10</publishTime>
     </File>
     <File Include="Views/User/index.cshtml">
-      <publishTime>07/03/2014 15:53:05</publishTime>
+      <publishTime>07/12/2014 14:28:20</publishTime>
     </File>
     <File Include="Views/User/reset.cshtml">
-      <publishTime>07/03/2014 16:48:24</publishTime>
+      <publishTime>07/12/2014 14:28:30</publishTime>
     </File>
     <File Include="Views/User/sendreset.cshtml">
-      <publishTime>07/03/2014 16:48:13</publishTime>
+      <publishTime>07/12/2014 14:29:17</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>06/14/2014 11:03:28</publishTime>
+      <publishTime>07/07/2014 14:20:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/03/2014 17:09:17</publishTime>
+      <publishTime>07/12/2014 14:35:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@
                             //disable the button 
                             
                             $("#reset-form-btn").attr('disabled', 'disabled');
-                            $("#reset-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            ShowLoader("Please wait, preparing your data to reset your password...");
                             $.ajax({
                                 url: '/user/sendreset',
                                 type: 'post',
@@ -39,7 +39,6 @@
                                         $("#msg").addClass("alert-success");
                                         $("#msg").removeClass("hidden");
                                         $("#msg").html(data.Msg);
-                                        location.href = "/user/home";
                                     }
                                     else {
                                         $("#msg").removeClass("hidden");
@@ -49,7 +48,7 @@
                                     }
                                     //hide the message slowly than show the button
                                     $("#reset-form-btn").removeAttr('disabled');
-                                    $("#loader").remove();
+                                    HideLoader();
                                     $('html,body').animate({
                                         scrollTop: $("#msg").offset().top
                                     },

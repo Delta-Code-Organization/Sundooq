@@ -18,6 +18,7 @@
     <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/jquery.validate.js"></script>
     <script src="/screen_scripts/activate.js"></script>
+    <script src="~/js/HegabLoader.js"></script>
 </head>
 <body class="yo-anim-enabled">
      <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
@@ -28,7 +29,7 @@
                         <div class="logo pull-left">
                            <a href="/">
                                 <figure>
-                                    <img src="/img/logo.png" alt="MniamTheme" />
+                                    <img src="/img/logo.png" alt="Sundoq" />
                                 </figure>
                             </a>
                         </div>
@@ -75,7 +76,7 @@
                     <li class="pull-left">
                         <a href="/">
                                 <figure>
-                                    <img src="/img/logo.png" alt="MniamTheme" />
+                                    <img src="/img/logo.png" alt="Sundoq" />
                                 </figure>
                             </a>
                     </li>
@@ -115,10 +116,10 @@
                         else
                         {
                             <div class="input-wrapper">
-                                <input class="contact-form form-subject-error" type="password" value="xyzwxyzw" placeholder="Your password" name="password" id="password">
+                                <input class="contact-form form-subject-error hidden" type="password" value="xyzwxyzw" placeholder="Your password" name="password" id="password">
                             </div>
                             <div class="input-wrapper">
-                                <input class="contact-form form-subject-error" type="password" value="xyzwxyzw" placeholder="Confirm password" name="confirm_password" id="confirm_password">
+                                <input class="contact-form form-subject-error hidden" type="password" value="xyzwxyzw" placeholder="Confirm password" name="confirm_password" id="confirm_password">
                             </div>
                         }
                         <div class="input-wrapper">
@@ -172,8 +173,8 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
-                            <h3>Website and Sources</h3>
+                        <div class="col-md-12">
+                            <h3>Others</h3>
                             @foreach (string source in ViewBag.Sources)
                             {
                                 if (source.Length > 0)
@@ -197,13 +198,7 @@
                 <nav class="col-md-12">
                     <ul class="pull-right footer-nav">
                         <li>
-                            <a href="index.html" data-target="#about" data-hover="" class="current-menu home-page">About</a>
-                        </li>
-                        <li>
-                            <a href="index.html" data-target="#features" data-hover="" class="home-page">Features</a>
-                        </li>
-                        <li>
-                            <a href="index.html" data-target="#contact" data-hover="" class="home-page">Register</a>
+                            Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>

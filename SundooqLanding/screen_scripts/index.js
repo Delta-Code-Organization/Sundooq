@@ -53,7 +53,7 @@
                             var data = { '_mail': mail, '_password': pass };
                             //disable the button 
                             $("#reg-form-btn").attr('disabled', 'disabled');
-                            $("#reg-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            ShowLoader("Please wait...");
                             $.ajax({
                                 url: '/home/index',
                                 type: 'post',
@@ -73,7 +73,7 @@
                                     }
                                     //hide the message slowly than show the button
                                     $("#reg-form-btn").removeAttr('disabled');
-                                    $("#loader").remove();
+                                    HideLoader();
                                     $('html,body').animate({
                                         scrollTop: $("#msg" + scroll).offset().top
                                     },
@@ -106,7 +106,7 @@ function statusChangeCallback(response) {
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
         // Logged into your app and Facebook. 
-        $("body").append('<img id="loader" class="loaderimg" src="/img/loader.gif"/>');
+        ShowLoader("Singing In, Please wait...");
         $.ajax({
             url: '/User/FacebookLogin',
             type: 'post',
@@ -130,6 +130,7 @@ function statusChangeCallback(response) {
           'into Facebook.');
         FB.login();
     }
+    HideLoader();
 }
 
 // This function is called when someone finishes with the Login

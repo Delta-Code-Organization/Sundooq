@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SundooqDBModelStoreContainer">
           <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" />
@@ -84,6 +84,7 @@
           <Property Name="RegisteredWith" Type="int" />
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="Gender" Type="int" />
+          <Property Name="IgnoredTags" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_History_Topics">
           <End Role="Topics" Type="SundooqDBModel.Store.Topics" Multiplicity="1" />
@@ -121,8 +122,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -211,6 +211,7 @@
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="Gender" Type="Int32" />
           <NavigationProperty Name="History" Relationship="SundooqDBModel.FK_History_Users" FromRole="Users" ToRole="History" />
+          <Property Type="String" Name="IgnoredTags" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_History_Topics">
           <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
@@ -308,6 +309,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SundooqDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IgnoredTags" ColumnName="IgnoredTags" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

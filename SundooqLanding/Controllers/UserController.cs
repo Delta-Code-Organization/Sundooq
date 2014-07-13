@@ -32,35 +32,12 @@ namespace SundooqLanding.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.User = currentUser;
-            string[] Tech = WebConfigurationManager.AppSettings["Technology"].ToString().Split('#');
-            string[] Business = WebConfigurationManager.AppSettings["Business"].ToString().Split('#');
-            string[] Health = WebConfigurationManager.AppSettings["Health"].ToString().Split('#');
-            string[] News = WebConfigurationManager.AppSettings["News"].ToString().Split('#');
-            string[] Sources = WebConfigurationManager.AppSettings["Sources"].ToString().Split('#');
-            List<Sources> LOSources = db.Sources.ToList();
-            List<string> LOSToBeConverted = new List<string>();
-            string[] AutoComSources;
-            foreach (Sources item in LOSources)
+            string src = "";
+            foreach (Sources s in db.Sources)
             {
-                LOSToBeConverted.Add(item.SourceName);
+                src += "#" + s.SourceName;
             }
-            AutoComSources = LOSToBeConverted.ToArray();
-            TempData["AllSources"] = AutoComSources;
-            List<Topics> LOTopics = db.Topics.ToList();
-            string LOTagsToBeConverted = "";
-            string[] AutoComTags;
-            foreach (Topics item in LOTopics)
-            {
-                LOTagsToBeConverted += item.Tags;
-            }
-            AutoComTags = LOTagsToBeConverted.Split('#');
-            TempData["AllTags"] = AutoComTags;
-            ViewBag.Tech = Tech;
-            ViewBag.Business = Business;
-            ViewBag.Health = Health;
-            ViewBag.News = News;
-            ViewBag.Sources = Sources;
-            TempData.Keep();
+            ViewBag.Sources = src;
             return View();
         }
 
@@ -87,12 +64,16 @@ namespace SundooqLanding.Controllers
             TempData.Keep();
             return Json(LOT);
         }
-
+        public string GetSuggested()
+        {
+            string tags = new Users().getSuggestedTags();
+            return tags;
+        }
         public ActionResult Home(string id = "1")
         {
             Session["Sorting"] = id;
             Users currentUser = (Users)Session["User"];
-            if (Session["Tags"] == null)
+            if (currentUser != null && Session["Tags"] == null)
                 Session["Tags"] = currentUser.Tags;
             if (currentUser == null || currentUser.AccountStatus < 1)
             {
@@ -104,7 +85,7 @@ namespace SundooqLanding.Controllers
             }
             if (id == "1")
             {
-                List<Topics> topics ;
+                List<Topics> topics;
                 if (Session["Topics"] == null || Session["Tags"].ToString() != currentUser.Tags)
                 {
                     topics = new Topics().GetUserTopics().ToList();
@@ -115,7 +96,26 @@ namespace SundooqLanding.Controllers
                     topics = (List<Topics>)Session["topics"];
                 }
                 ViewBag.Sorting = 1;
-                ViewBag.Topics = topics.OrderByDescending(p => p.CustomRank).ToList();
+                List<Topics> lst = topics.OrderByDescending(p => p.CustomRank).ToList();
+                int count = lst.Count-1;
+                for (int i = 2; i <= count; i++)
+                {
+                    if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i - 2].Source)
+                    {
+                        Topics temp = lst[count];
+                        lst[count] = lst[i];
+                        lst[i] = temp;
+                        count--;
+                    }
+                    if (i < count -2 && lst[i].Source == lst[i + 1].Source || lst[i].Source == lst[i + 2].Source)
+                    {
+                        Topics temp = lst[count];
+                        lst[count] = lst[i];
+                        lst[i] = temp;
+                        count--;
+                    }
+                }
+                ViewBag.Topics = lst;
                 Session["topics"] = ViewBag.Topics;
             }
             else
@@ -143,14 +143,14 @@ namespace SundooqLanding.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult Update(string _mail, string _password, string _gender, string _dob, string _tags)
+        public JsonResult Update(string _mail, string _password, string _gender, string _dob, string _tags = "")
         {
             Users CurrentUser = (Users)Session["User"];
             JSONReply result = new JSONReply();
             if (CurrentUser == null)
             {
 
-                result.Msg = "Update failed !";
+                result.Msg = "Oops! We are sorry, something went wrong. It happens!. <br>Why don't you go back and try again.";
                 result.result = false;
                 return Json(result);
             }
@@ -158,7 +158,8 @@ namespace SundooqLanding.Controllers
             CurrentUser.Password = _password;
             CurrentUser.DateOfBirth = DateTime.Parse(_dob);
             CurrentUser.Gender = int.Parse(_gender);
-            CurrentUser.Tags = _tags;
+            if (_tags.Length > 1)
+                CurrentUser.Tags = _tags;
             CurrentUser.AccountStatus = 2;
             bool success;
             result = new JSONReply();
@@ -230,9 +231,28 @@ namespace SundooqLanding.Controllers
             if (Current != null)
             {
                 if (NewUser.Tags.ToLower().Contains("#" + tag.ToLower()))
-                    NewUser.Tags =  NewUser.Tags.Replace("#" + tag, "");
+                    NewUser.Tags = NewUser.Tags.Replace("#" + tag, "");
                 else
                     NewUser.Tags += "#" + tag;
+                bool success;
+                NewUser.Update(out success);
+            }
+        }
+        [HttpPost]
+        public void ignore(string ignored)
+        {
+            Users Current = (Users)Session["User"];
+            if (Current != null)
+            {
+                Users NewUser = new Users();
+                NewUser.Id = Current.Id;
+                NewUser.Email = Current.Email;
+                NewUser.Password = Current.Password;
+                NewUser.Tags = Current.Tags;
+                NewUser.RegisteredWith = Current.RegisteredWith;
+                NewUser.DateOfBirth = Current.DateOfBirth;
+                NewUser.AccountStatus = Current.AccountStatus;
+                NewUser.IgnoredTags += ignored;
                 bool success;
                 NewUser.Update(out success);
             }

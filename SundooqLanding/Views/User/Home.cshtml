@@ -86,19 +86,26 @@
     <section id="topics" class="container">
         <br />
         <br />
-        <p id="currenttags" style="display: none">@ViewBag.currenttags</p>
+        <div id="suggestedTags" class="row hidden">
+            <i class="icon-close close"></i>
+            <h3>Suggested Tags</h3>
+            <div id="tagsbuttons"></div>
+            <hr />
+        </div>
+        
+        <p id="currenttags" class="hidden">@ViewBag.currenttags</p>
         @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"].Length > 0)
         {
-            <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"];</div>
+            <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"]</div>
         }
         @if (ViewBag.Sorting == 1)
         {
-            <a href="/user/home/1" class="btn btn-color" data-hover="Button">Sundoq List</a>
+            <a href="/user/home/1" class="btn btn-color" data-hover="Button">Your Feeds</a>
             <a href="/user/home/0" class="btn btn-outline-dark" data-hover="Button">Most Recent</a>
         }
         else
         {
-            <a href="/user/home/1" class="btn btn-outline-dark" data-hover="Button">Sundoq List</a>
+            <a href="/user/home/1" class="btn btn-outline-dark" data-hover="Button">Your Feeds</a>
             <a href="/user/home/0" class="btn btn-color" data-hover="Button">Most Recent</a>
         }
         @if (ViewBag.Topics.Count > 1)
@@ -172,18 +179,9 @@
         <div class="container">
             <div class="row">
                 <nav class="col-md-12">
-                    <ul class="main-nav pull-right nav-height">
+                    <ul class="pull-right footer-nav">
                         <li>
-                            <a href="/user/home" data-hover="" class="">Home</a>
-                        </li>
-                        <li>
-                            <a href="/user/index" data-hover="" class="">My Account</a>
-                        </li>
-                        <li>
-                            <a href="/user/history" data-hover="" class="">History</a>
-                        </li>
-                        <li>
-                            <a href="/user/logout" data-hover="" class="">Logout</a>
+                            Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>

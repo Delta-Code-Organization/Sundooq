@@ -22,7 +22,7 @@ namespace SundooqLanding.Models
             if (Registered != null && Registered.AccountStatus >= 0)
             {
                 _success = false;
-                return "User already registered with this email";
+                return "This email is already registered with us";
             }
             else
             {
@@ -49,7 +49,7 @@ namespace SundooqLanding.Models
                 }
                 Helpers.sendEmail(this.Email, "Welcome to Sundooq, Activate your account now", Msg);
                 _success = true;
-                return "Registered succefully, please check your email to activate your account";
+                return "You're In! Now you need click on the link we sent to your email to activate your account.";
             }
         }
         public Users Activate()
@@ -80,16 +80,16 @@ namespace SundooqLanding.Models
             db.SaveChanges();
             HttpContext.Current.Session["User"] = User;
             _success = true;
-            return "User data updated succefully";
+            return "Hoooray! All changes have been updated succesfully.";
         }
         public string Login(out bool _success)
         {
-            Users User = db.Users.Where(p => p.Email == this.Email && p.Password == this.Password).SingleOrDefault();
+           Users User = db.Users.Where(p => p.Email == this.Email && p.Password == this.Password).SingleOrDefault();
             if (User != null && User.Id > 0 && User.AccountStatus >= 1)
             {
                 HttpContext.Current.Session.Add("User", User);
                 _success = true;
-                return "Login succefully, you should be redirected to your home but it will take a minute to prepare your list, Please wait";
+                return "Welcome Back! Please hold on while loading Your Feeds.";
             }
             else if (User != null && User.AccountStatus == null)
             {
@@ -99,7 +99,7 @@ namespace SundooqLanding.Models
             else
             {
                 _success = false;
-                return "Login failed, please check your email and password";
+                return "Sorry Dude! You entered a wrong Email or Password. Try again";
             }
         }
         public string regiterWithFacebook(out bool _success)
@@ -124,11 +124,11 @@ namespace SundooqLanding.Models
                 _success = true;
                 Users user = db.Users.Where(p => p.Email == this.Email).FirstOrDefault();
                 user.Password = Guid.NewGuid().ToString();
-                string Msg = "Welcome " + this.Email;
+                string Msg = "Dear " + this.Email;
                 Msg += " <br/> Please follow the link below to reset your password <br/> ";
                 Msg += "<a href='" + baseUrl + "User/reset/" + user.Password + "'>Reset my password</a>";
                 db.SaveChanges();
-                Helpers.sendEmail(user.Email, "Sundooq.com, Reset your password", Msg);
+                Helpers.sendEmail(user.Email, "Sundoq.com, Reset your password", Msg);
                 return "Please check your email in minutes to reset your password";
             }
             else
@@ -136,6 +136,44 @@ namespace SundooqLanding.Models
                 _success = false;
                 return "This email is not registered";
             }
+        }
+        public string getSuggestedTags()
+        {
+            string Tags = "";
+            if (HttpContext.Current.Session["User"] != null)
+            {
+                Users Current = (Users)HttpContext.Current.Session["User"];
+                Random r = new Random();
+                string LastFollowedTag = Current.Tags.Split('#')[r.Next(0,Current.Tags.Split('#').Length)];
+                DateTime limit = DateTime.Now.AddDays(-1);
+                var lstOftTags = db.Topics.Where(t =>t.PubDate >= limit && t.Tags.ToLower().Contains(LastFollowedTag.ToLower())).ToList();
+                List<string> CollectdTags = new List<string> ();
+                foreach (Topics t in lstOftTags)
+                {
+                    CollectdTags.AddRange(t.Tags.Split('#').ToList());
+                }
+                if (Current.IgnoredTags == null)
+                    Current.IgnoredTags = "";
+                CollectdTags = CollectdTags.Except(Current.Tags.Split('#').ToList()).Except(Current.IgnoredTags.Split('#').ToList()).ToList();
+                List<KeyValuePair<string, int>> lst = new List<KeyValuePair<string, int>>();
+                foreach (string tag in CollectdTags)
+                {
+                    if (tag.Trim().Length < 1)
+                        continue;
+                    KeyValuePair<string, int> newpair = new KeyValuePair<string, int>(tag,db.Topics.Where(t=>t.Tags.Contains(tag)).Count());
+                    lst.Add(newpair) ;
+                }
+                lst.OrderByDescending(x => x.Value);
+                int count = 0;
+                foreach (KeyValuePair<string, int> pair in lst)
+                {
+                    if (count == 5)
+                        break ;
+                    Tags += "#"+pair.Key;
+                    count++;
+                }
+            }
+            return Tags;
         }
     }
 }

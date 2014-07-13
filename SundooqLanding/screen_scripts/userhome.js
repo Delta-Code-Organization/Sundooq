@@ -3,11 +3,12 @@ var scroll = 1;
 var _throttleTimer = null;
 var _throttleDelay = 100;
 var loading = 0;
+var suggested;
 $(document).ready(function () {
     $(window)
         .off('scroll', ScrollHandler)
         .on('scroll', ScrollHandler);
-    //setInterval(update(), 36000000);
+    loadSuggested();
 });
 function update() {
     $.ajax({
@@ -120,6 +121,45 @@ function loadMore() {
         },
         error: function (data) {
             alert(data);
+        }
+    });
+}
+function loadSuggested() {
+    $.ajax({
+        url: '/User/GetSuggested',
+        type: 'post',
+        data: { },
+        success: function (data) {
+            var tags = data.split("#");
+            for (var i = 0 ; i < tags.length; i++) {
+                if (tags[i].length > 0)
+                $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-outline-color">' + tags[i] + '</a>');
+            }
+            if (tags.length > 1) {
+                $("#suggestedTags").removeClass("hidden");
+                suggested = data;
+                HookupTags();
+                $('.icon-close').click(function () {
+                    closeSuggested();
+                });
+            }
+        },
+        error: function (data) {
+            console.debug(data);
+        }
+    });
+}
+function closeSuggested() {
+    $("#suggestedTags").remove();
+    $.ajax({
+        url: '/user/ignore',
+        type: 'post',
+        data: {'ignored':suggested},
+        success: function (data) {
+            console.debug("tags ignored: "+suggested);
+        },
+        error: function (data) {
+
         }
     });
 }

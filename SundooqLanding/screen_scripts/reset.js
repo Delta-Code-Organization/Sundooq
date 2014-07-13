@@ -38,7 +38,7 @@
                             //disable the button 
                             
                             $("#reset-form-btn").attr('disabled', 'disabled');
-                            $("#reset-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
+                            ShowLoader("Please wait, saving your new password...");
                             $.ajax({
                                 url: '/user/passchange',
                                 type: 'post',
@@ -59,7 +59,7 @@
                                     }
                                     //hide the message slowly than show the button
                                     $("#reset-form-btn").removeAttr('disabled');
-                                    $("#loader").remove();
+                                    HideLoader();
                                     $('html,body').animate({
                                         scrollTop: $("#msg").offset().top
                                     },

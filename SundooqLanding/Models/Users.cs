@@ -27,6 +27,7 @@ namespace SundooqLanding.Models
         public Nullable<int> RegisteredWith { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<int> Gender { get; set; }
+        public string IgnoredTags { get; set; }
     
         public virtual ICollection<History> History { get; set; }
     }

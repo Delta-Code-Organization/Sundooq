@@ -22,6 +22,7 @@
     <script src="/js/modernizr-2.6.2.min.js"></script>
     <script src="/screen_scripts/index.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
+    <script src="~/js/HegabLoader.js"></script>
 </head>
 <body class="yo-anim-enabled">
     <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
@@ -131,11 +132,13 @@
                                 </header>
                                 <div class="slide-text clearfix">
                                     <p class="yo-anim yo-anim-fade" data-animation-delay="400">
-                                        With <strong>Sundoq</strong>, you can view the internet , get updates and more in less time ,  we will collect topics from all sources you lik, organaize , order and let you read them.
+                                        <strong>In one place</strong>, follow all your favourite websites and topics.
+                                        <br>
+                                        Rid your inbox of newsletters overload, and keep social media for socializing!
                                     </p>
                                     <div class="app-buttons yo-anim yo-anim-fade" data-animation-delay="1200">
-                                        <a href="#contact" class="btn btn-outline-light btn-sm">Register</a>
-                                        <a href="/home/login" class="btn btn-outline-light btn-sm">Login</a>
+                                        <a href="#contact" class="btn-default">Try it Now</a>
+                                        <a href="/home/login" class="btn-outline-light">Login</a>
 
                                     </div>
                                 </div>
@@ -148,40 +151,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-9 slide-content">
-                                <header>
-                                    <h2>Ranking!</h2>
-                                </header>
-                                <div class="slide-text">
-                                    <p class=""><strong>Sundoq</strong> uses a high effeciancy algorihtm to rank and order topics for you just to fit your needs and your interestes, we always says first things first!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-7 slide-content">
-                                <header>
-                                    <h2>Anywhere, Anytime</h2>
-                                </header>
-                                <div class="slide-text">
-                                    <p class=""><strong>Sundoq</strong> always updated, we collect topics from all over the internet all the time to prepare an updated list for you, you can also access your account and continue reading using any platform ot mobile </p>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-md-offset-1 col-sm-5">
-                                <figure class="hidden-xs" data-animation-delay="800">
-                                    <img src="/img/multiplatform.png" alt="">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <svg id="bg-polygon" class="bg-polygon hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="0 0 100 102" preserveAspectRatio="none">
                 <polygon points="0,0 100,0 80,70 0,100 " />
@@ -201,34 +170,34 @@
                 <div id="features-carousel">
                     <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade" data-animation-delay="100">
                         <a href="gallery.html" class="open-overlay feature-hover">
-                            <i class="icon-screen-tablet"></i>
-                            <i class="icon-screen-tablet icon-hover hidden-xs"></i>
+                            <i class="icon-feed"></i>
+                            <i class="icon-feed icon-hover hidden-xs"></i>
                         </a>
-                        <h3>Any Platform</h3>
-                        <p>.Log in to your account through any platform, mobile, PC or a tablet</p>
+                        <h3>Follow Websites</h3>
+                        <p>Easily follow and unfollow websites to stay updated about all their new topics</p>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade" data-animation-delay="300">
                         <a href="gallery.html" class="open-overlay feature-hover">
-                            <i class="icon-social-dropbox"></i>
-                            <i class="icon-social-dropbox icon-hover hidden-xs"></i>
+                            <i class="icon-tag"></i>
+                            <i class="icon-tag icon-hover hidden-xs"></i>
                         </a>
-                        <h3>History and Lists</h3>
-                        <p>Manage, save and search topics , you can also create and share lists of topics yo your friends or pin it for later reading</p>
+                        <h3>Follow Tags & Topics</h3>
+                        <p>Interested about selective topics; digital marketing, NBA, healthy living? Follow your interests and never miss a piece.</p>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade" data-animation-delay="500">
                         <a href="gallery.html" class="open-overlay feature-hover">
-                            <i class="icon-pencil"></i>
-                            <i class="icon-pencil icon-hover hidden-xs"></i>
+                            <i class="icon-screen-smartphone"></i>
+                            <i class="icon-screen-smartphone icon-hover hidden-xs"></i>
                         </a>
-                        <h3>Any time update</h3>
-                        <p>You can always change or update your interestes or sources to follow anytime and anywhere of the app</p>
-                        </di
+                        <h3>One Place, Any Platform</h3>
+                        <p>On your Desktop, Tablet or mobile, read all your favourite content through <strong>SUNDOQ</strong>, and find your reading history</p>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
-    <section id="video-section" style="position: relative" class="main-section section-color">
+    <section id="video-section" style="position: relative" class="main-section section-color hidden">
         <div class="container">
             <header class="yo-anim yo-anim-fade" data-animation-delay="200">
                 <!--<i class="fa fa-play"></i>-->
@@ -266,24 +235,36 @@
                 </div>
                 <div class=" col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-8">
                     <div class="about-content">
-                        <i class="icon-size-actual yo-anim yo-anim-fade" data-animation-delay="700"></i>
+                        <i class="icon-question yo-anim yo-anim-fade" data-animation-delay="700"></i>
                         <div class="about-text yo-anim yo-anim-fade" data-animation-delay="1000">
-                            <h3>To much sources</h3>
-                            <p>The internet is full of websites, writers and news agencies, you feel the headach of following all sources from different websites and app, we simply solved this for you.</p>
+                            <h3>Your Problem!</h3>
+                            <p>
+                                Do you had a problem following all websites you like. Newsletters kill your inbox, Social Media are jammed with so much stuff,
+                                 and other available tools are not accurate enough to help you follow 
+                                exactly what you like ?
+                            </p>
                         </div>
                     </div>
                     <div class="about-content">
-                        <i class="icon-badge yo-anim yo-anim-fade" data-animation-delay="700"></i>
+                        <i class="icon-emoticon-smile yo-anim yo-anim-fade" data-animation-delay="700"></i>
                         <div class="about-text yo-anim yo-anim-fade" data-animation-delay="1000">
-                            <h3>Ranking</h3>
-                            <p>After collectiong all the topics you are intersted in, our smart system tries to sort and rank that topics using a very smart algorihtm to show important and trending topics on the top of your reading list.</p>
+                            <h3>SUNDOQ solves it!</h3>
+                            <p>
+                                A platform that enables you to follow only the sources you like, 
+                                or even better, only the tags/topics you care about. You can always follow or unfollow 
+                                any source or tag to enhance your experience.
+                            </p>
                         </div>
                     </div>
                     <div class="about-content">
-                        <i class="icon-present yo-anim yo-anim-fade" data-animation-delay="700"></i>
+                        <i class="icon-diamond yo-anim yo-anim-fade" data-animation-delay="700"></i>
                         <div class="about-text yo-anim yo-anim-fade" data-animation-delay="1000">
-                            <h3>Orgnaize</h3>
-                            <p>After that , you can orgnize , share or save topics for later review or read, we keep it all for you.</p>
+                            <h3>And it's brilliant!</h3>
+                            <p>
+                                A well-crafted algorithm works on sorting articles according to their recentness
+                                , popularity, and relevancy to your interests. 
+                                And yet, you still have the option to just see the most recent articles.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -301,7 +282,7 @@
                         <div id="msg" class="alert alert-success hidden"></div>
                         <div class="col-md-12" style="text-align: center;">
                             <a href="#" onclick="fb_login();">
-                                <img src="~/img/facebook-login-button.png"></a>
+                                <img src="~/img/facebook-signup-button.png"></a>
                             <br />
                             <br />
                             Or
@@ -339,13 +320,7 @@
                 <nav class="col-md-12">
                     <ul class="pull-right footer-nav">
                         <li>
-                            <a href="index.html#features" data-target="#features" data-hover="features" class="home-page">Features</a>
-                        </li>
-                        <li>
-                            <a href="index.html#about" data-target="#about" data-hover="about" class="home-page">About</a>
-                        </li>
-                        <li>
-                            <a href="index.html#contact" data-target="#contact" data-hover="contact" class="home-page">Register</a>
+                            Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>
