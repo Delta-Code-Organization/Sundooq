@@ -12,7 +12,7 @@ namespace SundooqLanding.Models
     {
         public static string baseUrl = HttpContext.Current.Request.Url.Scheme + "://" + HttpContext.Current.Request.Url.Authority +
                         HttpContext.Current.Request.ApplicationPath.TrimEnd('/') + "/";
-        public static void sendEmail(string _to, string _subject, string _body)
+        public static void sendEmail(string _to, string _subject, string _body, MailTypes Type, int? UserID)
         {
             try
             {
@@ -34,10 +34,18 @@ namespace SundooqLanding.Models
                     SmtpServer.Port = 26;
                     SmtpServer.Credentials = new System.Net.NetworkCredential("please-reply@sundoq.com", "@%g36Nbk5oN#");
                     SmtpServer.EnableSsl = false;
-
                     SmtpServer.Send(mail);
+                    Email E = new Email();
+                    E.Date = DateTime.Now;
+                    E.Type = (int)Type;
+                    E.User = UserID;
+                    using (SundooqDBEntities2 db = new SundooqDBEntities2())
+                    {
+                        db.Emails.Add(E);
+                        db.SaveChanges();
+                    }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     
                 }

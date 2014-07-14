@@ -7,10 +7,15 @@
     <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SundooqDBModelStoreContainer">
           <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Emails" EntityType="SundooqDBModel.Store.Emails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sources" EntityType="SundooqDBModel.Store.Sources" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Topics" EntityType="SundooqDBModel.Store.Topics" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="SundooqDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Emails_Users" Association="SundooqDBModel.Store.FK_Emails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Emails" EntitySet="Emails" />
+          </AssociationSet>
           <AssociationSet Name="FK_History_Topics" Association="SundooqDBModel.Store.FK_History_Topics">
             <End Role="Topics" EntitySet="Topics" />
             <End Role="History" EntitySet="History" />
@@ -31,6 +36,15 @@
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="User" Type="int" />
+          <Property Name="Type" Type="int" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -85,7 +99,21 @@
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="Gender" Type="int" />
           <Property Name="IgnoredTags" Type="nvarchar(max)" />
+          <Property Name="LastLogin" Type="datetime" />
+          <Property Name="Registered" Type="datetime" />
         </EntityType>
+        <Association Name="FK_Emails_Users">
+          <End Role="Users" Type="SundooqDBModel.Store.Users" Multiplicity="0..1" />
+          <End Role="Emails" Type="SundooqDBModel.Store.Emails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emails">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_History_Topics">
           <End Role="Topics" Type="SundooqDBModel.Store.Topics" Multiplicity="1" />
           <End Role="History" Type="SundooqDBModel.Store.History" Multiplicity="*" />
@@ -143,6 +171,11 @@
           <AssociationSet Name="FK_Topics_Sources" Association="SundooqDBModel.FK_Topics_Sources">
             <End Role="Sources" EntitySet="Sources" />
             <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <EntitySet Name="Emails" EntityType="SundooqDBModel.Email" />
+          <AssociationSet Name="FK_Emails_Users" Association="SundooqDBModel.FK_Emails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Email" EntitySet="Emails" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Admins">
@@ -212,6 +245,9 @@
           <Property Name="Gender" Type="Int32" />
           <NavigationProperty Name="History" Relationship="SundooqDBModel.FK_History_Users" FromRole="Users" ToRole="History" />
           <Property Type="String" Name="IgnoredTags" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LastLogin" Precision="3" />
+          <Property Type="DateTime" Name="Registered" Precision="3" />
+          <NavigationProperty Name="Emails" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Users" ToRole="Email" />
         </EntityType>
         <Association Name="FK_History_Topics">
           <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
@@ -246,6 +282,28 @@
             </Principal>
             <Dependent Role="Topics">
               <PropertyRef Name="Source" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Precision="3" />
+          <Property Type="Int32" Name="User" />
+          <Property Type="Int32" Name="Type" />
+          <NavigationProperty Name="User1" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Email" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Emails_Users">
+          <End Type="SundooqDBModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="SundooqDBModel.Email" Role="Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="User" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -309,6 +367,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SundooqDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Registered" ColumnName="Registered" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
                 <ScalarProperty Name="IgnoredTags" ColumnName="IgnoredTags" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -318,6 +378,16 @@
                 <ScalarProperty Name="RegisteredWith" ColumnName="RegisteredWith" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emails">
+            <EntityTypeMapping TypeName="SundooqDBModel.Email">
+              <MappingFragment StoreEntitySet="Emails">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

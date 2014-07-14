@@ -22,7 +22,7 @@ namespace SundooqLanding
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            SundooqLanding.Models.Helpers.sendEmail("amir-aly-eesa@hotmail.com", "Sundooq Error", Server.GetLastError().Message);
+            SundooqLanding.Models.Helpers.sendEmail("amir-aly-eesa@hotmail.com", "Sundooq Error", Server.GetLastError().Message, Models.MailTypes.Error, null);
             Response.Redirect("/Home/Error");
         }
     }

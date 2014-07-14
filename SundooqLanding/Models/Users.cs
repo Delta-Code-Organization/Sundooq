@@ -17,6 +17,7 @@ namespace SundooqLanding.Models
         public Users()
         {
             this.History = new HashSet<History>();
+            this.Emails = new HashSet<Email>();
         }
     
         public int Id { get; set; }
@@ -28,7 +29,10 @@ namespace SundooqLanding.Models
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<int> Gender { get; set; }
         public string IgnoredTags { get; set; }
+        public Nullable<System.DateTime> LastLogin { get; set; }
+        public Nullable<System.DateTime> Registered { get; set; }
     
         public virtual ICollection<History> History { get; set; }
+        public virtual ICollection<Email> Emails { get; set; }
     }
 }

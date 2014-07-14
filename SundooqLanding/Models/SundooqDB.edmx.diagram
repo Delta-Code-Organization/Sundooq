@@ -13,6 +13,8 @@
         <AssociationConnector Association="SundooqDBModel.FK_History_Topics" ManuallyRouted="false" />
         <AssociationConnector Association="SundooqDBModel.FK_History_Users" ManuallyRouted="false" />
         <AssociationConnector Association="SundooqDBModel.FK_Topics_Sources" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SundooqDBModel.Email" Width="1.5" PointX="0.875" PointY="4.875" />
+        <AssociationConnector Association="SundooqDBModel.FK_Emails_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

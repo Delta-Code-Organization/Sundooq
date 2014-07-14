@@ -41,6 +41,7 @@ namespace SundooqLanding.Models
                     Msg += "<br/>- You can also visit your Account page to follow/unfollow any sources or tags";
                     Msg += "<br/>Because we use SUNDOQ, we have clearer inboxes. Forget about the “no reply” dull rule and feel free to reply to any of our emails. We will get back to you very soon.";
                     Registered.AccountStatus = 0;
+                    Registered.Registered = DateTime.Now;
                     db.SaveChanges();
                 }
                 else
@@ -59,11 +60,12 @@ namespace SundooqLanding.Models
                     db.Users.Add(this);
                     db.SaveChanges();
                 }
-                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg);
+                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg, MailTypes.Register, Registered.Id);
                 _success = true;
                 return "You're In! Now you need click on the link we sent to your email to activate your account.";
             }
         }
+
         public Users Activate()
         {
             if (db.Users.Any(p => p.Tags == this.Tags))
@@ -101,6 +103,8 @@ namespace SundooqLanding.Models
             {
                 HttpContext.Current.Session.Add("User", User);
                 _success = true;
+                User.LastLogin = DateTime.Now;
+                db.SaveChanges();
                 return "Welcome Back! Please hold on while loading Your Feeds.";
             }
             else if (User != null && User.AccountStatus == null)
@@ -143,7 +147,7 @@ namespace SundooqLanding.Models
                 Msg += "<br/><br/><a href='" + baseUrl + "User/reset/" + user.Password + "'>Reset my password</a>";
                 Msg += "<br/><br/>If you have not requested a password reset please contact us immediately at help-me@sundoq.com";
                 db.SaveChanges();
-                Helpers.sendEmail(user.Email, "Forgot it? Reset your SUNDOQ password here", Msg);
+                Helpers.sendEmail(user.Email, "Forgot it? Reset your SUNDOQ password here", Msg, MailTypes.Password_Reset, user.Id);
                 return "Please check your email in minutes to reset your password";
             }
             else

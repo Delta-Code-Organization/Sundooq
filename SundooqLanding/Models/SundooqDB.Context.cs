@@ -30,5 +30,6 @@ namespace SundooqLanding.Models
         public DbSet<Sources> Sources { get; set; }
         public DbSet<Topics> Topics { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Email> Emails { get; set; }
     }
 }

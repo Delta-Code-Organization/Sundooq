@@ -55,6 +55,9 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="SundooqDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Registered" ColumnName="Registered" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="IgnoredTags" ColumnName="IgnoredTags" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -63,6 +66,16 @@
           <ScalarProperty Name="RegisteredWith" ColumnName="RegisteredWith" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="SundooqDBModel.Email">
+        <MappingFragment StoreEntitySet="Emails">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

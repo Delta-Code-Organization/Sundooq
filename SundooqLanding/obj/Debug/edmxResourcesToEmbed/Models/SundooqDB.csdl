@@ -18,6 +18,11 @@
       <End Role="Sources" EntitySet="Sources" />
       <End Role="Topics" EntitySet="Topics" />
     </AssociationSet>
+    <EntitySet Name="Emails" EntityType="SundooqDBModel.Email" />
+    <AssociationSet Name="FK_Emails_Users" Association="SundooqDBModel.FK_Emails_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Admins">
     <Key>
@@ -85,6 +90,10 @@
     <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
     <Property Name="Gender" Type="Int32" />
     <NavigationProperty Name="History" Relationship="SundooqDBModel.FK_History_Users" FromRole="Users" ToRole="History" />
+    <Property Type="String" Name="IgnoredTags" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastLogin" Precision="3" />
+    <Property Type="DateTime" Name="Registered" Precision="3" />
+    <NavigationProperty Name="Emails" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Users" ToRole="Email" />
   </EntityType>
   <Association Name="FK_History_Topics">
     <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
@@ -119,6 +128,28 @@
       </Principal>
       <Dependent Role="Topics">
         <PropertyRef Name="Source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Date" Precision="3" />
+    <Property Type="Int32" Name="User" />
+    <Property Type="Int32" Name="Type" />
+    <NavigationProperty Name="User1" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Email" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Emails_Users">
+    <End Type="SundooqDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="SundooqDBModel.Email" Role="Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="User" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

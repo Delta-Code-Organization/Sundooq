@@ -369,7 +369,7 @@ namespace SundooqLanding.Controllers
                     Msg += " <br/> We are very exicted to have you in Sundooq <br/> ";
                     Msg += "Please click the link below to activate your account and start with Sundooq <br/> ";
                     Msg += "<a href='" + Helpers.baseUrl + "/User/Activate/" + current.Tags + "'>Activate My Account</a>";
-                    Helpers.sendEmail(current.Email, "Welcome to Sundooq, Activate your account now", Msg);
+                    Helpers.sendEmail(current.Email, "Welcome to Sundooq, Activate your account now", Msg, MailTypes.Activate, current.Id);
                 }
             }
             return RedirectToAction("index", "Home");
