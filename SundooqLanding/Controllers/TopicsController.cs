@@ -63,13 +63,16 @@ namespace SundooqLanding.Controllers
             if (!parse)
                 return RedirectToAction("Home", "User");
             Topics Topic = db.Topics.Where(t => t.Id == ID).SingleOrDefault();
-            List<Topics> Related = Topic.GetRelated(Topic);
             Users user = (Users)Session["User"];
             if (Topic == null)
                 return RedirectToAction("Home", "User");
+            Topic.History = null;
             ViewBag.Topic = Topic;
-            ViewBag.Related = Related;
             Topic.LocalViews += 1;
+            if (Session["Sorting"] != null)
+                @ViewBag.Sorting = Session["Sorting"].ToString();
+            else
+                @ViewBag.Sorting = 0;
             if (user != null &&  !user.History.Any(t => t.TopicId == Topic.Id))
             {
                 History h = new History();

@@ -9,6 +9,9 @@ $(document).ready(function () {
         .off('scroll', ScrollHandler)
         .on('scroll', ScrollHandler);
     loadSuggested();
+    $('.close').click(function () {
+        $(this).parent().remove();
+    });
 });
 function update() {
     $.ajax({
@@ -37,7 +40,7 @@ function loadMore() {
     if (loading == 1)
         return;
     loading = 1;
-    ShowLoader('Loading more topics...');
+    ShowLoader('Loading topics...');
     $.ajax({
         url: '/Topics/load',
         type: 'post',
@@ -129,7 +132,7 @@ function loadSuggested() {
             var tags = data.split("#");
             for (var i = 0 ; i < tags.length; i++) {
                 if (tags[i].length > 0)
-                    $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-outline-color">' + tags[i] + '</a>');
+                    $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-default">' + tags[i] + '</a>');
             }
             if (tags.length > 1) {
                 $("#suggestedTags").removeClass("hidden");
@@ -203,13 +206,13 @@ function handleTagClick() {
                 if (currenttags.indexOf("#" + tagsarray[i]) > -1)
                     html += '<a class="btn btn-color" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
                 else
-                    html += '<a class="btn btn-outline-color" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
+                    html += '<a class="btn btn-default" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
             }
         }
         $(".tagsdiv").remove();
         $('body').append('<div class="tagsdiv"><i class="icon-close close"></i>' + html + '</div>');
         HookupTags();
-        $('.icon-close').click(function () {
+        $('.close').click(function () {
             $(this).parent().remove();
         });
     });
@@ -229,19 +232,19 @@ function Manage(tag) {
 function HookupTags() {
     $('.btn-color').click(function () {
         $(this).removeClass('btn-color');
-        $(this).addClass('btn-outline-color');
-        $('.btn-outline-color').click(function () {
+        $(this).addClass('btn-default');
+        $('.btn-default').click(function () {
             $(this).addClass('btn-color');
-            $(this).removeClass('btn-outline-color');
+            $(this).removeClass('btn-default');
         });
         Manage($(this).text());
     });
-    $('.btn-outline-color').click(function () {
+    $('.btn-default').click(function () {
         $(this).addClass('btn-color');
-        $(this).removeClass('btn-outline-color');
+        $(this).removeClass('btn-default');
         $('.btn-color').click(function () {
             $(this).removeClass('btn-color');
-            $(this).addClass('btn-outline-color');
+            $(this).addClass('btn-default');
         });
         Manage($(this).text());
     });
@@ -258,5 +261,24 @@ function handleBadges() {
     $('.RankBadge').mouseleave(function () {
         var fb = parseInt($(this).data('fbn')) + parseInt($(this).data('twn'));
         $(this).text(fb);
+    });
+}
+function reload()
+{
+    ShowLoader("Loading topics...");
+    $('.tagicon').parent().parent().remove();
+    $.ajax({
+        url: '/user/reload',
+        type: 'post',
+        data: { },
+        success: function (data) {
+            current = 0;
+            scroll = 0;
+            loadMore();
+
+        },
+        error: function (data) {
+            console.log(data.responseText);
+        }
     });
 }

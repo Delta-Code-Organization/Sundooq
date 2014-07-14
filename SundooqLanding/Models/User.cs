@@ -30,24 +30,36 @@ namespace SundooqLanding.Models
                 if (Registered != null)
                 {
                     Registered.Tags = Guid.NewGuid().ToString();
-                    Msg = "Welcome " + Registered.Email;
-                    Msg += " <br/> We are very exicted to have you in Sundooq <br/> ";
-                    Msg += "Please click the link below to activate your account and start with Sundooq <br/> ";
-                    Msg += "<a href='" + baseUrl + "User/Activate/" + Registered.Tags + "'>Activate My Account</a>";
+                    Msg = "Hello " + Registered.Email;
+                    Msg += "<br/>Thank you for registering with SUNDOQ. You did the right thing!";
+                    Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + Registered.Tags + "'>Activate My Account</a>";
+                    Msg += "<br/><strong>What’s Next ?</strong>";
+                    Msg += "<br/>Once you activate your account, you will be able to follow your favorite sources and/or tags. Please select at least 3 sources to build your feeds.";
+                    Msg += "<br/><br/><strong>How to follow/unfollow new sources or tags?</strong>";
+                    Msg += "<br/>- On your feeds page, by clicking the small tag icon over topic’s image, you will view topic’s tags and you can follow/unfollow any of them.";
+                    Msg += "<br/>- On the article’s page, by clicking the small tag icon on the top bar, you will view topic’s tags and you can follow/unfollow any of them.";
+                    Msg += "<br/>- You can also visit your Account page to follow/unfollow any sources or tags";
+                    Msg += "<br/>Because we use SUNDOQ, we have clearer inboxes. Forget about the “no reply” dull rule and feel free to reply to any of our emails. We will get back to you very soon.";
                     Registered.AccountStatus = 0;
                     db.SaveChanges();
                 }
                 else
                 {
                     this.Tags = Guid.NewGuid().ToString();
-                    Msg = "Welcome " + this.Email;
-                    Msg += " <br/> We are very exicted to have you in Sundooq <br/> ";
-                    Msg += "Please click the link below to activate your account and start with Sundooq <br/> ";
-                    Msg += "<a href='" + baseUrl + "User/Activate/" + this.Tags + "'>Activate My Account</a>";
+                    Msg = "Hello " + Registered.Email;
+                    Msg += "<br/>Thank you for registering with SUNDOQ. You did the right thing!";
+                    Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + Registered.Tags + "'>Activate My Account</a>";
+                    Msg += "<br/><strong>What’s Next ?</strong>";
+                    Msg += "<br/>Once you activate your account, you will be able to follow your favorite sources and/or tags. Please select at least 3 sources to build your feeds.";
+                    Msg += "<br/><br/><strong>How to follow/unfollow new sources or tags?</strong>";
+                    Msg += "<br/>- On your feeds page, by clicking the small tag icon over topic’s image, you will view topic’s tags and you can follow/unfollow any of them.";
+                    Msg += "<br/>- On the article’s page, by clicking the small tag icon on the top bar, you will view topic’s tags and you can follow/unfollow any of them.";
+                    Msg += "<br/>- You can also visit your Account page to follow/unfollow any sources or tags";
+                    Msg += "<br/>Because we use SUNDOQ, we have clearer inboxes. Forget about the “no reply” dull rule and feel free to reply to any of our emails. We will get back to you very soon.";
                     db.Users.Add(this);
                     db.SaveChanges();
                 }
-                Helpers.sendEmail(this.Email, "Welcome to Sundooq, Activate your account now", Msg);
+                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg);
                 _success = true;
                 return "You're In! Now you need click on the link we sent to your email to activate your account.";
             }
@@ -84,7 +96,7 @@ namespace SundooqLanding.Models
         }
         public string Login(out bool _success)
         {
-           Users User = db.Users.Where(p => p.Email == this.Email && p.Password == this.Password).SingleOrDefault();
+            Users User = db.Users.Where(p => p.Email == this.Email && p.Password == this.Password).SingleOrDefault();
             if (User != null && User.Id > 0 && User.AccountStatus >= 1)
             {
                 HttpContext.Current.Session.Add("User", User);
@@ -125,10 +137,13 @@ namespace SundooqLanding.Models
                 Users user = db.Users.Where(p => p.Email == this.Email).FirstOrDefault();
                 user.Password = Guid.NewGuid().ToString();
                 string Msg = "Dear " + this.Email;
-                Msg += " <br/> Please follow the link below to reset your password <br/> ";
-                Msg += "<a href='" + baseUrl + "User/reset/" + user.Password + "'>Reset my password</a>";
+                Msg += "Hello [Name],";
+                Msg += "<br/><br/>You asked us to reset your password in SUNDOQ – Don’t worry, it happens with many of us!";
+                Msg += "<br/>All you have to do is to click on the following link to choose a new password.";
+                Msg += "<br/><br/><a href='" + baseUrl + "User/reset/" + user.Password + "'>Reset my password</a>";
+                Msg += "<br/><br/>If you have not requested a password reset please contact us immediately at help-me@sundoq.com";
                 db.SaveChanges();
-                Helpers.sendEmail(user.Email, "Sundoq.com, Reset your password", Msg);
+                Helpers.sendEmail(user.Email, "Forgot it? Reset your SUNDOQ password here", Msg);
                 return "Please check your email in minutes to reset your password";
             }
             else
@@ -144,10 +159,10 @@ namespace SundooqLanding.Models
             {
                 Users Current = (Users)HttpContext.Current.Session["User"];
                 Random r = new Random();
-                string LastFollowedTag = Current.Tags.Split('#')[r.Next(0,Current.Tags.Split('#').Length)];
+                string LastFollowedTag = Current.Tags.Split('#')[r.Next(0, Current.Tags.Split('#').Length)];
                 DateTime limit = DateTime.Now.AddDays(-1);
-                var lstOftTags = db.Topics.Where(t =>t.PubDate >= limit && t.Tags.ToLower().Contains(LastFollowedTag.ToLower())).ToList();
-                List<string> CollectdTags = new List<string> ();
+                var lstOftTags = db.Topics.Where(t => t.PubDate >= limit && t.Tags.ToLower().Contains(LastFollowedTag.ToLower())).ToList();
+                List<string> CollectdTags = new List<string>();
                 foreach (Topics t in lstOftTags)
                 {
                     CollectdTags.AddRange(t.Tags.Split('#').ToList());
@@ -160,16 +175,16 @@ namespace SundooqLanding.Models
                 {
                     if (tag.Trim().Length < 1)
                         continue;
-                    KeyValuePair<string, int> newpair = new KeyValuePair<string, int>(tag,db.Topics.Where(t=>t.Tags.Contains(tag)).Count());
-                    lst.Add(newpair) ;
+                    KeyValuePair<string, int> newpair = new KeyValuePair<string, int>(tag, db.Topics.Where(t => t.Tags.Contains(tag)).Count());
+                    lst.Add(newpair);
                 }
                 lst.OrderByDescending(x => x.Value);
                 int count = 0;
                 foreach (KeyValuePair<string, int> pair in lst)
                 {
                     if (count == 5)
-                        break ;
-                    Tags += "#"+pair.Key;
+                        break;
+                    Tags += "#" + pair.Key;
                     count++;
                 }
             }

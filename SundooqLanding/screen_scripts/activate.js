@@ -139,10 +139,10 @@
         });
     });
     $('.tab').click(function () {
-        $('.tab').removeClass('btn-dark');
-        $('.tab').addClass('btn-outline-dark');
-        $(this).addClass('btn-dark');
-        $(this).removeClass('btn-outline-dark');
+        $('.tab').removeClass('btn-default');
+        $('.tab').addClass('btn-color');
+        $(this).addClass('btn-default');
+        $(this).removeClass('btn-color');
         $('.contenttab').addClass('hidden');
         $('.'+$(this).data('div')).removeClass('hidden');
     });

@@ -83,7 +83,7 @@
                 </div>
             </header>
         </div>
-    <section id="topics" class="container">
+    <section id="topics" class="container" style="min-height:800px">
         <br />
         <br />
         <div id="suggestedTags" class="row hidden">
@@ -96,18 +96,19 @@
         <p id="currenttags" class="hidden">@ViewBag.currenttags</p>
         @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"].Length > 0)
         {
-            <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"]</div>
+            <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"]<i class="icon-close close"></i></div>
         }
         @if (ViewBag.Sorting == 1)
         {
-            <a href="/user/home/1" class="btn btn-color" data-hover="Button">Your Feeds</a>
-            <a href="/user/home/0" class="btn btn-outline-dark" data-hover="Button">Most Recent</a>
+            <a href="/user/home/1" class="btn btn-color" disabled data-hover="Button">Your Feeds</a>
+            <a href="/user/home/0" class="btn btn-default" data-hover="Button">Most Recent</a>
         }
         else
         {
-            <a href="/user/home/1" class="btn btn-outline-dark" data-hover="Button">Your Feeds</a>
-            <a href="/user/home/0" class="btn btn-color" data-hover="Button">Most Recent</a>
+            <a href="/user/home/1" class="btn btn-default" data-hover="Button">Your Feeds</a>
+            <a href="/user/home/0" class="btn btn-color" disabled data-hover="Button">Most Recent</a>
         }
+        <i style="font-size:32px;cursor:pointer" onclick="reload()" data-toggle="tooltip" data-placement="down" title="Rebuild your feed" class="icon-reload pull-right tooltips"></i>
         @if (ViewBag.Topics.Count > 1)
         {
             <div id="scroll0" class="row">

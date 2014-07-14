@@ -19,7 +19,7 @@ namespace SundooqLanding.Models
                 // set body-message and encoding
                 string body = "";
                 body += "<div style='font-size:24;text-align:left;width:100%'>" + _body + "</div>";
-                body += "<div style='font-size:24;text-align:left;width:100%'><br/> Sincerely, <br/> Sundoq Team</div>";
+                body += "<div style='font-size:24;text-align:left;width:100%'><br/><br/>Thanks,<br/>Your Friends at SUNDOQ</div>";
                 try
                 {
                     MailMessage mail = new MailMessage();

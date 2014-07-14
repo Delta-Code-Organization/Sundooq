@@ -1,12 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript">
-        function showPopup(url) {
-            newwindow = window.open(url, 'name', 'height=300,width=600,top=200,left=300,resizable');
-            if (window.focus) { newwindow.focus() }
-        }
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sundoq-@ViewBag.Topic.Title</title>
@@ -41,7 +35,7 @@ content="@ViewBag.Topic.Img" />
                 <div class="row">
                     <nav class="col-md-12">
                         <div class="logo pull-left">
-                            <a href="/user/home/@Session["Sorting"].ToString()">
+                            <a href="/user/home/@ViewBag.Sorting">
                                 <figure>
                                     <img src="/img/logo.png" alt="Stay Updated!" />
                                 </figure>
@@ -49,7 +43,7 @@ content="@ViewBag.Topic.Img" />
                         </div>
                         <ul class="main-nav pull-right nav-height">
                             <li>
-                                <a href="/user/home/@Session["Sorting"].ToString()"><i class="fa fa-home"></i></a>
+                                <a href="/user/home/@ViewBag.Sorting"><i class="fa fa-home"></i></a>
                             </li>
                             <li>
                                 <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
@@ -73,7 +67,7 @@ content="@ViewBag.Topic.Img" />
         <div class="" id="flyout-container">
             <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
                 <li class="menu-item">
-                    <a href="/user/home/@Session["Sorting"].ToString()"><i class="fa fa-home"></i></a>
+                    <a href="/user/home/@ViewBag.Sorting"><i class="fa fa-home"></i></a>
                 </li>
                 <li class="menu-item">
                     <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
@@ -92,13 +86,13 @@ content="@ViewBag.Topic.Img" />
             <div class="container">
                 <ul class="menu-header">
                     <li class="pull-left">
-                        <a href="/user/home/@Session["Sorting"].ToString()">
+                        <a href="/user/home/@ViewBag.Sorting">
                             <figure>
                                 <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="Stay Updated!" />
                             </figure>
                         </a>
                     </li>
-                    <li class="reorder pull-right"><a href="/user/home/@Session["Sorting"].ToString()" title=""><i class="fa fa-home"></i></a></li>
+                    <li class="reorder pull-right"><a href="/user/home/@ViewBag.Sorting" title=""><i class="fa fa-home"></i></a></li>
                     <li class="reorder pull-right"><a onclick="toggleTags()" title=""><i class="fa fa-tags"></i></a></li>
                     <li class="reorder pull-right"><a onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')" title=""><i class="fa fa-facebook"></i></a></li>
                     <li class="reorder pull-right"><a onclick="showPopup('http://twitter.com/home?status=@HttpUtility.UrlEncode(Request.Url.ToString())')" title=""><i class="fa fa-twitter"></i></a></li>
@@ -117,7 +111,7 @@ content="@ViewBag.Topic.Img" />
                 }
                 else
                 {
-                <a class="btn btn-outline-color" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
+                <a class="btn btn-color" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
                 }
                 foreach (string Tag in ViewBag.Topic.Tags.Split('#'))
                 {
@@ -134,7 +128,7 @@ content="@ViewBag.Topic.Img" />
                         }
                         else
                         {
-                <a class="btn btn-outline-color" data-hover="Button">@Tag</a>
+                <a class="btn btn-color" data-hover="Button">@Tag</a>
                         }
                     }
                 }
@@ -146,7 +140,7 @@ content="@ViewBag.Topic.Img" />
         <div class="container">
             <div class="row">
                 <nav class="col-md-12">
-                    <div class="pull-left copyright">Copyright 2014 © <a href="/" title="Sundoq INC">Sundoq</a></div>
+                    <div class="pull-left copyright">Copyright 2014 © <a href="/" title="Sundoq">Sundoq</a></div>
                 </nav>
             </div>
         </div>

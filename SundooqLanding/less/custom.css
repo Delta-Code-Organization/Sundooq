@@ -14072,6 +14072,7 @@ blockquote {
     right: 15px;
     background-color: #f00;
     color: #fff;
+    display:none;
 }
 
 @media (min-width: 1200px) {
@@ -14145,7 +14146,7 @@ blockquote {
     position: absolute;
     top: 2px;
     left: 20px;
-    color: #f00;
+    color: #085282;
     font-size: 34px;
     cursor: pointer;
 }

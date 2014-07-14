@@ -97,7 +97,7 @@ namespace SundooqLanding.Controllers
                 }
                 ViewBag.Sorting = 1;
                 List<Topics> lst = topics.OrderByDescending(p => p.CustomRank).ToList();
-                int count = lst.Count-1;
+                int count = lst.Count - 1;
                 for (int i = 2; i <= count; i++)
                 {
                     if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i - 2].Source)
@@ -107,7 +107,7 @@ namespace SundooqLanding.Controllers
                         lst[i] = temp;
                         count--;
                     }
-                    if (i < count -2 && lst[i].Source == lst[i + 1].Source || lst[i].Source == lst[i + 2].Source)
+                    if (i < count - 2 && lst[i].Source == lst[i + 1].Source || lst[i].Source == lst[i + 2].Source)
                     {
                         Topics temp = lst[count];
                         lst[count] = lst[i];
@@ -115,6 +115,23 @@ namespace SundooqLanding.Controllers
                         count--;
                     }
                 }
+                //another way of sorting
+                //List<Topics> NewList = new List<Topics>();
+                //int round = 1;
+                //while (NewList.Count < count)
+                //{
+                //    for (int i = 0; i < lst.Count; i++)
+                //    {
+                //        if (NewList.Where(x => x.Source == lst[i].Source).Count() < round)
+                //            continue;
+                //        else
+                //        {
+                //            NewList.Add(lst[i]);
+                //            lst.RemoveAt(i);
+                //        }
+                //        round++;
+                //    }
+                //}
                 ViewBag.Topics = lst;
                 Session["topics"] = ViewBag.Topics;
             }
@@ -137,6 +154,51 @@ namespace SundooqLanding.Controllers
             }
             ViewBag.currenttags = currentUser.Tags;
             return View();
+        }
+        public void reload()
+        {
+            string id = Session["Sorting"].ToString();
+            Users currentUser = (Users)Session["User"];
+            if (currentUser != null && Session["Tags"] == null)
+                Session["Tags"] = currentUser.Tags;
+            if (id == "1")
+            {
+                List<Topics> topics;
+                topics = new Topics().GetUserTopics().ToList();
+                Session["Tags"] = currentUser.Tags;
+                ViewBag.Sorting = 1;
+                List<Topics> lst = topics.OrderByDescending(p => p.CustomRank).ToList();
+                int count = lst.Count - 1;
+                for (int i = 2; i <= count; i++)
+                {
+                    if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i - 2].Source)
+                    {
+                        Topics temp = lst[count];
+                        lst[count] = lst[i];
+                        lst[i] = temp;
+                        count--;
+                    }
+                    if (i < count - 2 && lst[i].Source == lst[i + 1].Source || lst[i].Source == lst[i + 2].Source)
+                    {
+                        Topics temp = lst[count];
+                        lst[count] = lst[i];
+                        lst[i] = temp;
+                        count--;
+                    }
+                }
+                ViewBag.Topics = lst;
+                Session["topics"] = ViewBag.Topics;
+            }
+            else
+            {
+                List<Topics> topics;
+                topics = new Topics().GetUserTopics().ToList();
+                Session["Tags"] = currentUser.Tags;
+                ViewBag.Sorting = 0;
+                ViewBag.Topics = topics.OrderByDescending(p => p.PubDate).ToList();
+                Session["topics"] = ViewBag.Topics;
+            }
+            ViewBag.currenttags = currentUser.Tags;
         }
         public ActionResult History()
         {
@@ -220,6 +282,8 @@ namespace SundooqLanding.Controllers
         public void Manage(string tag)
         {
             Users Current = (Users)Session["User"];
+            if (Current == null)
+                return;
             Users NewUser = new Users();
             NewUser.Id = Current.Id;
             NewUser.Email = Current.Email;

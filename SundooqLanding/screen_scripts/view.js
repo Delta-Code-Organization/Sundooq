@@ -2,11 +2,23 @@
 var scroll = 1;
 var _throttleTimer = null;
 var _throttleDelay = 100;
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
+    }
+}
 $(document).ready(function () {
     $(window)
         .off('scroll', ScrollHandler)
         .on('scroll', ScrollHandler);
 });
+function showPopup(url) {
+    newwindow = window.open(url, 'name', 'height=300,width=600,top=200,left=300,resizable');
+    if (window.focus) { newwindow.focus() }
+}
 function ScrollHandler(e) {
     //throttle event:
     clearTimeout(_throttleTimer);
@@ -20,19 +32,19 @@ function ScrollHandler(e) {
 $(document).ready(function () {
     $('.btn-color').click(function () {
         $(this).removeClass('btn-color');
-        $(this).addClass('btn-outline-color');
-        $('.btn-outline-color').click(function () {
+        $(this).addClass('btn-color');
+        $('.btn-color').click(function () {
             $(this).addClass('btn-color');
-            $(this).removeClass('btn-outline-color');
+            $(this).removeClass('btn-color');
         });
         Manage($(this).text());
     });
-    $('.btn-outline-color').click(function () {
+    $('.btn-color').click(function () {
         $(this).addClass('btn-color');
-        $(this).removeClass('btn-outline-color');
+        $(this).removeClass('btn-color');
         $('.btn-color').click(function () {
             $(this).removeClass('btn-color');
-            $(this).addClass('btn-outline-color');
+            $(this).addClass('btn-color');
         });
         Manage($(this).text());
     });
