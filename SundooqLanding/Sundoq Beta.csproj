@@ -42,6 +42,22 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Google.GData.Apps, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e6feebfe441b89cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Apps.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Client, Version=2.2.0.0, Culture=neutral, PublicKeyToken=04a59ca9b0273830, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Contacts, Version=2.2.0.0, Culture=neutral, PublicKeyToken=7e065189dd4b982f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Contacts.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0b4c5df2ebf20876, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -182,11 +198,13 @@
     <Content Include="Global.asax" />
     <Content Include="img\ajax-loader.gif" />
     <Content Include="img\app.png" />
+    <Content Include="img\gmail3.png" />
     <Content Include="img\Icon.png" />
     <Content Include="img\logo-loader.gif" />
     <Content Include="img\logo.png" />
     <Content Include="img\multiplatform.png" />
     <Content Include="img\not.png" />
+    <Content Include="img\pop.png" />
     <Content Include="img\twitter-login-button.png" />
     <Content Include="img\facebook-login-button.png" />
     <Content Include="js\HegabLoader.js" />
@@ -221,6 +239,7 @@
     <Content Include="js\jQuery.Mobile.js" />
     <Content Include="js\jquery.touchwipe.1.1.1.js" />
     <Content Include="screen_scripts\activate.js" />
+    <Content Include="screen_scripts\InviteGmailFriends.js" />
     <Content Include="screen_scripts\sendreset.js" />
     <Content Include="screen_scripts\reset.js" />
     <Content Include="screen_scripts\update.js" />
@@ -258,6 +277,8 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\User\reset.cshtml" />
     <Content Include="Views\User\sendreset.cshtml" />
+    <Content Include="Views\User\InviteGmailFriends.cshtml" />
+    <Content Include="Views\User\InviteFriends.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
