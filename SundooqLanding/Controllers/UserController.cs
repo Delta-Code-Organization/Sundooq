@@ -5,6 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using SundooqLanding.Models;
 using System.Web.Configuration;
+using Google.GData.Apps;
+using Google.Contacts;
+using Google.GData.Client;
+using Google.GData.Contacts;
+using Google.GData.Extensions;
+using System.Net;
+using System.Xml;
+using System.IO;
+using System.Web.Services;
+using System.Configuration;
+using System.Web.Script.Serialization;
+
 namespace SundooqLanding.Controllers
 {
     public class UserController : Controller
@@ -423,5 +435,89 @@ namespace SundooqLanding.Controllers
                 return RedirectToAction("index", "home");
         }
 
+        public ActionResult InviteGmailFriends(string code)
+        {
+            ViewBag.Mails = GetGmailContacts(code);
+            return View();
+        }
+
+        public ActionResult InviteFriends()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public void InviteGmailFriendsNow(string Mails)
+        {
+            string[] SperatedMails = Mails.Split('#');
+            foreach (string item in SperatedMails)
+            {
+                if (item.Trim() != "")
+                {
+                    Helpers.sendEmail(item, "Sundoq Invitation", "<h1>" + (Session["User"] as Users).Email + " invited you to join sundoq</h1>", MailTypes.Invitation, null);
+                }
+            }
+        }
+
+        public List<string> GetGmailContacts(string code)
+        {
+            List<string> emails = new List<string>();
+            try
+            {
+                string postcontents = string.Format("code={0}&client_id={1}&client_secret={2}&redirect_uri={3}&grant_type=authorization_code"
+                                   , System.Web.HttpUtility.UrlEncode(code)
+                                   , System.Web.HttpUtility.UrlEncode(ConfigurationManager.AppSettings["gmailclientid"])
+                                   , System.Web.HttpUtility.UrlEncode(ConfigurationManager.AppSettings["gmailsecret"])
+                                   , System.Web.HttpUtility.UrlEncode(ConfigurationManager.AppSettings["gmailreturnurl"]));
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://accounts.google.com/o/oauth2/token");
+                request.Method = "POST";
+                byte[] postcontentsArray = System.Text.Encoding.UTF8.GetBytes(postcontents);
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = postcontentsArray.Length;
+                GoogleOAuthToken token;
+                using (Stream requestStream = request.GetRequestStream())
+                {
+                    requestStream.Write(postcontentsArray, 0, postcontentsArray.Length);
+                    requestStream.Close();
+                    WebResponse response = request.GetResponse();
+                    using (Stream responseStream = response.GetResponseStream())
+                    using (StreamReader reader = new StreamReader(responseStream))
+                    {
+                        string responseFromServer = reader.ReadToEnd();
+                        reader.Close();
+                        responseStream.Close();
+                        response.Close();
+                        // return SerializeToken(responseFromServer);
+                        JavaScriptSerializer ser = new JavaScriptSerializer();
+                        token = ser.Deserialize<GoogleOAuthToken>(responseFromServer);
+                    }
+                }
+                RequestSettings contactrequest = new RequestSettings("Sundoq", token.access_token);
+                contactrequest.AutoPaging = true;
+                ContactsRequest req = new ContactsRequest(contactrequest);
+                Feed<Contact> FCs = req.GetContacts();
+                foreach (Contact contact in FCs.Entries)
+                {
+                    foreach (EMail email in contact.Emails)
+                    {
+                        emails.Add(email.Address);
+                    }
+                }
+
+                return emails;
+            }
+            catch (Exception ex)
+            {
+                return emails;
+            }
+        }
+
+        public class GoogleOAuthToken
+        {
+            public string access_token;
+            public string expires_in;
+            public string token_type;
+            public string refresh_token;
+        }
     }
 }
