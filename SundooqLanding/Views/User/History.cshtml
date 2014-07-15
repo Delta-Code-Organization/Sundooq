@@ -16,17 +16,18 @@
     <script src="/js/jquery-2.1.0.min.js"></script>
     <script src="/js/modernizr-2.6.2.min.js"></script>
     <script src="~/js/HegabLoader.js"></script>
+    <script src="~/screen_scripts/History.js"></script>
     <script>
-        function filter() {
-            $('.col-md-4').each(function () {
-                if ($(this).html().toLowerCase().indexOf($('#filter').val().toLowerCase()) > -1) {
-                    $(this).show();
-                }
-                else {
-                    $(this).hide();
-                }
-            });
-        }
+        //function filter() {
+        //    $('.col-md-4').each(function () {
+        //        if ($(this).html().toLowerCase().indexOf($('#filter').val().toLowerCase()) > -1) {
+        //            $(this).show();
+        //        }
+        //        else {
+        //            $(this).hide();
+        //        }
+        //    });
+        //}
     </script>
 </head>
 <body class="yo-anim-enabled">
@@ -94,30 +95,42 @@
             </div>
         </header>
     </div>
-    <section class="container" style="min-height:500px">
-        <h1 style="color:#CC3400;">My History</h1>
-                @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["HistoryMsg"].Length > 0)
+    <section class="container" style="min-height: 500px">
+        <h1 style="color: #CC3400;">My History</h1>
+        @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["HistoryMsg"].Length > 0)
         {
             <div class="alert alert-info"><strong>Do you know </strong>@System.Web.Configuration.WebConfigurationManager.AppSettings["HistoryMsg"]</div>
         }
         <div class="row form">
             <div class="input-wrapper">
-                <input class="contact-form form-name-error" onkeyup="filter()" type="text" placeholder="Filter your history" name="filter" id="filter">
+                <input class="contact-form form-name-error" type="text" placeholder="Filter your history" name="filter" id="filter">
             </div>
         </div>
-        <div class="row">
+        <div id="TopicSection">
             @{
                 SundooqLanding.Models.Users Current = (SundooqLanding.Models.Users)Session["User"];
                 if (Current != null)
                 {
-                    foreach (SundooqLanding.Models.History h in Current.History)
+                    int counter = 0;
+                    int calc = 0;
+                    foreach (SundooqLanding.Models.History h in ViewBag.H)
                     {
+                        if (calc == counter - 3)
+                        {
+                @Html.Raw("</div>");
+                        }
+                        if (counter % 3 == 0 || counter == 0)
+                        {
+                            calc = counter;
+                @Html.Raw("<div class='row'>");
+                        }
                 <a href="/topics/view/@h.TopicId">
                     <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
-                        <img style="width: 100%;max-height:200px" src="@h.Topics.Img" />
-                        <h3 style="color:#000">@h.Topics.Title</h3>
+                        <img style="width: 100%;max-height:200px; height:200px;" src="@h.Topics.Img" />
+                        <h3 style="color: #000">@h.Topics.Title</h3>
                     </div>
                 </a>
+                        counter++;
                     }
                 }
             }
@@ -128,8 +141,7 @@
             <div class="row">
                 <nav class="col-md-12">
                     <ul class="pull-right footer-nav">
-                        <li>
-                            Contact us | help-me@sundoq.com
+                        <li>Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>

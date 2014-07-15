@@ -214,8 +214,86 @@ namespace SundooqLanding.Controllers
         }
         public ActionResult History()
         {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Users U = Session["User"] as Users;
+            List<History> LOH = U.History.ToList();
+            TempData["AllHistory"] = LOH;
+            TempData["SkipNo"] = 0;
+            ViewBag.H = LOH.Skip(0).Take(9).ToList();
+            TempData["LoadedHistory"] = LOH.Skip(0).Take(9).ToList();
+            TempData.Keep();
             return View();
         }
+
+        [HttpPost]
+        public JsonResult LoadMoreHistory()
+        {
+            List<History> LOH = TempData["AllHistory"] as List<History>;
+            int Skip = (int)TempData["SkipNo"] + 9;
+            List<History> LOHToSend = LOH.Skip(Skip).Take(9).ToList();
+            List<History> Loaded = TempData["LoadedHistory"] as List<History>;
+            Loaded.AddRange(LOHToSend);
+            TempData["LoadedHistory"] = Loaded;
+            var LOHInJSON = (from H in LOHToSend
+                             select new
+                             {
+                                 H.TopicId,
+                                 Topics = new
+                                 {
+                                     H.Topics.Img,
+                                     H.Topics.Title
+                                 }
+                             }).ToList();
+            TempData["AllHistory"] = LOH;
+            TempData["SkipNo"] = Skip;
+            TempData.Keep();
+            return Json(LOHInJSON);
+        }
+
+        [HttpPost]
+        public JsonResult FilterHistory(string Keyword)
+        {
+            if (Keyword == "sk44@ass-449*as-64900as-x?zc.86!6Q")
+            {
+                List<History> Loaded = TempData["LoadedHistory"] as List<History>;
+                List<History> LOT = TempData["AllHistory"] as List<History>;
+                var LOTInJson = (from H in Loaded
+                                 select new
+                                 {
+                                     H.TopicId,
+                                     Topics = new
+                                     {
+                                         H.Topics.Img,
+                                         H.Topics.Title
+                                     }
+                                 }).ToList();
+                TempData["AllHistory"] = LOT;
+                TempData.Keep();
+                return Json(LOTInJson);
+            }
+            else
+            {
+                List<History> LOT = TempData["AllHistory"] as List<History>;
+                List<History> LOTFiltered = LOT.Where(p => p.Topics.Title.ToLower().Contains(Keyword.ToLower()) || p.Topics.Descr.ToLower().Contains(Keyword.ToLower())).ToList();
+                var LOTInJson = (from H in LOTFiltered
+                                 select new
+                                 {
+                                     H.TopicId,
+                                     Topics = new
+                                     {
+                                         H.Topics.Img,
+                                         H.Topics.Title
+                                     }
+                                 }).ToList();
+                TempData["AllHistory"] = LOT;
+                TempData.Keep();
+                return Json(LOTInJson);
+            }
+        }
+
         [HttpPost]
         public JsonResult Update(string _mail, string _password, string _gender, string _dob, string _tags = "")
         {
