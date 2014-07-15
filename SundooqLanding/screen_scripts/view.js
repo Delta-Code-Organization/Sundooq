@@ -30,21 +30,21 @@ function ScrollHandler(e) {
     });
 }
 $(document).ready(function () {
-    $('.btn-color').click(function () {
-        $(this).removeClass('btn-color');
-        $(this).addClass('btn-color');
-        $('.btn-color').click(function () {
-            $(this).addClass('btn-color');
-            $(this).removeClass('btn-color');
+    $('.btn-outline-dark').click(function () {
+        $(this).removeClass('btn-outline-dark');
+        $(this).addClass('btn-dark');
+        $('.btn-dark').click(function () {
+            $(this).addClass('btn-outline-dark');
+            $(this).removeClass('btn-dark');
         });
         Manage($(this).text());
     });
-    $('.btn-color').click(function () {
-        $(this).addClass('btn-color');
-        $(this).removeClass('btn-color');
-        $('.btn-color').click(function () {
-            $(this).removeClass('btn-color');
-            $(this).addClass('btn-color');
+    $('.btn-dark').click(function () {
+        $(this).addClass('btn-outline-dark');
+        $(this).removeClass('btn-dark');
+        $('.btn-outline-dark').click(function () {
+            $(this).removeClass('btn-outline-dark');
+            $(this).addClass('btn-dark');
         });
         Manage($(this).text());
     });

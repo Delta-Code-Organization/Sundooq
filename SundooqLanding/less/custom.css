@@ -9,7 +9,9 @@ body {
     margin: 0;
     padding: 2px;
 }
-
+.smalltxt {
+    font-size:10px;
+}
 #topicframe {
     margin-top: 50px;
 }
@@ -2502,6 +2504,11 @@ select[multiple].input-lg {
     }
 
 .btn-default {
+    color: #ffffff;
+    background-color: #2a2a30;
+    border-color: #2a2a30;
+}
+.btn-dark {
     color: #ffffff;
     background-color: #2a2a30;
     border-color: #2a2a30;
@@ -10132,7 +10139,7 @@ you can use the generic selector below, but it's slower:
                 .main-navbar .main-nav li a:hover {
                     color: #fff;
                     /*.lh-transition-delay(0.3s)*/
-                    opacity: 0.3;
+                    opacity: 0.9;
                     -webkit-transform: scale(0.95);
                     -moz-transform: scale(0.95);
                     -o-transform: scale(0.95);
@@ -14146,9 +14153,24 @@ blockquote {
     position: absolute;
     top: 2px;
     left: 20px;
-    color: #085282;
-    font-size: 34px;
+    color: #CC3400;
+    font-size: 40px;
     cursor: pointer;
+    font-weight:600;
+    -webkit-transform: rotate(45deg);
+
+/* Firefox */
+-moz-transform: rotate(45deg);
+
+/* IE */
+-ms-transform: rotate(45deg);
+
+/* Opera */
+-o-transform: rotate(45deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
 }
 
 .tagsdiv {

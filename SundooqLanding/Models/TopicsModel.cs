@@ -34,7 +34,7 @@ namespace SundooqLanding.Models
                 Users Current = (Users)HttpContext.Current.Session["User"];
                 if (Current != null)
                 {
-                    int mat = MatchTags(Tags, Current.Tags); 
+                    int mat = MatchTags(Tags, Current.Tags);
                     return (int)(mat * Rank);
                 }
                 else
@@ -59,7 +59,22 @@ namespace SundooqLanding.Models
             DateTime limit = DateTime.Now.AddDays(-7);
             List<Topics> Topics = new List<Models.Topics>();
             var dbTopics = db.Topics.Where(p => p.PubDate >= limit).ToList().Where(p => p.CustomRank > 0 && !Current.History.Any(t => t.TopicId == p.Id));
-            return dbTopics;
+            return dbTopics.Distinct( new DistinctItemComparer());
+        }
+    }
+    class DistinctItemComparer : IEqualityComparer<Topics>
+    {
+
+        public bool Equals(Topics x, Topics y)
+        {
+            return x.URL == y.URL||
+                x.URL == y.URL;
+        }
+
+        public int GetHashCode(Topics obj)
+        {
+            return obj.URL.GetHashCode()^
+                obj.Title.GetHashCode();
         }
     }
 }

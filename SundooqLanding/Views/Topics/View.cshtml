@@ -107,11 +107,11 @@ content="@ViewBag.Topic.Img" />
                 SundooqLanding.Models.Users Current = (SundooqLanding.Models.Users)Session["User"];
                 if (Current != null && Current.Tags.ToLower().Contains(@ViewBag.Topic.Tags.ToLower().Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]))
                 {
-                <a class="btn btn-color" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
+                <a class="btn btn-dark" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
                 }
                 else
                 {
-                <a class="btn btn-color" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
+                <a class="btn btn-outline-dark" data-hover="Button">@ViewBag.Topic.Tags.Split('#')[ViewBag.Topic.Tags.Split('#').Length - 1]</a>
                 }
                 foreach (string Tag in ViewBag.Topic.Tags.Split('#'))
                 {
@@ -122,13 +122,13 @@ content="@ViewBag.Topic.Img" />
                     counter++;
                     if (Tag.Trim().Length > 0)
                     {
-                        if (Current != null && Current.Tags.ToLower().Contains(Tag.ToLower()))
+                        if (Current != null && Current.Tags.ToLower().Contains("#"+Tag.ToLower()))
                         {
-                <a class="btn btn-color" data-hover="Button">@Tag</a>
+                <a class="btn btn-dark" data-hover="Button">@Tag</a>
                         }
                         else
                         {
-                <a class="btn btn-color" data-hover="Button">@Tag</a>
+                <a class="btn btn-outline-color" data-hover="Button">@Tag</a>
                         }
                     }
                 }

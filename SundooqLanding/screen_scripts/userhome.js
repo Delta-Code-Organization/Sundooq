@@ -132,7 +132,7 @@ function loadSuggested() {
             var tags = data.split("#");
             for (var i = 0 ; i < tags.length; i++) {
                 if (tags[i].length > 0)
-                    $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-default">' + tags[i] + '</a>');
+                    $("#tagsbuttons").append('<a style="margin:5px;" class="btn btn-outline-dark">' + tags[i] + '</a>');
             }
             if (tags.length > 1) {
                 $("#suggestedTags").removeClass("hidden");
@@ -203,10 +203,10 @@ function handleTagClick() {
         var currenttags = $('#currenttags').text();
         for (var i = 0; i < tagsarray.length; i++) {
             if (tagsarray[i].trim() != "") {
-                if (currenttags.indexOf("#" + tagsarray[i]) > -1)
-                    html += '<a class="btn btn-color" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
+                if (currenttags.toLowerCase().indexOf("#" + tagsarray[i].toLowerCase()) > -1)
+                    html += '<a class="btn btn-dark" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
                 else
-                    html += '<a class="btn btn-default" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
+                    html += '<a class="btn btn-outline-dark" style="margin:5px;" data-hover="Button">' + tagsarray[i] + '</a>';
             }
         }
         $(".tagsdiv").remove();
@@ -230,21 +230,21 @@ function Manage(tag) {
     });
 }
 function HookupTags() {
-    $('.btn-color').click(function () {
-        $(this).removeClass('btn-color');
-        $(this).addClass('btn-default');
-        $('.btn-default').click(function () {
-            $(this).addClass('btn-color');
-            $(this).removeClass('btn-default');
+    $('.btn-outline-dark').click(function () {
+        $(this).removeClass('btn-outline-dark');
+        $(this).addClass('btn-dark');
+        $('.btn-dark').click(function () {
+            $(this).addClass('btn-outline-dark');
+            $(this).removeClass('btn-dark');
         });
         Manage($(this).text());
     });
-    $('.btn-default').click(function () {
-        $(this).addClass('btn-color');
-        $(this).removeClass('btn-default');
-        $('.btn-color').click(function () {
-            $(this).removeClass('btn-color');
-            $(this).addClass('btn-default');
+    $('.btn-dark').click(function () {
+        $(this).addClass('btn-outline-dark');
+        $(this).removeClass('btn-dark');
+        $('.btn-outline-dark').click(function () {
+            $(this).removeClass('btn-outline-dark');
+            $(this).addClass('btn-dark');
         });
         Manage($(this).text());
     });

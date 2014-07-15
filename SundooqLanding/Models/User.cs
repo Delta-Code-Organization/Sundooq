@@ -47,9 +47,9 @@ namespace SundooqLanding.Models
                 else
                 {
                     this.Tags = Guid.NewGuid().ToString();
-                    Msg = "Hello " + Registered.Email;
+                    Msg = "Hello " + this.Email;
                     Msg += "<br/>Thank you for registering with SUNDOQ. You did the right thing!";
-                    Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + Registered.Tags + "'>Activate My Account</a>";
+                    Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + this.Tags + "'>Activate My Account</a>";
                     Msg += "<br/><strong>What’s Next ?</strong>";
                     Msg += "<br/>Once you activate your account, you will be able to follow your favorite sources and/or tags. Please select at least 3 sources to build your feeds.";
                     Msg += "<br/><br/><strong>How to follow/unfollow new sources or tags?</strong>";
@@ -60,7 +60,7 @@ namespace SundooqLanding.Models
                     db.Users.Add(this);
                     db.SaveChanges();
                 }
-                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg, MailTypes.Register, Registered.Id);
+                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg, MailTypes.Register, this.Id);
                 _success = true;
                 return "You're In! Now you need click on the link we sent to your email to activate your account.";
             }

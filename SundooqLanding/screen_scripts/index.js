@@ -122,7 +122,27 @@ function statusChangeCallback(response) {
         // The person is logged into Facebook, but not your app.
         console.log('Please log ' +
           'into this app.');
+        FB.Event.subscribe('auth.login', function (response) {
+            if (response.authResponse) {
+                $.ajax({
+                    url: '/User/FacebookLogin',
+                    type: 'post',
+                    data: { '_code': response.authResponse.userID },
+                    success: function (data) {
+                        location.href = "\\User\\Home";
+                    },
+                    error: function (data) {
+                        console.log("Error while  loging: " + data);
+                    }
+                });
+            }
+        });
         FB.login();
+        $('html,body').animate({
+            scrollTop: $("#msg").offset().top
+        },
+           'slow');
+        
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.

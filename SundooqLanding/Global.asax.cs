@@ -22,8 +22,15 @@ namespace SundooqLanding
         }
         protected void Application_Error(object sender, EventArgs e)
         {
+            string Message = Request.UserAgent + "<br/>";
+            Message += Request.RawUrl + "<br/>";
+            Message += Request.UserHostAddress + "<br/>";
+            Message += Request.UserHostName + "<br/>";
+            if (Session["User"] != null)
+                Message += (Session["User"] as SundooqLanding.Models.Users).Email + "<br/><br/>";
+            Message += Server.GetLastError().Message + "<br/>";
             SundooqLanding.Models.Helpers.sendEmail("amir-aly-eesa@hotmail.com", "Sundooq Error", Server.GetLastError().Message, Models.MailTypes.Error, null);
-            Response.Redirect("/Home/Error");
+            Response.Redirect("/Home/error");
         }
     }
 }

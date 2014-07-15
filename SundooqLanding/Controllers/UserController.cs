@@ -274,15 +274,19 @@ namespace SundooqLanding.Controllers
                 NewUser = (Users)Session["User"];
             if (NewUser != null)
             {
-                string[] Tech = WebConfigurationManager.AppSettings["Technology"].ToString().Split('#');
-                string[] Business = WebConfigurationManager.AppSettings["Business"].ToString().Split('#');
-                string[] Health = WebConfigurationManager.AppSettings["Health"].ToString().Split('#');
-                string[] News = WebConfigurationManager.AppSettings["News"].ToString().Split('#');
-                string[] Sources = WebConfigurationManager.AppSettings["Sources"].ToString().Split('#');
+                string[] Tech = WebConfigurationManager.AppSettings["Technology"].ToString().Split('#').OrderBy(t=>t.ToString()).ToArray();
+                string[] Business = WebConfigurationManager.AppSettings["Business"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] Health = WebConfigurationManager.AppSettings["Health"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] News = WebConfigurationManager.AppSettings["News"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] Women = WebConfigurationManager.AppSettings["Women"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] Sports = WebConfigurationManager.AppSettings["Sports"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] Sources = WebConfigurationManager.AppSettings["Sources"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 ViewBag.Tech = Tech;
                 ViewBag.Business = Business;
                 ViewBag.Health = Health;
                 ViewBag.News = News;
+                ViewBag.Women = Women;
+                ViewBag.Sports = Sports;
                 ViewBag.Sources = Sources;
                 ViewBag.User = NewUser;
                 return View();

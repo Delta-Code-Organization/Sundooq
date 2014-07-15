@@ -56,7 +56,7 @@
                             var gender = $('#gender').val();
                             var dob = $('#dob').val();
                             var tags = "";
-                            $('.btn-color').each(function () {
+                            $('.btn-dark').each(function () {
                                 if ($(this).text().length > 0)
                                 tags += "#" + $(this).text().trim();
                             });
@@ -64,9 +64,13 @@
                                 $("#msg").removeClass("hidden");
                                 $("#msg").removeClass("alert-success");
                                 $("#msg").addClass("alert-danger");
-                                $("#msg").html("What do you want to Stay Updated about? Follow at least 5 sources/tags");
+                                $("#msg").html("What do you want to Stay Updated about? Follow at least 10 sources/tags");
                                 $("#act-form-btn").removeAttr('disabled');
                                 $("#loader").remove();
+                                $('html,body').animate({
+                                    scrollTop: $("#msg").offset().top
+                                },
+           'slow');
                                 return;
                             }
                             var data = {
@@ -122,42 +126,20 @@
         });
 
     })(jQuery, window, document);
-    $('.btn-default').click(function () {
-        $(this).removeClass('btn-default');
-        $(this).addClass('btn-color');
-        $('.btn-color').click(function () {
-            $(this).addClass('btn-default');
-            $(this).removeClass('btn-color');
+    $('.btn-outline-dark').click(function () {
+        $(this).removeClass('btn-outline-dark');
+        $(this).addClass('btn-dark');
+        $('.btn-dark').click(function () {
+            $(this).addClass('btn-outline-dark');
+            $(this).removeClass('btn-dark');
         });
     });
-    $('.btn-color').click(function () {
-        $(this).addClass('btn-default');
-        $(this).removeClass('btn-color');
-        $('.btn-default').click(function () {
-            $(this).removeClass('btn-default');
-            $(this).addClass('btn-color');
+    $('.btn-dark').click(function () {
+        $(this).addClass('btn-outline-dark');
+        $(this).removeClass('btn-dark');
+        $('.btn-outline-dark').click(function () {
+            $(this).removeClass('btn-outline-dark');
+            $(this).addClass('btn-dark');
         });
-    });
-    $('.tab').click(function () {
-        $('.tab').removeClass('btn-default');
-        $('.tab').addClass('btn-color');
-        $(this).addClass('btn-default');
-        $(this).removeClass('btn-color');
-        $('.contenttab').addClass('hidden');
-        $('.'+$(this).data('div')).removeClass('hidden');
     });
 });
-
-function ChangeColor(Color,ele)
-{
-    if (Color == 1) {
-        $("#NM" + ele).removeClass('btn-color');
-        $("#NM" + ele).addClass('btn-default');
-        $("#NM" + ele).attr('href', 'javascript:ChangeColor(0,' + ele + ')');
-    }
-    else {
-        $("#NM" + ele).addClass('btn-color');
-        $("#NM" + ele).removeClass('btn-default');
-        $("#NM" + ele).attr('href', 'javascript:ChangeColor(1,' + ele + ')');
-    }
-}

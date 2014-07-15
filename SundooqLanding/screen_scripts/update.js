@@ -118,22 +118,28 @@ $(document).ready(function () {
         });
 
     })(jQuery, window, document);
-    $(document).on('click', '.btn-default', function () {
+    $('.btn-outline-dark').click(function () {
+        $(this).removeClass('btn-outline-dark');
+        $(this).addClass('btn-dark');
+        $('.btn-dark').click(function () {
+            $(this).addClass('btn-outline-dark');
+            $(this).removeClass('btn-dark');
+        });
         Manage($(this).text());
-        $(this).removeClass('btn-default');
-        $(this).addClass('btn-color');
-        $(this).blur();
     });
-    $(document).on('click', '.btn-color', function () {
+    $('.btn-dark').click(function () {
+        $(this).addClass('btn-outline-dark');
+        $(this).removeClass('btn-dark');
+        $('.btn-outline-dark').click(function () {
+            $(this).removeClass('btn-outline-dark');
+            $(this).addClass('btn-dark');
+        });
         Manage($(this).text());
-        $(this).removeClass('btn-color');
-        $(this).addClass('btn-default');
-        $(this).blur();
     });
     $('.tab').click(function () {
-        $('.tab').removeClass('btn-default');
+        $('.tab').removeClass('btn-outline-color');
         $('.tab').addClass('btn-color');
-        $(this).addClass('btn-default');
+        $(this).addClass('btn-outline-color');
         $(this).removeClass('btn-color');
         $('.contenttab').addClass('hidden');
         $('.' + $(this).data('div')).removeClass('hidden');

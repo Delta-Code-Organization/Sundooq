@@ -101,7 +101,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <a data-div="acc" class="btn btn-default btn-radius-none tab">My Account</a>
+                <a data-div="acc" class="btn btn-outline-color btn-radius-none tab">My Account</a>
                 <a data-div="tags" class="btn btn-color btn-radius-none tab">My Tags</a>
                 <a data-div="sources" class="btn btn-color btn-radius-none tab">My Sources</a>
                 <a data-div="moresources" class="btn btn-color btn-radius-none tab">More Sources</a>
@@ -162,11 +162,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <p class="smalltxt">Search your tags to unfolllow</p>
                     @foreach (string tag in ViewBag.User.Tags.Split('#'))
                     {
                         if (tag.Trim().Length > 0 && !ViewBag.Sources.Contains(tag))
                         {
-                        <a class="btn btn-color tagsbtn">@tag</a>
+                        <a class="btn btn-dark tagsbtn">@tag</a>
                         }
                     }
                 </div>
@@ -179,11 +180,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <p class="smalltxt">Search your sources to unfolllow</p>
                     @foreach (string source in ViewBag.Sources.Split('#'))
                     {
                         if (source.Trim().Length > 0 && ViewBag.User.Tags.Contains(source))
                         {
-                        <a class="btn btn-color sourcebtn">@source</a>
+                        <a class="btn btn-dark sourcebtn">@source</a>
                         }
                     }
                 </div>
@@ -195,11 +197,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <p class="smalltxt">Search to follow more sources</p>
                     @foreach (string source in ViewBag.Sources.Split('#'))
                     {
                         if (source.Trim().Length > 0 && !ViewBag.User.Tags.Contains(source))
                         {
-                        <a class="btn btn-default moresourcebtn hidden">@source</a>
+                        <a class="btn btn-outline-dark moresourcebtn hidden">@source</a>
                         }
                     }
                 </div>

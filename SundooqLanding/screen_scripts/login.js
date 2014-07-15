@@ -99,6 +99,7 @@ function statusChangeCallback(response) {
         console.log('Please log ' +
           'into this app.');
         FB.login();
+        fb_login()
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
@@ -163,5 +164,7 @@ function testAPI() {
     });
 }
 function fb_login() {
+    ShowLoader("Signing up with facebook...");
     checkLoginState();
+    HideLoader();
 }
