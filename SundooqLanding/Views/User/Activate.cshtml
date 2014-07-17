@@ -76,7 +76,7 @@
                     <li class="pull-left">
                         <a href="/">
                             <figure>
-                                <img src="/img/logo.png" alt="Sundoq" />
+                                <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="MniamTheme" />
                             </figure>
                         </a>
                     </li>
@@ -134,76 +134,104 @@
                         <br />
                         <br />
                         <br />
-                            <p>Click your favorite tags/topics to follow or unfollow from below</p>
-                        <div class="col-md-12">
-                            <h3>Technology</h3>
-                            @foreach (string tag in ViewBag.Tech)
-                            {
-                                if (tag.Length > 0)
+                        <p>Click your favorite tags/topics to follow or unfollow from below</p>
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('T');">
+                                <i id="T" class="arrow-right-open"></i><span>Technology</span>
+                            </a>
+                            <div id="TagsContT" style="display: none;">
+                                @foreach (string tag in ViewBag.Tech)
                                 {
-                                <a class="btn btn-outline-dark">@tag</a> 
+                                    if (tag.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@tag</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>Business</h3>
-                            @foreach (string source in ViewBag.Business)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('B');">
+                                <i id="B" class="arrow-right-open"></i><span>Business</span>
+                            </a>
+                            <div id="TagsContB" style="display: none;">
+                                @foreach (string source in ViewBag.Business)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>News</h3>
-                            @foreach (string source in ViewBag.News)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('N');">
+                                <i id="N" class="arrow-right-open"></i><span>News</span>
+                            </a>
+                            <div id="TagsContN" style="display: none;">
+                                @foreach (string source in ViewBag.News)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>Health</h3>
-                            @foreach (string source in ViewBag.Health)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('H');">
+                                <i id="H" class="arrow-right-open"></i><span>Health</span>
+                            </a>
+                            <div id="TagsContH" style="display: none;">
+                                @foreach (string source in ViewBag.Health)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>Sports</h3>
-                            @foreach (string source in ViewBag.Sports)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('S');">
+                                <i id="S" class="arrow-right-open"></i><span>Sports</span>
+                            </a>
+                            <div id="TagsContS" style="display: none;">
+                                @foreach (string source in ViewBag.Sports)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>Women</h3>
-                            @foreach (string source in ViewBag.Women)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('W');">
+                                <i id="W" class="arrow-right-open"></i><span>Women</span>
+                            </a>
+                            <div id="TagsContW" style="display: none;">
+                                @foreach (string source in ViewBag.Women)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <h3>Top Sources</h3>
-                            @foreach (string source in ViewBag.Sources)
-                            {
-                                if (source.Length > 0)
+                        <div class="input-wrapper">
+                            <a href="javascript:CollapseCont('O');">
+                                <i id="O" class="arrow-right-open"></i><span>Others</span>
+                            </a>
+                            <div id="TagsContO" style="display: none;">
+                                @foreach (string source in ViewBag.Sources)
                                 {
-                                <a class="btn btn-outline-dark">@source</a> 
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a>
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
                         <div class="button-submit btn-submit">
                             <input type="submit" id="act-form-btn" value="Update" class="btn btn-default pull-right button-send btn-lg">

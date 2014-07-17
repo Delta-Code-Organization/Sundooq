@@ -143,3 +143,18 @@
         });
     });
 });
+
+
+function CollapseCont(Detector)
+{
+    $('#TagsCont' + Detector).slideToggle(400);
+    if ($('#' + Detector).hasClass('arrow-right-open')) {
+        $('#' + Detector).removeClass('arrow-right-open');
+        $('#' + Detector).addClass('arrow-down-open');
+    }
+    else {
+        $('#' + Detector).removeClass('arrow-down-open');
+        $('#' + Detector).addClass('arrow-right-open');
+    }
+
+}
