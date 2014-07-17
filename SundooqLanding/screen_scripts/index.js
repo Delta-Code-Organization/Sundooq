@@ -208,5 +208,5 @@ function testAPI() {
     });
 }
 function fb_login() {
-    checkLoginState();
+    FB.login();
 }

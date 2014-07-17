@@ -47,6 +47,7 @@ namespace SundooqLanding.Models
                 else
                 {
                     this.Tags = Guid.NewGuid().ToString();
+                    this.Registered = DateTime.Now;
                     Msg = "Hello " + this.Email;
                     Msg += "<br/>Thank you for registering with SUNDOQ. You did the right thing!";
                     Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + this.Tags + "'>Activate My Account</a>";

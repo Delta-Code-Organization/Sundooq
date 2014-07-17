@@ -383,6 +383,7 @@ namespace SundooqLanding.Controllers
             NewUser.Email = Current.Email;
             NewUser.Password = Current.Password;
             NewUser.Tags = Current.Tags;
+            NewUser.Gender = Current.Gender;
             NewUser.RegisteredWith = Current.RegisteredWith;
             NewUser.DateOfBirth = Current.DateOfBirth;
             NewUser.AccountStatus = Current.AccountStatus;

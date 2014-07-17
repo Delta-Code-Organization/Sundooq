@@ -2,14 +2,6 @@
 var scroll = 1;
 var _throttleTimer = null;
 var _throttleDelay = 100;
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds) {
-            break;
-        }
-    }
-}
 $(document).ready(function () {
     $(window)
         .off('scroll', ScrollHandler)
@@ -35,7 +27,7 @@ $(document).ready(function () {
         $(this).addClass('btn-dark');
         $('.btn-dark').click(function () {
             $(this).addClass('btn-outline-dark');
-            $(this).removeClass('btn-dark');
+            $(this).removeClass('.btn-dark');
         });
         Manage($(this).text());
     });

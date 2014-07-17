@@ -135,7 +135,7 @@
                         <br />
                         <br />
                             <p>Click your favorite tags/topics to follow or unfollow from below</p>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>Technology</h3>
                             @foreach (string tag in ViewBag.Tech)
                             {
@@ -145,7 +145,7 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>Business</h3>
                             @foreach (string source in ViewBag.Business)
                             {
@@ -155,7 +155,7 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>News</h3>
                             @foreach (string source in ViewBag.News)
                             {
@@ -165,7 +165,7 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>Health</h3>
                             @foreach (string source in ViewBag.Health)
                             {
@@ -175,7 +175,7 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>Sports</h3>
                             @foreach (string source in ViewBag.Sports)
                             {
@@ -185,7 +185,7 @@
                                 }
                             }
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <h3>Women</h3>
                             @foreach (string source in ViewBag.Women)
                             {
@@ -196,7 +196,7 @@
                             }
                         </div>
                         <div class="col-md-12">
-                            <h3>Others</h3>
+                            <h3>Top Sources</h3>
                             @foreach (string source in ViewBag.Sources)
                             {
                                 if (source.Length > 0)
