@@ -10,11 +10,6 @@
                             required: true,
                             email: true
                         },
-                        confirm_email: {
-                            required: true,
-                            email: true,
-                            equalTo:email
-                        },
                         confirm_password: {
                             required: true,
                             minlength: 5,
@@ -29,11 +24,6 @@
                         email: {
                             required: "Please enter your e-mail",
                             email: "Please enter a valid e-mail address"
-                        },
-                        confirm_email: {
-                            required: "Please confirm you email",
-                            email: "Please enter a valid e-mail address",
-                            equalTo: "Email address does not match"
                         },
                         password: {
                             required: "Please enter password",

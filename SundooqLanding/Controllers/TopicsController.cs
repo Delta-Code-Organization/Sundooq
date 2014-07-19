@@ -21,6 +21,12 @@ namespace SundooqLanding.Controllers
         {
             List<Topics> topics = (List<Topics>)Session["topics"];
             int ticks = int.Parse(current);
+            int tagValue = 0;
+            if (ticks * 5 > topics.Count)
+            {
+                topics.AddRange(new Topics().GetUserTopics());
+                Session["topics"] = topics;
+            }
             #region serialize
             var TopicsInJSON = (from TT in topics.Skip(5 * ticks)
                                 select new
@@ -53,7 +59,10 @@ namespace SundooqLanding.Controllers
         }
         public void reload()
         {
-            Session["topics"] = new Topics().GetUserTopics().ToList();
+            int tagValue;
+            List<Topics> lst = new List<Topics>();
+            lst = new Topics().GetUserTopics().ToList();
+            Session["topics"] = lst;
         }
         public ActionResult View(string id)
         {
@@ -73,7 +82,7 @@ namespace SundooqLanding.Controllers
                 @ViewBag.Sorting = Session["Sorting"].ToString();
             else
                 @ViewBag.Sorting = 0;
-            if (user != null &&  !user.History.Any(t => t.TopicId == Topic.Id))
+            if (user != null && !user.History.Any(t => t.TopicId == Topic.Id))
             {
                 History h = new History();
                 h.TopicId = Topic.Id;
@@ -87,7 +96,7 @@ namespace SundooqLanding.Controllers
         public ActionResult filter(string id)
         {
             string keyword = System.Web.HttpUtility.UrlDecode(id);
-            SundooqDBEntities2 db = new SundooqDBEntities2 ();
+            SundooqDBEntities2 db = new SundooqDBEntities2();
             List<Topics> LOT = new List<Topics>();
             LOT = db.Topics.Where(t => t.Tags.ToLower().Contains(keyword.ToLower())).ToList();
             ViewBag.topics = LOT.Skip(0).Take(9);
@@ -98,7 +107,28 @@ namespace SundooqLanding.Controllers
             ViewBag.sourcename = System.Web.HttpUtility.UrlDecode(id);
             return View();
         }
-
+        public JsonResult GetNext(string _url)
+        {
+            List<Topics> topics = (List<Topics>)Session["topics"];
+            if (topics == null)
+                return null;
+            int indx = topics.FindIndex(p => p.URL == _url);
+            if (topics.Count > indx + 2)
+                return Json(topics[indx + 1].Id);
+            else
+                return null;
+        }
+        public JsonResult GetPrev(string _url)
+        {
+            List<Topics> topics = (List<Topics>)Session["topics"];
+            if (topics == null)
+                return null;
+            int indx = topics.FindIndex(p => p.URL == _url);
+            if (indx >1)
+                return Json(topics[indx - 1].Id);
+            else
+                return null;
+        }
         [HttpPost]
         public JsonResult GetMoreFilteredTopics()
         {

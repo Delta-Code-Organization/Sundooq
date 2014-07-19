@@ -40,12 +40,48 @@ $(document).ready(function () {
         });
         Manage($(this).text());
     });
+    $('#topicframe').load(function () {
+        $(document.getElementById('topicframe').contentWindow.document).keydown(function () {
+            if (e.keyCode == 39) {
+                ShowLoader("Loading next topic");
+                $.ajax({
+                    url: '/topics/getNext',
+                    type: 'post',
+                    data: { '_url': $('#topicframe').attr('src') },
+                    success: function (data) {
+                        location.href = "/topics/view/" + data;
+                    },
+                    error: function (data) {
+                        console.log(data.responseText);
+                        HideLoader();
+                    }
+                });
+
+                return false;
+            }
+            else if (e.keyCode == 37) {
+                ShowLoader("Loading Previous topic");
+                $.ajax({
+                    url: '/topics/getprev',
+                    type: 'post',
+                    data: { '_url': $('#topicframe').attr('src') },
+                    success: function (data) {
+                        location.href = "/topics/view/" + data;
+                    },
+                    error: function (data) {
+                        console.log(data.responseText);
+                        HideLoader();
+                    }
+                });
+            }
+        });
+    });
 });
 function Manage(tag) {
     $.ajax({
         url: '/user/Manage',
         type: 'post',
-        data: {'tag':tag},
+        data: { 'tag': tag },
         success: function (data) {
         },
         error: function (data) {
@@ -56,3 +92,38 @@ function Manage(tag) {
 function toggleTags() {
     $("#tagsdiv").toggle();
 }
+$(document).keydown(function (e) {
+    if (e.keyCode == 39) {
+        ShowLoader("Loading next topic");
+        $.ajax({
+            url: '/topics/getNext',
+            type: 'post',
+            data: { '_url': $('#topicframe').attr('src') },
+            success: function (data) {
+                location.href = "/topics/view/" + data;
+            },
+            error: function (data) {
+                console.log(data.responseText);
+                HideLoader();
+            }
+        });
+
+        return false;
+    }
+    else if (e.keyCode == 37) {
+        ShowLoader("Loading Previous topic");
+        $.ajax({
+            url: '/topics/getprev',
+            type: 'post',
+            data: { '_url': $('#topicframe').attr('src') },
+            success: function (data) {
+                location.href = "/topics/view/" + data;
+            },
+            error: function (data) {
+                console.log(data.responseText);
+                HideLoader();
+            }
+        });
+    }
+});
+

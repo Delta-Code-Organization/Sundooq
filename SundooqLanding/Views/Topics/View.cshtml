@@ -49,12 +49,12 @@ content="@ViewBag.Topic.Img" />
                                 <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
                             </li>
                             <li>
-                                <a href="" onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')"><i class="fa fa-facebook"></i> Share</a>
+                                <a style="cursor:pointer"  onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')"><i class="fa fa-facebook"></i>Share</a>
 
 
                             </li>
                             <li>
-                                <a href=""onclick="showPopup('http://twitter.com/home?status=@HttpUtility.UrlEncode(Request.Url.ToString())')"><i class="fa fa-twitter"></i> Tweet</a>
+                                <a style="cursor:pointer" class="home-page" onclick="showPopup('http://twitter.com/home?status=@HttpUtility.UrlEncode(Request.Url.ToString())')"><i class="fa fa-twitter"></i>Tweet</a>
                             </li>
                         </ul>
                     </nav>
@@ -73,12 +73,12 @@ content="@ViewBag.Topic.Img" />
                     <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
                 </li>
                 <li class="menu-item">
-                    <a onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')" data-hover="" class=""><i class="fa fa-facebook"></i> Share</a>
+                    <a onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')" data-hover="" class=""><i class="fa fa-facebook"></i>Share</a>
 
 
                 </li>
                 <li class="menu-item">
-                    <a onclick="showPopup('http://twitter.com/home?status=@HttpUtility.UrlEncode(Request.Url.ToString())')"  data-hover="" class=""><i class="fa fa-twitter"></i> Tweet</a>
+                    <a onclick="showPopup('http://twitter.com/home?status=@HttpUtility.UrlEncode(Request.Url.ToString())')"  data-hover="" class=""><i class="fa fa-twitter"></i>Tweet</a>
                 </li>
             </ul>
         </div>
@@ -122,7 +122,7 @@ content="@ViewBag.Topic.Img" />
                     counter++;
                     if (Tag.Trim().Length > 0)
                     {
-                        if (Current != null && Current.Tags.ToLower().Contains("#"+Tag.ToLower()))
+                        if (Current != null && Current.Tags.ToLower().Contains("#" + Tag.ToLower()))
                         {
                 <a class="btn btn-dark" data-hover="Button">@Tag</a>
                         }
@@ -134,6 +134,21 @@ content="@ViewBag.Topic.Img" />
                 }
             }
         </div>
+        @{
+            SundooqLanding.Models.Users Current2 = (SundooqLanding.Models.Users)Session["User"];
+            if (Current2== null)
+            {
+            <div id="guestdiv" style="border-top: 2px solid #666; font-size: 16px; padding: 1%; opacity: .9; display: block; position: fixed; width: 100%; bottom: 0px; left: 0px; background-color: #fff">
+                <b>SUNDOQ is your morning coffee.</b>
+                <br />
+                In one place, follow and read your favourite topics from around the web. 
+                                        <br />
+                Rid your inbox of newsletters overload, and keep social media for socializing!
+            <br />
+                <a href="/#register">Try it now</a>
+            </div>
+            }
+        }
         <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" id="topicframe" frameborder="0" src="" width="100%" height="650px" />
     </section>
     <section id="footer" class="">

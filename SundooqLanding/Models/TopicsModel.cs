@@ -56,10 +56,19 @@ namespace SundooqLanding.Models
             Users Current = HttpContext.Current.Session["User"] as Users;
             if (Current == null)
                 return null;
-            DateTime limit = DateTime.Now.AddDays(-7);
+            DateTime limit = DateTime.Now.AddDays(-1);
             List<Topics> Topics = new List<Models.Topics>();
-            var dbTopics = db.Topics.Where(p => p.PubDate >= limit).ToList().Where(p => p.CustomRank > 0 && !Current.History.Any(t => t.TopicId == p.Id));
-            return dbTopics.Distinct( new DistinctItemComparer());
+            if (db.Topics.Where(p => p.PubDate >= limit).Count() > 2500)
+            {
+                var dbTopics = db.Topics.Where(p => p.PubDate >= limit).ToList().Where(p => p.CustomRank > 0 && !Current.History.Any(t => t.TopicId == p.Id));
+                return dbTopics.Distinct(new DistinctItemComparer());
+            }
+            else
+            {
+                limit = DateTime.Now.AddDays(-2);
+                var dbTopics = db.Topics.Where(p => p.PubDate >= limit).ToList().Where(p => p.CustomRank > 0 && !Current.History.Any(t => t.TopicId == p.Id));
+                return dbTopics.Distinct(new DistinctItemComparer());
+            }
         }
     }
     class DistinctItemComparer : IEqualityComparer<Topics>
@@ -68,13 +77,12 @@ namespace SundooqLanding.Models
         public bool Equals(Topics x, Topics y)
         {
             return x.URL == y.URL||
-                x.URL == y.URL;
+                x.Title == y.Title;
         }
 
         public int GetHashCode(Topics obj)
         {
-            return obj.URL.GetHashCode()^
-                obj.Title.GetHashCode();
+            return obj.Title.GetHashCode();
         }
     }
 }

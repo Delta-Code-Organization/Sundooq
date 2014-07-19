@@ -208,36 +208,9 @@
     <Content Include="img\twitter-login-button.png" />
     <Content Include="img\facebook-login-button.png" />
     <Content Include="js\HegabLoader.js" />
-    <Content Include="js\enquire.js" />
     <Content Include="js\HegabLoader.js" />
     <Content Include="js\jquery-2.1.0.min.js" />
-    <Content Include="js\jquery-ui-1.11.0.custom\external\jquery\jquery.js" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\animated-overlay.gif" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_flat_65_ffffff_40x100.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_glass_75_fff_1x400.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-bg_highlight-soft_75_fff_1x100.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-icons_222222_256x240.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-icons_454545_256x240.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-icons_4c4c4c_256x240.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="js\jquery-ui-1.11.0.custom\index.html" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.css" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.js" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.min.css" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.min.js" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.structure.css" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.structure.min.css" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.theme.css" />
-    <Content Include="js\jquery-ui-1.11.0.custom\jquery-ui.theme.min.css" />
-    <Content Include="js\jquery.imagesloaded.js" />
     <Content Include="js\jQuery.Mobile.js" />
-    <Content Include="js\jquery.touchwipe.1.1.1.js" />
     <Content Include="screen_scripts\activate.js" />
     <Content Include="screen_scripts\InviteGmailFriends.js" />
     <Content Include="screen_scripts\sendreset.js" />
@@ -256,14 +229,11 @@
     <Content Include="js\main.js" />
     <Content Include="js\modernizr-2.6.2.min.js" />
     <Content Include="js\owl.carousel.js" />
-    <Content Include="js\scrollspy.js" />
-    <Content Include="js\tooltip.js" />
-    <Content Include="js\transit.js" />
-    <Content Include="js\transition.js" />
-    <Content Include="js\waypoints.min.js" />
     <Content Include="less\custom.css" />
     <Content Include="img\loader.gif" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

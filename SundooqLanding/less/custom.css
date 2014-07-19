@@ -11449,24 +11449,24 @@ you can use the generic selector below, but it's slower:
             opacity: 0;
         }
 
-#contact {
+#register {
     margin-bottom: 0 !important;
 }
 
-#contact-form {
+#reg-form {
     overflow: hidden;
 }
 
-    #contact-form .input-wrapper {
+    #reg-form .input-wrapper {
         padding: 15px;
     }
 
-    #contact-form > .input-wrapper {
+    #reg-form > .input-wrapper {
         width: 50%;
         float: left;
     }
 
-        #contact-form > .input-wrapper input {
+        #reg-form > .input-wrapper input {
             background: #ededed;
             border: 2px solid #ededed;
             height: 60px;
@@ -11477,32 +11477,32 @@ you can use the generic selector below, but it's slower:
             border-radius: 6px;
         }
 
-            #contact-form > .input-wrapper input::-moz-placeholder {
+            #reg-form > .input-wrapper input::-moz-placeholder {
                 color: #aaaaaa;
                 opacity: 1;
             }
 
-            #contact-form > .input-wrapper input:-ms-input-placeholder {
+            #reg-form > .input-wrapper input:-ms-input-placeholder {
                 color: #aaaaaa;
             }
 
-            #contact-form > .input-wrapper input::-webkit-input-placeholder {
+            #reg-form > .input-wrapper input::-webkit-input-placeholder {
                 color: #aaaaaa;
             }
 
-    #contact-form input[type=text],
-    #contact-form textarea {
+    #reg-form input[type=text],
+    #reg-form textarea {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         margin-bottom: 4px;
     }
 
-    #contact-form .message {
+    #reg-form .message {
         width: 100%;
     }
 
-    #contact-form textarea {
+    #reg-form textarea {
         background: #ededed;
         border: 2px solid #ededed;
         width: 100%;
@@ -11515,32 +11515,32 @@ you can use the generic selector below, but it's slower:
         margin-bottom: 4px;
     }
 
-        #contact-form textarea::-moz-placeholder {
+        #reg-form textarea::-moz-placeholder {
             color: #aaaaaa;
             opacity: 1;
         }
 
-        #contact-form textarea:-ms-input-placeholder {
+        #reg-form textarea:-ms-input-placeholder {
             color: #aaaaaa;
         }
 
-        #contact-form textarea::-webkit-input-placeholder {
+        #reg-form textarea::-webkit-input-placeholder {
             color: #aaaaaa;
         }
 
-    #contact-form .btn-submit {
+    #reg-form .btn-submit {
         width: 100%;
         overflow: hidden;
         text-align: center;
     }
 
-        #contact-form .btn-submit .button-send {
+        #reg-form .btn-submit .button-send {
             margin: 15px;
             font-weight: 100;
             letter-spacing: 1px;
         }
 
-    #contact-form .message-success {
+    #reg-form .message-success {
         right: 0;
     }
 
@@ -13748,7 +13748,7 @@ blockquote {
         width: 50%;
     }
 
-    #contact-form > .input-wrapper {
+    #reg-form > .input-wrapper {
         width: 100%;
     }
 

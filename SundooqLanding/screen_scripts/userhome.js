@@ -31,7 +31,7 @@ function ScrollHandler(e) {
     clearTimeout(_throttleTimer);
     _throttleTimer = setTimeout(function () {
         console.log('scroll');
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
             loadMore();
         }
     });
