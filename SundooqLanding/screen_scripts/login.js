@@ -32,7 +32,7 @@
                             var mail = $('#email').val();
                             var pass = $('#password').val();
                             //disable the button 
-                            var data = {'_mail':mail,'_password':pass};
+                            var data = { '_mail': mail, '_password': pass };
                             $("#log-form-btn").attr('disabled', 'disabled');
                             ShowLoader('Welcome Back! Please hold on while loading Your Feeds.');
                             $.ajax({
@@ -120,7 +120,7 @@ function checkLoginState() {
 
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '511493132284905',
+        appId: '354831701310539',
         cookie: true,  // enable cookies to allow the server to access 
         // the session
         status: false,
@@ -159,12 +159,33 @@ function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function (response) {
         console.log('Successful login for: ' + response.name);
+        alert("Success login");
         console.log(
           'Thanks for logging in, ' + response.name + '!');
     });
 }
+
 function fb_login() {
-    ShowLoader("Signing up with facebook...");
-    checkLoginState();
-    HideLoader();
+    FB.login(function (response) {
+        if (response.status == "connected") {
+            ShowLoader("Signing up with facebook...");
+            FB.api('/me', function (response) {
+                $.ajax({
+                    url: '/User/FacebookLogin',
+                    type: 'post',
+                    data: { '_code': response.id },
+                    success: function (data) {
+                        location.href = "/User/Home";
+                    },
+                    error: function (data) {
+                        console.log("Error while  loging: " + data);
+                    }
+                });
+                HideLoader();
+            });
+        } else {
+            console.log('User cancelled login or did not fully authorize.');
+            FB.login();
+        }
+    });
 }

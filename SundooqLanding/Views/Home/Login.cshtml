@@ -13,6 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="/less/custom.css">
+    <script src="http://connect.facebook.net/en_US/sdk.js"></script>
     <script src="/js/jquery-2.1.0.min.js"></script>
     <script src="/js/modernizr-2.6.2.min.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
@@ -21,6 +22,20 @@
     <script src="~/js/HegabLoader.js"></script>
 </head>
 <body class="yo-anim-enabled">
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TSJ9LX"
+            height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TSJ9LX');</script>
+    <!-- End Google Tag Manager -->
     <section id="mini-navbar" class="main-navbar hidden-xs hidden-sm">
         <div class="nav">
             <div class="container">
@@ -96,8 +111,8 @@
                 <div class="col-md-10 col-md-offset-1 contact-form">
                     <form id="login-form" name="login-form" class="form">
                         <div id="msg" class="alert alert-success hidden"></div>
-@*                       <div class="col-md-12 hidden" style="text-align: center;">
-                            <a href="#" onclick="fb_login();">
+                       <div class="col-md-12" style="text-align: center;">
+                            <a href="javascript:fb_login();">
                                 <img src="~/img/facebook-login-button.png"></a>
                             <br />
                             <br />
@@ -107,7 +122,7 @@
                         <div class="col-md-12">
                             <hr />
 
-                        </div>*@
+                        </div>
                         <div class="input-wrapper">
                             <input class="contact-form form-name-error" type="text" placeholder="Your email address" name="email" id="email">
                         </div>

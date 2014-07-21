@@ -50,6 +50,7 @@ namespace SundooqLanding.Controllers
                 return RedirectToAction("Home", "User");
             return View();
         }
+
         [HttpPost]
         public JsonResult Index(string _mail, string _password)
         {
@@ -62,6 +63,7 @@ namespace SundooqLanding.Controllers
             result.result = success;
             return Json(result);
         }
+
         public ActionResult login()
         {
             return View();
@@ -79,6 +81,5 @@ namespace SundooqLanding.Controllers
         {
             return View();
         }
-
     }
 }

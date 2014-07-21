@@ -196,5 +196,43 @@ namespace SundooqLanding.Models
             }
             return Tags;
         }
+
+        public Users FBLogin()
+        {
+            if (db.Users.Any(p => p.Email == this.Email && p.Password == this.Password))
+            {
+                return db.Users.Where(p => p.Email == this.Email && p.Password == this.Password).SingleOrDefault();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Users FBRegister()
+        {
+            string Msg;
+            if (db.Users.Any(p => p.Email == this.Email))
+            {
+                return null;
+            }
+            else
+            {
+                Msg = "Hello " + this.Email;
+                Msg += "<br/>Thank you for registering with SUNDOQ. You did the right thing!";
+                Msg += "<br/>Please verify your e-mail address by clicking on the following link: <a href='" + baseUrl + "User/Activate/" + this.Tags + "'>Activate My Account</a>";
+                Msg += "<br/><strong>What’s Next ?</strong>";
+                Msg += "<br/>Once you activate your account, you will be able to follow your favorite sources and/or tags. Please select at least 3 sources to build your feeds.";
+                Msg += "<br/><br/><strong>How to follow/unfollow new sources or tags?</strong>";
+                Msg += "<br/>- On your feeds page, by clicking the small tag icon over topic’s image, you will view topic’s tags and you can follow/unfollow any of them.";
+                Msg += "<br/>- On the article’s page, by clicking the small tag icon on the top bar, you will view topic’s tags and you can follow/unfollow any of them.";
+                Msg += "<br/>- You can also visit your Account page to follow/unfollow any sources or tags";
+                Msg += "<br/>Because we use SUNDOQ, we have clearer inboxes. Forget about the “no reply” dull rule and feel free to reply to any of our emails. We will get back to you very soon.";
+                db.Users.Add(this);
+                db.SaveChanges();
+                Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg, MailTypes.Register, this.Id);
+                return this;
+            }
+        }
     }
 }
