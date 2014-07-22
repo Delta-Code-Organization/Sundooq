@@ -175,3 +175,12 @@ function filtermoresources() {
         }
     });
 }
+
+$(document).ready(function () {
+    $("#CustomTag").keyup(function (event) {
+        if (event.keyCode == 13) {
+            var Tagname = $('#CustomTag').val();
+            $('#TagsTabToAppendTo').append('<a class="btn btn-dark tagsbtn">' + Tagname + '</a>&nbsp');
+        }
+    });
+});

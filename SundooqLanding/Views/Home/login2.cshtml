@@ -111,9 +111,11 @@
                 <div class="col-md-10 col-md-offset-1 contact-form">
                     <form id="login-form" name="login-form" class="form">
                         <div id="msg" class="alert alert-success hidden"></div>
-                       <div class="col-md-12 hidden" style="text-align: center;">
+                       <div class="col-md-12" style="text-align: center;">
                             <a href="javascript:fb_login();">
                                 <img src="~/img/facebook-login-button.png"></a>
+                           <a href="javascript:tw_login('@ViewBag.TwitterLoginUrl')">
+                                <img src="~/img/twitter-login-button.png"></a>
                             <br />
                             <br />
                             Or

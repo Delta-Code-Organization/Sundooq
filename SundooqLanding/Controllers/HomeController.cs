@@ -5,10 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using SundooqLanding.Models;
 
+using Spring.Social.OAuth1;
+using Spring.Social.Twitter.Api;
+using Spring.Social.Twitter.Connect;
+
 namespace SundooqLanding.Controllers
 {
     public class HomeController : Controller
     {
+
+        #region Twitter Consumer Key and Secret
+        private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
+        private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
+
+        IOAuth1ServiceProvider<ITwitter> twitterProvider =
+            new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
+        #endregion
         //
         // GET: /Home/
 
@@ -66,20 +78,36 @@ namespace SundooqLanding.Controllers
 
         public ActionResult login()
         {
+            OAuthToken requestToken = twitterProvider.OAuthOperations.FetchRequestTokenAsync("http://localhost:4508/User/AuthorizeCallback", null).Result;
+            Session["RequestToken"] = requestToken;
+            ViewBag.TwitterLoginUrl = twitterProvider.OAuthOperations.BuildAuthenticateUrl(requestToken.Value, null);
             return View();
         }
+
+        public ActionResult login2()
+        {
+            OAuthToken requestToken = twitterProvider.OAuthOperations.FetchRequestTokenAsync("http://localhost:4508/User/AuthorizeCallback", null).Result;
+            Session["RequestToken"] = requestToken;
+            ViewBag.TwitterLoginUrl = twitterProvider.OAuthOperations.BuildAuthenticateUrl(requestToken.Value, null);
+            return View();
+        }
+
         public ActionResult logout()
         {
             Session.Clear();
             return View("index");
         }
+
         public ActionResult article()
         {
             return View();
         }
+
         public ActionResult error()
         {
             return View();
         }
+
+
     }
 }

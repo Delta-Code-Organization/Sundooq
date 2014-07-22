@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SundooqDBModelStoreContainer">
-          <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Emails" EntityType="SundooqDBModel.Store.Emails" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Sources" EntityType="SundooqDBModel.Store.Sources" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Topics" EntityType="SundooqDBModel.Store.Topics" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Users" EntityType="SundooqDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Emails" EntityType="SundooqDBModel.Store.Emails" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Sources" EntityType="SundooqDBModel.Store.Sources" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Topics" EntityType="SundooqDBModel.Store.Topics" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Users" EntityType="SundooqDBModel.Store.Users" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_Emails_Users" Association="SundooqDBModel.Store.FK_Emails_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Emails" EntitySet="Emails" />
@@ -153,7 +153,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="SundooqDBEntities2" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="SundooqDBModel.Admins" />
           <EntitySet Name="History" EntityType="SundooqDBModel.History" />
@@ -289,7 +289,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="DateTime" Name="Date" Precision="3" />
           <Property Type="Int32" Name="User" />
           <Property Type="Int32" Name="Type" />
@@ -411,6 +411,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams />
   </Designer>
 </edmx:Edmx>

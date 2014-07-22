@@ -189,3 +189,24 @@ function fb_login() {
         }
     });
 }
+
+function tw_login(url) {
+    var w = 700;
+    var h = 500;
+    var left = (screen.width / 2) - (w / 2);
+    var top = (screen.height / 2) - (h / 2);
+    var myWindow = window.open(url, 'Sundoq login using twitter', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    var timer = setInterval(function () {
+        checkVentana(myWindow);
+    }, 500);
+}
+
+function checkVentana(myWindow) {
+    try {
+        var ur = myWindow.location.href;
+        if (ur.indexOf('/User/Home') != -1 || ur.indexOf('/User/Activate') != -1) {
+            myWindow.close();
+            location.href = ur;
+        }
+    } catch (e) { }
+}

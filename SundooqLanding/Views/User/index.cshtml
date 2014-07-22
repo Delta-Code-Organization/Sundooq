@@ -175,7 +175,12 @@
                         <input class="contact-form form-subject-error" onkeyup="filtertags()" type="text" value="" placeholder="Filter your tags" name="tagfilter" id="tagfilter">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row form">
+                    <div class="input-wrapper">
+                        <input class="contact-form form-subject-error" type="text" value="" placeholder="Write any tag and click enter" name="CustomTag" id="CustomTag">
+                    </div>
+                </div>
+                <div class="row" id="TagsTabToAppendTo">
                     <p class="smalltxt">Search your tags to unfolllow</p>
                     @foreach (string tag in ViewBag.User.Tags.Split('#'))
                     {
