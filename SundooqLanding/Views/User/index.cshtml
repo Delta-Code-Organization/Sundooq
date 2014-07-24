@@ -127,6 +127,9 @@
                     <div class="input-wrapper">
                         <input class="contact-form form-name-error" disabled type="text" value="@ViewBag.User.Email" name="email" id="email">
                     </div>
+                    <div class="input-wrapper">
+                            <input class="contact-form form-name-error" type="text" placeholder="Your full name" value="@ViewBag.User.Fullname" name="Fullname" id="Fullname">
+                        </div>
                     <div class="clearfix"></div>
                     @if (@ViewBag.User.Password != null && @ViewBag.User.Password != "xyzwxyzw")
                     {

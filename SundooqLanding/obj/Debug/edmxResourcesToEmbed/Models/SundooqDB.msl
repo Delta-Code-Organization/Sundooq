@@ -22,6 +22,7 @@
     <EntitySetMapping Name="Sources">
       <EntityTypeMapping TypeName="SundooqDBModel.Sources">
         <MappingFragment StoreEntitySet="Sources">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SourceName" ColumnName="SourceName" />
           <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
@@ -55,6 +56,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="SundooqDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
           <ScalarProperty Name="Registered" ColumnName="Registered" />
           <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
           <ScalarProperty Name="IgnoredTags" ColumnName="IgnoredTags" />

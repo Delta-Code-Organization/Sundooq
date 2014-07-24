@@ -51,7 +51,7 @@ function loadMore() {
                 html += '<div class="row">\
                         <div id="scroll'+ scroll + '" class="col-sm-7 col-md-7">\
                         <i class="icon-tag tagicon" data-tags="' + data[0].Tags + '"></i>\
-                        <a style="color:#000" href="/Topics/View/' + data[0].Id + '">\
+                        <a style="color:#000" target="_blank" href="/Topics/View/' + data[0].Id + '">\
                         <img class="timg" src="' + data[0].Img + '" />\
                         <h3>'+ data[0].Title + '</h3>\
                         <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + parseInt(data[0].TW) + parseInt(data[0].FB) + '</h4>\
@@ -61,7 +61,7 @@ function loadMore() {
                         </div>\
                         <div class="col-sm-5 col-md-5">\
                         <i class="icon-tag tagicon" data-tags="' + data[1].Tags + '"></i>\
-                        <a style="color:#000" href="/Topics/View/' + data[1].Id + '">\
+                        <a style="color:#000" target="_blank" href="/Topics/View/' + data[1].Id + '">\
                         <img class="timg" src="' + data[1].Img + '" />\
                         <h3>'+ data[1].Title + '</h3>\
                         <h4 class="RankBadge" data-fbn="' + data[1].FB + '" data-twn="' + data[1].TW + '">' + parseInt(data[1].TW) + parseInt(data[1].FB) + '</h4>\
@@ -75,7 +75,7 @@ function loadMore() {
             if (data.length > 2) {
                 html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[2].Tags + '"></i>\
-                        <a style="color:#000" href="/Topics/View/' + data[2].Id + '">\
+                        <a target="_blank" style="color:#000" href="/Topics/View/' + data[2].Id + '">\
                         <img class="timg" src="' + data[2].Img + '" />\
                         <h3>'+ data[2].Title + '</h3>\
                         <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + parseInt(data[2].TW) + parseInt(data[2].FB) + '</h4>\
@@ -86,7 +86,7 @@ function loadMore() {
             if (data.length > 3) {
                 html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[3].Tags + '"></i>\
-                        <a style="color:#000" href="/Topics/View/' + data[3].Id + '">\
+                        <a style="color:#000" target="_blank" href="/Topics/View/' + data[3].Id + '">\
                         <img class="timg" src="' + data[3].Img + '" />\
                         <h3>'+ data[3].Title + '</h3>\
                         <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + (parseInt(data[3].TW) + parseInt(data[3].FB)) + '</h4>\
@@ -97,7 +97,7 @@ function loadMore() {
             if (data.length > 4) {
                 html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[4].Tags + '"></i>\
-                        <a style="color:#000" href="/Topics/View/' + data[4].Id + '">\
+                        <a style="color:#000" target="_blank" href="/Topics/View/' + data[4].Id + '">\
                         <img class="timg" src="' + data[4].Img + '" />\
                         <h3>'+ data[4].Title + '</h3>\
                         <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + parseInt(data[4].TW) + parseInt(data[4].FB) + '</h4>\

@@ -34,6 +34,10 @@ $(document).ready(function () {
                         dob: {
                             required: true
                         },
+                        Fullname: {
+                            required: true,
+                            minlength: 5
+                        },
                         gender: {
                             required: true
                         }
@@ -55,6 +59,10 @@ $(document).ready(function () {
                         dob: {
                             required: "Please enter your birthdate"
                         },
+                        Fullname: {
+                            required: "Please enter your full name",
+                            minlength: "your full name can't be less than 5 characters"
+                        },
                         gender: {
                             required: "Please select your gender"
                         }
@@ -67,11 +75,13 @@ $(document).ready(function () {
                             var pass = $('#password').val();
                             var gender = $('#gender').val();
                             var dob = $('#dob').val();
+                            var fn = $('#Fullname').val();
                             var data = {
                                 '_mail': mail,
                                 '_password': pass,
                                 '_gender': gender,
-                                '_dob': dob
+                                '_dob': dob,
+                                '_Fullname': fn
                             };
                             //disable the button 
 
@@ -145,6 +155,7 @@ $(document).ready(function () {
         $('.' + $(this).data('div')).removeClass('hidden');
     });
 });
+
 function filtertags() {
     $('.tagsbtn').each(function () {
         if ($(this).html().toLowerCase().indexOf($('#tagfilter').val().toLowerCase()) > -1) {
@@ -180,7 +191,18 @@ $(document).ready(function () {
     $("#CustomTag").keyup(function (event) {
         if (event.keyCode == 13) {
             var Tagname = $('#CustomTag').val();
-            $('#TagsTabToAppendTo').append('<a class="btn btn-dark tagsbtn">' + Tagname + '</a>&nbsp');
+            var TagExist = false;
+            $('.tagsbtn').each(function () {
+                if ($(this).html().toLowerCase() == Tagname.toLowerCase()) {
+                    TagExist = true;
+                }
+            });
+            if (TagExist == false) {
+                $('#TagsTabToAppendTo').append('<a class="btn btn-dark tagsbtn">' + Tagname + '</a>&nbsp');
+            }
+            else {
+                TagExist = true;
+            }
         }
     });
 });

@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SundooqDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SundooqDBModelStoreContainer">
-          <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Emails" EntityType="SundooqDBModel.Store.Emails" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Sources" EntityType="SundooqDBModel.Store.Sources" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Topics" EntityType="SundooqDBModel.Store.Topics" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Users" EntityType="SundooqDBModel.Store.Users" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Admins" EntityType="SundooqDBModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Emails" EntityType="SundooqDBModel.Store.Emails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="History" EntityType="SundooqDBModel.Store.History" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sources" EntityType="SundooqDBModel.Store.Sources" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Topics" EntityType="SundooqDBModel.Store.Topics" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="SundooqDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Emails_Users" Association="SundooqDBModel.Store.FK_Emails_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Emails" EntitySet="Emails" />
@@ -66,6 +66,7 @@
           <Property Name="URL" Type="nvarchar(max)" />
           <Property Name="Rank" Type="int" />
           <Property Name="Status" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Topics">
           <Key>
@@ -101,6 +102,7 @@
           <Property Name="IgnoredTags" Type="nvarchar(max)" />
           <Property Name="LastLogin" Type="datetime" />
           <Property Name="Registered" Type="datetime" />
+          <Property Name="Fullname" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Emails_Users">
           <End Role="Users" Type="SundooqDBModel.Store.Users" Multiplicity="0..1" />
@@ -209,6 +211,7 @@
           <Property Name="Rank" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="Topics" Relationship="SundooqDBModel.FK_Topics_Sources" FromRole="Sources" ToRole="Topics" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Topics">
           <Key>
@@ -248,6 +251,7 @@
           <Property Type="DateTime" Name="LastLogin" Precision="3" />
           <Property Type="DateTime" Name="Registered" Precision="3" />
           <NavigationProperty Name="Emails" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Users" ToRole="Email" />
+          <Property Type="String" Name="Fullname" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_History_Topics">
           <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
@@ -334,6 +338,7 @@
           <EntitySetMapping Name="Sources">
             <EntityTypeMapping TypeName="SundooqDBModel.Sources">
               <MappingFragment StoreEntitySet="Sources">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SourceName" ColumnName="SourceName" />
                 <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
@@ -367,6 +372,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SundooqDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
                 <ScalarProperty Name="Registered" ColumnName="Registered" />
                 <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
                 <ScalarProperty Name="IgnoredTags" ColumnName="IgnoredTags" />

@@ -22,6 +22,10 @@
                         dob: {
                             required: true
                         },
+                        Fullname: {
+                            required: true,
+                            minlength: 5
+                        },
                         gender: {
                             required: true
                         }
@@ -43,6 +47,10 @@
                         dob: {
                             required: "Please enter your birthdate"
                         },
+                        Fullname: {
+                            required: "Please enter your full name",
+                            minlength: "your full name can't be less than 5 characters"
+                        },
                         gender: {
                             required: "Please select your gender"
                         }
@@ -55,10 +63,11 @@
                             var pass = $('#password').val();
                             var gender = $('#gender').val();
                             var dob = $('#dob').val();
+                            var fn = $('#Fullname').val();
                             var tags = "";
                             $('.btn-dark').each(function () {
                                 if ($(this).text().length > 0)
-                                tags += "#" + $(this).text().trim();
+                                    tags += "#" + $(this).text().trim();
                             });
                             if (tags.split('#').length < 10) {
                                 $("#msg").removeClass("hidden");
@@ -78,10 +87,11 @@
                                 '_password': pass,
                                 '_gender': gender,
                                 '_dob': dob,
-                                '_tags': tags
+                                '_tags': tags,
+                                '_Fullname': fn
                             };
                             //disable the button 
-                            
+
                             //$("#act-form-btn").attr('disabled', 'disabled');
                             //$("#act-form-btn").after('<img id="loader" src="/img/loader.gif"/>');
                             ShowLoader('Please wait, Updating your account...');
@@ -145,8 +155,7 @@
 });
 
 
-function CollapseCont(Detector)
-{
+function CollapseCont(Detector) {
     $('#TagsCont' + Detector).slideToggle(400);
     if ($('#' + Detector).hasClass('arrow-right-open')) {
         $('#' + Detector).removeClass('arrow-right-open');

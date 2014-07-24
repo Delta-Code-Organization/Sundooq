@@ -96,6 +96,11 @@ namespace SundooqLanding.Controllers
         public ActionResult filter(string id)
         {
             string keyword = System.Web.HttpUtility.UrlDecode(id);
+            string SourceDescription;
+            using (SundooqDBEntities2 entity = new SundooqDBEntities2())
+            {
+                SourceDescription = entity.Sources.Where(p => p.SourceName.ToLower() == keyword.ToLower()).FirstOrDefault().Description;
+            }
             SundooqDBEntities2 db = new SundooqDBEntities2();
             List<Topics> LOT = new List<Topics>();
             LOT = db.Topics.Where(t => t.Tags.ToLower().Contains(keyword.ToLower())).ToList();
@@ -105,6 +110,7 @@ namespace SundooqLanding.Controllers
             TempData["LoadedToUser"] = LOT.Skip(0).Take(9).ToList();
             TempData.Keep();
             ViewBag.sourcename = System.Web.HttpUtility.UrlDecode(id);
+            ViewBag.Description = SourceDescription;
             return View();
         }
         public JsonResult GetNext(string _url)

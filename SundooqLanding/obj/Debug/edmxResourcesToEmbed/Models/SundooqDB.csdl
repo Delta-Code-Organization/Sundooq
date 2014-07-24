@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="SundooqDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
   <EntityContainer Name="SundooqDBEntities2" p1:LazyLoadingEnabled="true">
     <EntitySet Name="Admins" EntityType="SundooqDBModel.Admins" />
     <EntitySet Name="History" EntityType="SundooqDBModel.History" />
@@ -55,6 +55,7 @@
     <Property Name="Rank" Type="Int32" />
     <Property Name="Status" Type="Int32" />
     <NavigationProperty Name="Topics" Relationship="SundooqDBModel.FK_Topics_Sources" FromRole="Sources" ToRole="Topics" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Topics">
     <Key>
@@ -94,6 +95,7 @@
     <Property Type="DateTime" Name="LastLogin" Precision="3" />
     <Property Type="DateTime" Name="Registered" Precision="3" />
     <NavigationProperty Name="Emails" Relationship="SundooqDBModel.FK_Emails_Users" FromRole="Users" ToRole="Email" />
+    <Property Type="String" Name="Fullname" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_History_Topics">
     <End Role="Topics" Type="SundooqDBModel.Topics" Multiplicity="1" />
@@ -135,7 +137,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="DateTime" Name="Date" Precision="3" />
     <Property Type="Int32" Name="User" />
     <Property Type="Int32" Name="Type" />

@@ -26,6 +26,7 @@ namespace SundooqLanding.Models
         public string URL { get; set; }
         public Nullable<int> Rank { get; set; }
         public Nullable<int> Status { get; set; }
+        public string Description { get; set; }
     
         public virtual ICollection<Topics> Topics { get; set; }
     }

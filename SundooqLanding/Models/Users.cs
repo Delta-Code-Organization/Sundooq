@@ -31,6 +31,7 @@ namespace SundooqLanding.Models
         public string IgnoredTags { get; set; }
         public Nullable<System.DateTime> LastLogin { get; set; }
         public Nullable<System.DateTime> Registered { get; set; }
+        public string Fullname { get; set; }
     
         public virtual ICollection<History> History { get; set; }
         public virtual ICollection<Email> Emails { get; set; }

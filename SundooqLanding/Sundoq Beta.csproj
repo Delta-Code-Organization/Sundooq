@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,10 +39,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Apps, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e6feebfe441b89cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -59,8 +69,21 @@
       <HintPath>C:\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spring.Rest, Version=1.1.1.35040, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Spring.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Social.Core, Version=1.0.1.35140, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Spring.Social.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Social.Twitter, Version=2.0.0.3940, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Spring.Social.Twitter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -69,12 +92,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -124,6 +144,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -135,15 +156,18 @@
     <Compile Include="Models\Admins.cs">
       <DependentUpon>SundooqDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Email.cs">
       <DependentUpon>SundooqDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FacebookService.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\History.cs">
       <DependentUpon>SundooqDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JSONReply.cs" />
     <Compile Include="Models\MailTypes.cs" />
+    <Compile Include="Models\RegisteredUsing.cs" />
     <Compile Include="Models\Sources.cs">
       <DependentUpon>SundooqDB.tt</DependentUpon>
     </Compile>
@@ -176,6 +200,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Readme\Spring.Rest.txt" />
+    <Content Include="App_Readme\Spring.Social.Core.txt" />
+    <Content Include="App_Readme\Spring.Social.Twitter.txt" />
     <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.svg" />
     <Content Include="fonts\fontello-arrows\css\animation.css" />
     <Content Include="fonts\fontello-arrows\css\fontello-codes.css" />
@@ -205,6 +232,7 @@
     <Content Include="img\multiplatform.png" />
     <Content Include="img\not.png" />
     <Content Include="img\pop.png" />
+    <Content Include="img\sign-in-with-twitter_0.png" />
     <Content Include="img\twitter-login-button.png" />
     <Content Include="img\facebook-login-button.png" />
     <Content Include="js\HegabLoader.js" />
@@ -212,6 +240,8 @@
     <Content Include="js\jquery-2.1.0.min.js" />
     <Content Include="js\jQuery.Mobile.js" />
     <Content Include="screen_scripts\activate.js" />
+    <Content Include="screen_scripts\Filter.js" />
+    <Content Include="screen_scripts\History.js" />
     <Content Include="screen_scripts\InviteGmailFriends.js" />
     <Content Include="screen_scripts\sendreset.js" />
     <Content Include="screen_scripts\reset.js" />
@@ -249,6 +279,7 @@
     <Content Include="Views\User\sendreset.cshtml" />
     <Content Include="Views\User\InviteGmailFriends.cshtml" />
     <Content Include="Views\User\InviteFriends.cshtml" />
+    <Content Include="Views\Home\login2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

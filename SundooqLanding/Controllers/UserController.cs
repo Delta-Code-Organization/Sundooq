@@ -279,7 +279,7 @@ namespace SundooqLanding.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(string _mail, string _password, string _gender, string _dob, string _tags = "")
+        public JsonResult Update(string _mail, string _password, string _gender, string _dob, string _tags = "", string _Fullname = "")
         {
             Users CurrentUser = (Users)Session["User"];
             JSONReply result = new JSONReply();
@@ -294,6 +294,7 @@ namespace SundooqLanding.Controllers
             CurrentUser.Password = _password;
             CurrentUser.DateOfBirth = DateTime.Parse(_dob);
             CurrentUser.Gender = int.Parse(_gender);
+            CurrentUser.Fullname = _Fullname;
             if (_tags.Length > 1)
                 CurrentUser.Tags = _tags;
             CurrentUser.AccountStatus = 2;
