@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sundoq- Activate My Account</title>
+    <title>SUNDOQ - Activate My Account</title>
     <meta name="description" content="">
     <meta name="msapplication-tap-highlight" content="no" />
     <link rel="icon"
@@ -109,8 +109,10 @@
         <header class="section-header clearfix">
             <h1 class="pull-right dark-header">My Account</h1>
         </header>
+       
         <div class="container">
             <div class="row">
+                 <p>Thanks for registration with SUNDOQ, please fill your account and select 10 tags or sources to follow from below</p>
                 <div class="col-md-10 col-md-offset-1 contact-form">
                     <form name="activate-form" class="form" id="activate-form">
                         <div id="msg" class="alert alert-success hidden"></div>
@@ -151,8 +153,7 @@
                         <br />
                         <br />
                         <br />
-                        <p>Click your favorite tags/topics to follow or unfollow from below</p>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('T');">
                                 <i id="T" class="arrow-right-open"></i><span>Technology</span>
                             </a>
@@ -166,7 +167,7 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('B');">
                                 <i id="B" class="arrow-right-open"></i><span>Business</span>
                             </a>
@@ -180,7 +181,7 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('N');">
                                 <i id="N" class="arrow-right-open"></i><span>News</span>
                             </a>
@@ -194,7 +195,7 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('H');">
                                 <i id="H" class="arrow-right-open"></i><span>Health</span>
                             </a>
@@ -208,7 +209,7 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('S');">
                                 <i id="S" class="arrow-right-open"></i><span>Sports</span>
                             </a>
@@ -222,7 +223,7 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('W');">
                                 <i id="W" class="arrow-right-open"></i><span>Women</span>
                             </a>
@@ -236,9 +237,23 @@
                                 }
                             </div>
                         </div>
-                        <div class="input-wrapper">
+                        <div class="col-md-12">
+                            <a href="javascript:CollapseCont('F');">
+                                <i id="W" class="arrow-right-open"></i><span>Funny</span>
+                            </a>
+                            <div id="TagsContF" style="display: none;">
+                                @foreach (string source in ViewBag.Fun)
+                                {
+                                    if (source.Length > 0)
+                                    {
+                                    <a class="btn btn-outline-dark">@source</a> 
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <a href="javascript:CollapseCont('O');">
-                                <i id="O" class="arrow-right-open"></i><span>Others</span>
+                                <i id="O" class="arrow-right-open"></i><span>Popular sources</span>
                             </a>
                             <div id="TagsContO" style="display: none;">
                                 @foreach (string source in ViewBag.Sources)

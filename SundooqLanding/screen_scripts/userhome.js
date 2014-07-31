@@ -31,7 +31,7 @@ function ScrollHandler(e) {
     clearTimeout(_throttleTimer);
     _throttleTimer = setTimeout(function () {
         console.log('scroll');
-        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
             loadMore();
         }
     });
@@ -53,21 +53,21 @@ function loadMore() {
                         <i class="icon-tag tagicon" data-tags="' + data[0].Tags + '"></i>\
                         <a style="color:#000" target="_blank" href="/Topics/View/' + data[0].Id + '">\
                         <img class="timg" src="' + data[0].Img + '" />\
-                        <h3>'+ data[0].Title + '</h3>\
+                         <h2 style="font-size: 30px">' + data[0].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + parseInt(data[0].TW) + parseInt(data[0].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[0].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\
+                        <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\
                         </div>\
                         <div class="col-sm-5 col-md-5">\
                         <i class="icon-tag tagicon" data-tags="' + data[1].Tags + '"></i>\
                         <a style="color:#000" target="_blank" href="/Topics/View/' + data[1].Id + '">\
                         <img class="timg" src="' + data[1].Img + '" />\
-                        <h3>'+ data[1].Title + '</h3>\
+                         <h2 style="font-size: 30px">' + data[1].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[1].FB + '" data-twn="' + data[1].TW + '">' + parseInt(data[1].TW) + parseInt(data[1].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[1].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[1].Source.SourceName) + '">' + data[1].Source.SourceName + '</a> on ' + data[1].formatedDate + '</p>\
+                        <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[1].Source.SourceName) + '">' + data[1].Source.SourceName + '</a> on ' + data[1].formatedDate + '</p>\
                         </div>\
                         </div>';
             }
@@ -77,33 +77,33 @@ function loadMore() {
                         <i class="icon-tag tagicon" data-tags="' + data[2].Tags + '"></i>\
                         <a target="_blank" style="color:#000" href="/Topics/View/' + data[2].Id + '">\
                         <img class="timg" src="' + data[2].Img + '" />\
-                        <h3>'+ data[2].Title + '</h3>\
+                         <h2 style="font-size: 30px">' + data[2].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + parseInt(data[2].TW) + parseInt(data[2].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[2].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p></div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p></div>';
             }
             if (data.length > 3) {
                 html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[3].Tags + '"></i>\
                         <a style="color:#000" target="_blank" href="/Topics/View/' + data[3].Id + '">\
                         <img class="timg" src="' + data[3].Img + '" />\
-                        <h3>'+ data[3].Title + '</h3>\
+                         <h2 style="font-size: 30px">' + data[3].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + (parseInt(data[3].TW) + parseInt(data[3].FB)) + '</h4>\
                         <p style="font-size: 14px">' + data[3].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p></div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p></div>';
             }
             if (data.length > 4) {
                 html += '<div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">\
                         <i class="icon-tag tagicon" data-tags="' + data[4].Tags + '"></i>\
                         <a style="color:#000" target="_blank" href="/Topics/View/' + data[4].Id + '">\
                         <img class="timg" src="' + data[4].Img + '" />\
-                        <h3>'+ data[4].Title + '</h3>\
+                         <h2 style="font-size: 30px">' + data[4].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + parseInt(data[4].TW) + parseInt(data[4].FB) + '</h4>\
                         <p style="font-size: 14px">' + data[4].ReadyDescription + '</p>\
                         </a>\
-                        <p style="font-size: 12px; color: #ddd"><a href="/topics/filter/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p></div>';
+                        <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p></div>';
             }
             html += '</div>';
             HideLoader();

@@ -73,11 +73,11 @@
                                 $("#msg").removeClass("hidden");
                                 $("#msg").removeClass("alert-success");
                                 $("#msg").addClass("alert-danger");
-                                $("#msg").html("What do you want to Stay Updated about? Follow at least 10 sources/tags");
+                                $("#msg").html("What do you want to Stay Updated about? Follow at least 10 sources or tags");
                                 $("#act-form-btn").removeAttr('disabled');
                                 $("#loader").remove();
                                 $('html,body').animate({
-                                    scrollTop: $("#msg").offset().top
+                                    scrollTop: $("#contact").offset().top
                                 },
            'slow');
                                 return;
@@ -117,7 +117,7 @@
                                     //$("#act-form-btn").removeAttr('disabled');
                                     //$("#loader").remove();
                                     $('html,body').animate({
-                                        scrollTop: $("#msg").offset().top
+                                        scrollTop: $("#contact").offset().top
                                     },
            'slow');
                                     HideLoader();

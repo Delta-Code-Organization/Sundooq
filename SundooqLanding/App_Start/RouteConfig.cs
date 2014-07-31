@@ -12,7 +12,11 @@ namespace SundooqLanding
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                "Source",                                           // Route name
+                "sources/{id}",                            // URL with parameters
+                new { controller = "Topics", action = "filter" }  // Parameter defaults
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

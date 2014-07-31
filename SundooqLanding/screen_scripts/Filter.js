@@ -59,7 +59,7 @@ function FilterTopics() {
                     <div class="col-md-12 col-lg-12 col-sm-12 feature item yo-anim yo-anim-fade yo-anim-start filter" data-animation-delay="100">\
                         <img style="width: 100%; height:200px;" src=" ' + Topic.Img + '" />\
                         <h3>' + Topic.Title + '</h3>\
-                        <p>' + Topic.Descr + '</p>\
+                        <p>' + Topic.ReadyDescription + '</p>\
                     </div>\
                 </a>\
             </div>';
@@ -102,7 +102,7 @@ function loadMore() {
                     <div class="col-md-12 col-lg-12 col-sm-12 feature item yo-anim yo-anim-fade yo-anim-start filter" data-animation-delay="100">\
                         <img style="width: 100%; height:200px;" src=" ' + Topic.Img + '" />\
                         <h3>' + Topic.Title + '</h3>\
-                        <p>' + Topic.Descr + '</p>\
+                        <p>' + Topic.ReadyDescription + '</p>\
                     </div>\
                 </a>\
             </div>';

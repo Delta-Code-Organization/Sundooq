@@ -26,11 +26,11 @@ namespace SundooqLanding.Controllers
     public class UserController : Controller
     {
         #region Twitter Consumer Key and Secret 
-        private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
-        private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
+        //private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
+        //private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
 
-        IOAuth1ServiceProvider<ITwitter> twitterProvider =
-            new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
+        //IOAuth1ServiceProvider<ITwitter> twitterProvider =
+        //    new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
 	#endregion
 
         //
@@ -57,7 +57,7 @@ namespace SundooqLanding.Controllers
             }
             ViewBag.User = currentUser;
             string src = "";
-            foreach (Sources s in db.Sources)
+            foreach (Sources s in db.Sources.OrderBy(p => p.SourceName))
             {
                 src += "#" + s.SourceName;
             }
@@ -108,6 +108,7 @@ namespace SundooqLanding.Controllers
             {
                 return RedirectToAction("Activate", "User");
             }
+
             if (id == "1")
             {
                 IEnumerable<Topics> topics = null;
@@ -121,7 +122,7 @@ namespace SundooqLanding.Controllers
                     topics = (List<Topics>)Session["topics"];
                 }
                 ViewBag.Sorting = 1;
-                List<Topics> lst = topics.OrderByDescending(p => p.CustomRank).ToList();
+                List<Topics> lst = topics.ToList();
                 int count = lst.Count - 1;
                 for (int i = 2; i <= lst.Count-2; i++)
                 {
@@ -147,7 +148,6 @@ namespace SundooqLanding.Controllers
                 else
                 {
                     topics = (List<Topics>)Session["topics"];
-
                 }
                 ViewBag.Sorting = 0;
                 ViewBag.Topics = topics.OrderByDescending(p => p.PubDate).ToList();
@@ -170,7 +170,7 @@ namespace SundooqLanding.Controllers
                 topics = new Topics().GetUserTopics().ToList();
                 Session["Tags"] = currentUser.Tags;
                 ViewBag.Sorting = 1;
-                List<Topics> lst = topics.OrderByDescending(p => p.CustomRank).ToList();
+                List<Topics> lst = topics.ToList();
                 int count = lst.Count - 1;
                 for (int i = 1; i <= lst.Count - 2; i++)
                 {
@@ -203,7 +203,7 @@ namespace SundooqLanding.Controllers
                 return RedirectToAction("Index", "Home");
             }
             Users U = Session["User"] as Users;
-            List<History> LOH = U.History.ToList();
+            List<History> LOH = U.History.OrderByDescending(t => t.TopicId).ToList();
             TempData["AllHistory"] = LOH;
             TempData["SkipNo"] = 0;
             ViewBag.H = LOH.Skip(0).Take(9).ToList();
@@ -344,6 +344,7 @@ namespace SundooqLanding.Controllers
                 string[] Women = WebConfigurationManager.AppSettings["Women"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 string[] Sports = WebConfigurationManager.AppSettings["Sports"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 string[] Sources = WebConfigurationManager.AppSettings["Sources"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
+                string[] Fun = WebConfigurationManager.AppSettings["Fun"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 ViewBag.Tech = Tech;
                 ViewBag.Business = Business;
                 ViewBag.Health = Health;
@@ -351,6 +352,7 @@ namespace SundooqLanding.Controllers
                 ViewBag.Women = Women;
                 ViewBag.Sports = Sports;
                 ViewBag.Sources = Sources;
+                ViewBag.Fun = Fun;
                 ViewBag.User = NewUser;
                 return View();
             }
@@ -439,50 +441,50 @@ namespace SundooqLanding.Controllers
             Session["Tags"] = user.Tags;
         }
 
-        public ActionResult AuthorizeCallback(string oauth_verifier)
-        {
-            OAuthToken requestToken = Session["RequestToken"] as OAuthToken;
-            AuthorizedRequestToken authorizedRequestToken = new AuthorizedRequestToken(requestToken, oauth_verifier);
-            OAuthToken token = twitterProvider.OAuthOperations.ExchangeForAccessTokenAsync(authorizedRequestToken, null).Result;
+        //public ActionResult AuthorizeCallback(string oauth_verifier)
+        //{
+        //    OAuthToken requestToken = Session["RequestToken"] as OAuthToken;
+        //    AuthorizedRequestToken authorizedRequestToken = new AuthorizedRequestToken(requestToken, oauth_verifier);
+        //    OAuthToken token = twitterProvider.OAuthOperations.ExchangeForAccessTokenAsync(authorizedRequestToken, null).Result;
 
-            Session["AccessToken"] = token;
+        //    Session["AccessToken"] = token;
 
-            ITwitter twitterClient = twitterProvider.GetApi(token.Value, token.Secret);
-            TwitterProfile profile = twitterClient.UserOperations.GetUserProfileAsync().Result;
-            SundooqDBEntities2 db = new SundooqDBEntities2();
-            Users U = db.Users.Where(p => p.Email == profile.ScreenName).SingleOrDefault();
-            HttpCookie myCookie = new HttpCookie("Sundooq");
-            DateTime now = DateTime.Now;
-            // Set the cookie value.
-            myCookie.Value = "twitter" + "$" + profile.ScreenName;
-            // Set the cookie expiration date.
-            myCookie.Expires = now.AddYears(50); // For a cookie to effectively never expire
-            // Add the cookie.
-            Response.Cookies.Add(myCookie);
-            if (U == null)
-            {
-                U = new Users();
-                U.Email = profile.ScreenName;
-                U.Tags = "";
-                U.DateOfBirth = DateTime.Now.AddYears(-16);
-                U.AccountStatus = 1;
-                U.RegisteredWith = (int)RegistredWith.facebook;
-                db.Users.Add(U);
-                db.SaveChanges();
-                Session.Add("Tags", U.Tags);
-            }
-            else
-            {
-                if (U.DateOfBirth == null)
-                {
-                    U.DateOfBirth = DateTime.Now.AddYears(-16);
-                    U.Tags = "";
-                }
-                Session["User"] = U;
-            }
-            Session["Tags"] = U.Tags;
-            return RedirectToAction("Home", "User");
-        }
+        //    ITwitter twitterClient = twitterProvider.GetApi(token.Value, token.Secret);
+        //    TwitterProfile profile = twitterClient.UserOperations.GetUserProfileAsync().Result;
+        //    SundooqDBEntities2 db = new SundooqDBEntities2();
+        //    Users U = db.Users.Where(p => p.Email == profile.ScreenName).SingleOrDefault();
+        //    HttpCookie myCookie = new HttpCookie("Sundooq");
+        //    DateTime now = DateTime.Now;
+        //    // Set the cookie value.
+        //    myCookie.Value = "twitter" + "$" + profile.ScreenName;
+        //    // Set the cookie expiration date.
+        //    myCookie.Expires = now.AddYears(50); // For a cookie to effectively never expire
+        //    // Add the cookie.
+        //    Response.Cookies.Add(myCookie);
+        //    if (U == null)
+        //    {
+        //        U = new Users();
+        //        U.Email = profile.ScreenName;
+        //        U.Tags = "";
+        //        U.DateOfBirth = DateTime.Now.AddYears(-16);
+        //        U.AccountStatus = 1;
+        //        U.RegisteredWith = (int)RegistredWith.facebook;
+        //        db.Users.Add(U);
+        //        db.SaveChanges();
+        //        Session.Add("Tags", U.Tags);
+        //    }
+        //    else
+        //    {
+        //        if (U.DateOfBirth == null)
+        //        {
+        //            U.DateOfBirth = DateTime.Now.AddYears(-16);
+        //            U.Tags = "";
+        //        }
+        //        Session["User"] = U;
+        //    }
+        //    Session["Tags"] = U.Tags;
+        //    return RedirectToAction("Home", "User");
+        //}
 
         public ActionResult sendactivation(string id)
         {

@@ -12,19 +12,33 @@ namespace SundooqLanding.Controllers
         //
         // GET: /Topics/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            return View();
+            string keyword = System.Web.HttpUtility.UrlDecode(id);
+            SundooqDBEntities2 db = new SundooqDBEntities2();
+            List<Topics> LOT = new List<Topics>();
+            LOT = db.Topics.Where(t => t.Tags.ToLower().Contains(keyword.ToLower())).ToList();
+            ViewBag.topics = LOT.Skip(0).Take(9);
+            TempData["FilteredTopics"] = LOT;
+            TempData["SkipNo"] = 0;
+            TempData["LoadedToUser"] = LOT.Skip(0).Take(9).ToList();
+            TempData.Keep();
+            ViewBag.sourcename = System.Web.HttpUtility.UrlDecode(id);
+            return View("filter");
         }
         [HttpPost]
         public JsonResult load(string current)
         {
             List<Topics> topics = (List<Topics>)Session["topics"];
+            if (Session["days"] == null)
+                Session["days"] = -1;
+            int days = (int)Session["days"];
             int ticks = int.Parse(current);
-            int tagValue = 0;
             if (ticks * 5 > topics.Count)
             {
-                topics.AddRange(new Topics().GetUserTopics());
+                days--;
+                Session["days"] = days ;
+                topics.AddRange(new Topics().GetUserTopics(days));
                 Session["topics"] = topics;
             }
             #region serialize
@@ -103,7 +117,7 @@ namespace SundooqLanding.Controllers
             }
             SundooqDBEntities2 db = new SundooqDBEntities2();
             List<Topics> LOT = new List<Topics>();
-            LOT = db.Topics.Where(t => t.Tags.ToLower().Contains(keyword.ToLower())).ToList();
+            LOT = db.Topics.Where(t => t.Tags.ToLower().Contains("#" + keyword.ToLower())).OrderByDescending(t => t.PubDate).Take(500).ToList();
             ViewBag.topics = LOT.Skip(0).Take(9);
             TempData["FilteredTopics"] = LOT;
             TempData["SkipNo"] = 0;
@@ -152,7 +166,7 @@ namespace SundooqLanding.Controllers
                                  T.Id,
                                  T.Img,
                                  T.Title,
-                                 T.Descr
+                                 T.ReadyDescription
                              }).ToList();
             TempData.Keep();
             return Json(LOTInJson);
@@ -171,7 +185,7 @@ namespace SundooqLanding.Controllers
                                      T.Id,
                                      T.Img,
                                      T.Title,
-                                     T.Descr
+                                     T.ReadyDescription
                                  }).ToList();
                 TempData["FilteredTopics"] = LOT;
                 TempData.Keep();
@@ -187,7 +201,7 @@ namespace SundooqLanding.Controllers
                                      T.Id,
                                      T.Img,
                                      T.Title,
-                                     T.Descr
+                                     T.ReadyDescription
                                  }).ToList();
                 TempData["FilteredTopics"] = LOT;
                 TempData.Keep();

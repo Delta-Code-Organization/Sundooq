@@ -200,9 +200,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="App_Readme\Spring.Rest.txt" />
-    <Content Include="App_Readme\Spring.Social.Core.txt" />
-    <Content Include="App_Readme\Spring.Social.Twitter.txt" />
     <Content Include="fonts\font-awesome-4.0.3\fontawesome-webfont.svg" />
     <Content Include="fonts\fontello-arrows\css\animation.css" />
     <Content Include="fonts\fontello-arrows\css\fontello-codes.css" />
@@ -232,7 +229,6 @@
     <Content Include="img\multiplatform.png" />
     <Content Include="img\not.png" />
     <Content Include="img\pop.png" />
-    <Content Include="img\sign-in-with-twitter_0.png" />
     <Content Include="img\twitter-login-button.png" />
     <Content Include="img\facebook-login-button.png" />
     <Content Include="js\HegabLoader.js" />
@@ -280,6 +276,7 @@
     <Content Include="Views\User\InviteGmailFriends.cshtml" />
     <Content Include="Views\User\InviteFriends.cshtml" />
     <Content Include="Views\Home\login2.cshtml" />
+    <None Include="Properties\PublishProfiles\Local2.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
