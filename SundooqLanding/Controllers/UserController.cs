@@ -26,11 +26,11 @@ namespace SundooqLanding.Controllers
     public class UserController : Controller
     {
         #region Twitter Consumer Key and Secret 
-        //private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
-        //private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
+        private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
+        private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
 
-        //IOAuth1ServiceProvider<ITwitter> twitterProvider =
-        //    new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
+        IOAuth1ServiceProvider<ITwitter> twitterProvider =
+            new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
 	#endregion
 
         //
@@ -422,6 +422,8 @@ namespace SundooqLanding.Controllers
                 user = new Users();
                 user.Email = _code;
                 user.Tags = "";
+                user.LastLogin = DateTime.Now;
+                user.Registered = DateTime.Now;
                 user.DateOfBirth = DateTime.Now.AddYears(-16);
                 user.AccountStatus = 1;
                 user.RegisteredWith = (int)RegistredWith.facebook;
@@ -441,50 +443,52 @@ namespace SundooqLanding.Controllers
             Session["Tags"] = user.Tags;
         }
 
-        //public ActionResult AuthorizeCallback(string oauth_verifier)
-        //{
-        //    OAuthToken requestToken = Session["RequestToken"] as OAuthToken;
-        //    AuthorizedRequestToken authorizedRequestToken = new AuthorizedRequestToken(requestToken, oauth_verifier);
-        //    OAuthToken token = twitterProvider.OAuthOperations.ExchangeForAccessTokenAsync(authorizedRequestToken, null).Result;
+        public ActionResult AuthorizeCallback(string oauth_verifier)
+        {
+            OAuthToken requestToken = Session["RequestToken"] as OAuthToken;
+            AuthorizedRequestToken authorizedRequestToken = new AuthorizedRequestToken(requestToken, oauth_verifier);
+            OAuthToken token = twitterProvider.OAuthOperations.ExchangeForAccessTokenAsync(authorizedRequestToken, null).Result;
 
-        //    Session["AccessToken"] = token;
+            Session["AccessToken"] = token;
 
-        //    ITwitter twitterClient = twitterProvider.GetApi(token.Value, token.Secret);
-        //    TwitterProfile profile = twitterClient.UserOperations.GetUserProfileAsync().Result;
-        //    SundooqDBEntities2 db = new SundooqDBEntities2();
-        //    Users U = db.Users.Where(p => p.Email == profile.ScreenName).SingleOrDefault();
-        //    HttpCookie myCookie = new HttpCookie("Sundooq");
-        //    DateTime now = DateTime.Now;
-        //    // Set the cookie value.
-        //    myCookie.Value = "twitter" + "$" + profile.ScreenName;
-        //    // Set the cookie expiration date.
-        //    myCookie.Expires = now.AddYears(50); // For a cookie to effectively never expire
-        //    // Add the cookie.
-        //    Response.Cookies.Add(myCookie);
-        //    if (U == null)
-        //    {
-        //        U = new Users();
-        //        U.Email = profile.ScreenName;
-        //        U.Tags = "";
-        //        U.DateOfBirth = DateTime.Now.AddYears(-16);
-        //        U.AccountStatus = 1;
-        //        U.RegisteredWith = (int)RegistredWith.facebook;
-        //        db.Users.Add(U);
-        //        db.SaveChanges();
-        //        Session.Add("Tags", U.Tags);
-        //    }
-        //    else
-        //    {
-        //        if (U.DateOfBirth == null)
-        //        {
-        //            U.DateOfBirth = DateTime.Now.AddYears(-16);
-        //            U.Tags = "";
-        //        }
-        //        Session["User"] = U;
-        //    }
-        //    Session["Tags"] = U.Tags;
-        //    return RedirectToAction("Home", "User");
-        //}
+            ITwitter twitterClient = twitterProvider.GetApi(token.Value, token.Secret);
+            TwitterProfile profile = twitterClient.UserOperations.GetUserProfileAsync().Result;
+            SundooqDBEntities2 db = new SundooqDBEntities2();
+            Users U = db.Users.Where(p => p.Email == profile.ScreenName).SingleOrDefault();
+            HttpCookie myCookie = new HttpCookie("Sundooq");
+            DateTime now = DateTime.Now;
+            // Set the cookie value.
+            myCookie.Value = "twitter" + "$" + profile.ScreenName;
+            // Set the cookie expiration date.
+            myCookie.Expires = now.AddYears(50); // For a cookie to effectively never expire
+            // Add the cookie.
+            Response.Cookies.Add(myCookie);
+            if (U == null)
+            {
+                U = new Users();
+                U.Email = profile.ScreenName;
+                U.Tags = "";
+                U.DateOfBirth = DateTime.Now.AddYears(-16);
+                U.LastLogin = DateTime.Now;
+                U.Registered = DateTime.Now;
+                U.AccountStatus = 1;
+                U.RegisteredWith = (int)RegistredWith.facebook;
+                db.Users.Add(U);
+                db.SaveChanges();
+                Session.Add("Tags", U.Tags);
+            }
+            else
+            {
+                if (U.DateOfBirth == null)
+                {
+                    U.DateOfBirth = DateTime.Now.AddYears(-16);
+                    U.Tags = "";
+                }
+                Session["User"] = U;
+            }
+            Session["Tags"] = U.Tags;
+            return RedirectToAction("Home", "User");
+        }
 
         public ActionResult sendactivation(string id)
         {
