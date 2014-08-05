@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee492ecfd2404282a3a9e3eda17b3a30" Name="Diagram1">
+        <EntityTypeShape EntityType="SundooqDBModel.Admins" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.Emails" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.Faq" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.History" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.Sources" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.Topics" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SundooqDBModel.Users" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="SundooqDBModel.FK_Emails_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SundooqDBModel.FK_History_Topics" ManuallyRouted="false" />
+        <AssociationConnector Association="SundooqDBModel.FK_History_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SundooqDBModel.FK_Topics_Sources" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

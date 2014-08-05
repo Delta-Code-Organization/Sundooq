@@ -1,0 +1,8 @@
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\bin\Debug\SundoqEmailSender.exe.config
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\obj\Debug\SundoqEmailSender.csprojResolveAssemblyReference.cache
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\bin\Debug\SundoqEmailSender.exe
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\bin\Debug\SundoqEmailSender.pdb
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\bin\Debug\EntityFramework.dll
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\bin\Debug\EntityFramework.xml
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\obj\Debug\SundoqEmailSender.exe
+C:\Users\Hegab\Desktop\SundoqEmailSender\SundoqEmailSender\obj\Debug\SundoqEmailSender.pdb
