@@ -128,8 +128,8 @@
                         <input class="contact-form form-name-error" disabled type="text" value="@ViewBag.User.Email" name="email" id="email">
                     </div>
                     <div class="input-wrapper">
-                            <input class="contact-form form-name-error" type="text" placeholder="Your full name" value="@ViewBag.User.Fullname" name="Fullname" id="Fullname">
-                        </div>
+                        <input class="contact-form form-name-error" type="text" placeholder="Your full name" value="@ViewBag.User.Fullname" name="Fullname" id="Fullname">
+                    </div>
                     <div class="clearfix"></div>
                     @if (@ViewBag.User.Password != null && @ViewBag.User.Password != "xyzwxyzw")
                     {
@@ -196,7 +196,7 @@
             </div>
 
             <div class="col-md-12 hidden sources contenttab">
-                 <div class="row form">
+                <div class="row form">
                     <div class="input-wrapper">
                         <input class="contact-form form-subject-error" onkeyup="filtersources()" type="text" value="" placeholder="Filter your sources" name="sourcefilter" id="sourcefilter">
                     </div>
@@ -211,9 +211,19 @@
                         }
                     }
                 </div>
+                <hr />
+                <div class="row form">
+                    <div class="input-wrapper">
+                        <input class="contact-form form-subject-error" type="text" value="" placeholder="Enter source URL i.e www.lifehacker.com" name="AddCustomSource" id="AddCustomSource">
+                    </div>
+                </div>
+                <div class="row">
+                    <p style="color:red;display:none;" id="notValidURLMsg">&nbsp &nbsp Please enter a valid URL.</p>
+                    <div id="CustomSourceMsg" class="alert alert-success hidden"></div>
+                </div>
             </div>
             <div class="col-md-12 hidden moresources contenttab">
-                 <div class="row form">
+                <div class="row form">
                     <div class="input-wrapper">
                         <input class="contact-form form-subject-error" onkeyup="filtermoresources()" type="text" value="" placeholder="Search sources" name="moresourcefilter" id="moresourcefilter">
                     </div>
@@ -237,8 +247,7 @@
             <div class="row">
                 <nav class="col-md-12">
                     <ul class="pull-right footer-nav">
-                        <li>
-                            Contact us | help-me@sundoq.com
+                        <li>Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>

@@ -1,4 +1,6 @@
-﻿function Manage(tag) {
+﻿var timer = null;
+
+function Manage(tag) {
     $.ajax({
         url: '/user/Manage',
         type: 'post',
@@ -10,7 +12,50 @@
         }
     });
 }
+
+function CreateCustomSource()
+{
+    if (!validateURL($('#AddCustomSource').val()) && $('#AddCustomSource').val() != "") {
+        $('#notValidURLMsg').css('display', 'block');
+    }
+    else {
+        if ($('#AddCustomSource').val() == "") {
+            return;
+        }
+        ShowLoader('Please wait, Adding source you entered...');
+        $.ajax({
+            url: '/User/AddCustomSource',
+            type: 'post',
+            data: { 'URL': $('#AddCustomSource').val() },
+            success: function (data) {
+                $('#CustomSourceMsg').html(data);
+                $('#CustomSourceMsg').removeClass('hidden');
+            },
+            error: function (data) {
+                console.log(data.responseText);
+            }
+        });
+        HideLoader();
+    }
+}
+
+function validateURL(textval) {
+    var urlregex = new RegExp(
+          "^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+    return urlregex.test(textval);
+}
+
 $(document).ready(function () {
+    $('#AddCustomSource').keydown(function () {
+        $('#notValidURLMsg').css('display', 'none');
+        $('#CustomSourceMsg').addClass('hidden');
+        clearTimeout(timer);
+        timer = setTimeout(CreateCustomSource, 1500);
+    });
+
+
+
+
     (function ($, W, D) {
         var JQUERY4U = {};
         JQUERY4U.UTIL =

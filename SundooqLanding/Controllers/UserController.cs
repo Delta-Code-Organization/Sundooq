@@ -12,6 +12,7 @@ using Google.GData.Contacts;
 using Google.GData.Extensions;
 using System.Net;
 using System.Xml;
+using System.Xml.Linq;
 using System.IO;
 using System.Web.Services;
 using System.Configuration;
@@ -20,18 +21,19 @@ using System.Web.Script.Serialization;
 using Spring.Social.OAuth1;
 using Spring.Social.Twitter.Api;
 using Spring.Social.Twitter.Connect;
+using HtmlAgilityPack;
 
 namespace SundooqLanding.Controllers
 {
     public class UserController : Controller
     {
-        #region Twitter Consumer Key and Secret 
+        #region Twitter Consumer Key and Secret
         private const string TwitterConsumerKey = "Ov5yiAvFGEXrIPpnuJFLB3X5v";
         private const string TwitterConsumerSecret = "2Jl0eQSfsRJP5uAQfV541NaA9xkN7H9SWyJWLeLHG1GC92qsG4";
 
         IOAuth1ServiceProvider<ITwitter> twitterProvider =
             new TwitterServiceProvider(TwitterConsumerKey, TwitterConsumerSecret);
-	#endregion
+        #endregion
 
         //
         // GET: /User/
@@ -124,7 +126,7 @@ namespace SundooqLanding.Controllers
                 ViewBag.Sorting = 1;
                 List<Topics> lst = topics.ToList();
                 int count = lst.Count - 1;
-                for (int i = 2; i <= lst.Count-2; i++)
+                for (int i = 2; i <= lst.Count - 2; i++)
                 {
                     if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i + 1].Source)
                     {
@@ -139,7 +141,7 @@ namespace SundooqLanding.Controllers
             }
             else
             {
-                IEnumerable<Topics> topics= null;
+                IEnumerable<Topics> topics = null;
                 if (Session["Topics"] == null || Session["Tags"].ToString() != currentUser.Tags)
                 {
                     topics = new Topics().GetUserTopics();
@@ -151,7 +153,7 @@ namespace SundooqLanding.Controllers
                 }
                 ViewBag.Sorting = 0;
                 ViewBag.Topics = topics.OrderByDescending(p => p.PubDate).ToList();
-                
+
             }
             Session["topics"] = ViewBag.Topics;
             ViewBag.currenttags = currentUser.Tags;
@@ -166,7 +168,7 @@ namespace SundooqLanding.Controllers
                 Session["Tags"] = currentUser.Tags;
             if (id == "1")
             {
-                List<Topics> topics= new List<Topics> ();
+                List<Topics> topics = new List<Topics>();
                 topics = new Topics().GetUserTopics().ToList();
                 Session["Tags"] = currentUser.Tags;
                 ViewBag.Sorting = 1;
@@ -174,7 +176,7 @@ namespace SundooqLanding.Controllers
                 int count = lst.Count - 1;
                 for (int i = 1; i <= lst.Count - 2; i++)
                 {
-                    if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i +1].Source)
+                    if (lst[i].Source == lst[i - 1].Source || lst[i].Source == lst[i + 1].Source)
                     {
                         Topics temp = lst[count];
                         lst[count] = lst[i];
@@ -187,7 +189,7 @@ namespace SundooqLanding.Controllers
             }
             else
             {
-                List<Topics> topics = new List<Topics> ();
+                List<Topics> topics = new List<Topics>();
                 topics = new Topics().GetUserTopics().ToList();
                 Session["Tags"] = currentUser.Tags;
                 ViewBag.Sorting = 0;
@@ -337,7 +339,7 @@ namespace SundooqLanding.Controllers
                 NewUser = (Users)Session["User"];
             if (NewUser != null)
             {
-                string[] Tech = WebConfigurationManager.AppSettings["Technology"].ToString().Split('#').OrderBy(t=>t.ToString()).ToArray();
+                string[] Tech = WebConfigurationManager.AppSettings["Technology"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 string[] Business = WebConfigurationManager.AppSettings["Business"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 string[] Health = WebConfigurationManager.AppSettings["Health"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
                 string[] News = WebConfigurationManager.AppSettings["News"].ToString().Split('#').OrderBy(t => t.ToString()).ToArray();
@@ -631,6 +633,90 @@ namespace SundooqLanding.Controllers
             catch (Exception ex)
             {
                 return emails;
+            }
+        }
+
+        public static bool RSS(string URL)
+        {
+            var doc = XDocument.Load(URL);
+            var items = doc.Root.Elements().Where(x => x.Name.ToString()
+                .ToLower().Contains("channel"))
+                .Elements().Where(x => x.Name.ToString().ToLower().Contains("item"));
+            if (items.Count() < 1)
+            {
+                //RSS2(_s);
+                return false;
+            }
+            return true;
+        }
+
+        public string AddCustomSource(string URL)
+        {
+            string URLSourceCode = "";
+            Uri myUri;
+            bool RssFound = false;
+            string RssURL = "";
+            if (Uri.TryCreate(URL, UriKind.RelativeOrAbsolute, out myUri))
+            {
+                using (WebClient WC = new WebClient())
+                {
+                    URLSourceCode = WC.DownloadString(myUri);
+                }
+                HtmlDocument Doc = new HtmlDocument();
+                Doc.LoadHtml(URLSourceCode);
+                List<HtmlNode> LOE = Doc.DocumentNode.Descendants().Where(p => p.Name == "link").ToList();
+                foreach (HtmlNode Node in LOE)
+                {
+                    HtmlAttribute Attr = Node.Attributes["type"];
+                    if (Attr != null && Attr.Value == "application/rss+xml")
+                    {
+                        RssFound = true;
+                        HtmlAttribute URLAttr = Node.Attributes["href"];
+                        RssURL = URLAttr.Value;
+                        break;
+                    }
+                }
+                if (RssFound == false)
+                {
+                    return "This source cannot be added at current time ...";
+                }
+                else
+                {
+                    using (SundooqDBEntities2 db = new SundooqDBEntities2())
+                    {
+                        string SourceName = GetDomain.GetDomainFromUrl(RssURL);
+                        SourceName = SourceName.Substring(0, SourceName.LastIndexOf('.'));
+                        if (!db.Sources.Any(p => p.URL == RssURL))
+                        {
+                            Sources newSource = new Sources();
+                            newSource.Description = "";
+                            newSource.LogoURL = RssURL;
+                            newSource.Rank = 1;
+                            newSource.SourceName = SourceName;
+                            newSource.Status = 1;
+                            newSource.Tags = newSource.SourceName;
+                            newSource.URL = RssURL;
+                            db.Sources.Add(newSource);
+                            db.SaveChanges();
+                        }
+                        Users CurrentUser = Session["User"] as Users;
+                        if (!CurrentUser.Tags.ToLower().Contains(SourceName))
+                        {
+                            CurrentUser.Tags += "#" + SourceName;
+                            bool successMsg;
+                            CurrentUser.Update(out successMsg);
+                            return "Source added successfully to your following sources ...";
+                        }
+                        else
+                        {
+                            return "You are already following this source ...";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return "This source cannot be added at current time ...";
             }
         }
 
