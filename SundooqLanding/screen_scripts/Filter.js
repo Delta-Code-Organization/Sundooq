@@ -116,3 +116,57 @@ function loadMore() {
         }
     });
 }
+
+var FollowingCurrentSource = false;
+var FirstTime = true;
+
+function followUnfollow(SName,currentStatus) {
+    if (currentStatus == "following" && FirstTime == true) {
+        FollowingCurrentSource = false;
+        FirstTime = false;
+        $('#followIcon').removeClass('icon-close');
+        $('#followIcon').addClass('icon-check');
+        Manage(SName);
+    }
+    else if(currentStatus == "Unfollowing" && FirstTime == true) {
+        FollowingCurrentSource = true;
+        FirstTime = false;
+        $('#followIcon').removeClass('icon-check');
+        $('#followIcon').addClass('icon-close');
+        Manage(SName);
+    }
+    else {
+        if (FollowingCurrentSource == true) {
+            $('#followIcon').removeClass('icon-close');
+            $('#followIcon').addClass('icon-check');
+            Manage(SName);
+            FollowingCurrentSource = false;
+        }
+        else {
+            $('#followIcon').removeClass('icon-check');
+            $('#followIcon').addClass('icon-close');
+            Manage(SName);
+            FollowingCurrentSource = true;
+        }
+    }
+}
+
+$('body').on('click', '.icon-close', function () {
+    alert("Clicked");
+    $(this).removeClass('icon-close');
+    $(this).addClass('icon-check');
+    Manage($('HiddenSName').val());
+});
+
+function Manage(tag) {
+    $.ajax({
+        url: '/User/Manage',
+        type: 'post',
+        data: { 'tag': tag },
+        success: function (data) {
+        },
+        error: function (data) {
+
+        }
+    });
+}

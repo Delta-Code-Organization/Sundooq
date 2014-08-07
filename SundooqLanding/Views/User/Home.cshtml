@@ -65,39 +65,39 @@
             </div>
         </div>
     </section>
-        <div id="mobile-nav" class="visible-xs visible-sm navbar-fixed-top">
-            <div class="" id="flyout-container">
-                <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
-                    <li class="menu-item">
-                        <a href="/user/home/@ViewBag.Sorting" data-hover="" class="">Home</a>
+    <div id="mobile-nav" class="visible-xs visible-sm navbar-fixed-top">
+        <div class="" id="flyout-container">
+            <ul id="menu-mobile" class="nav flyout-menu main-nav nav-height">
+                <li class="menu-item">
+                    <a href="/user/home/@ViewBag.Sorting" data-hover="" class="">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/index" data-hover="" class="">My Account</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/history" data-hover="" class="">History</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/user/logout" data-hover="" class="">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <header>
+            <div class="container">
+                <ul class="menu-header">
+                    <li class="pull-left">
+                        <a href="/user/home/@ViewBag.Sorting">
+                            <figure>
+                                <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="MniamTheme" />
+                            </figure>
+                        </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="/user/index" data-hover="" class="">My Account</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/user/history" data-hover="" class="">History</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/user/logout" data-hover="" class="">Logout</a>
-                    </li>
+                    <li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
                 </ul>
             </div>
-            <header>
-                <div class="container">
-                    <ul class="menu-header">
-                        <li class="pull-left">
-                            <a href="/user/home/@ViewBag.Sorting">
-                                <figure>
-                                    <img src="/img/icon.png" style="height: 40px; margin-top: 20px;" alt="MniamTheme" />
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
-                    </ul>
-                </div>
-            </header>
-        </div>
-    <section id="topics" class="container" style="min-height:800px">
+        </header>
+    </div>
+    <section id="topics" class="container" style="min-height: 800px">
         <br />
         <br />
         <div id="suggestedTags" class="row hidden">
@@ -106,7 +106,7 @@
             <div id="tagsbuttons"></div>
             <hr />
         </div>
-        
+
         <p id="currenttags" class="hidden">@ViewBag.currenttags</p>
         @if (@System.Web.Configuration.WebConfigurationManager.AppSettings["IndexMsg"].Length > 0)
         {
@@ -122,7 +122,7 @@
             <a href="/user/home/1" class="btn btn-default" data-hover="Button">Your Feeds</a>
             <a href="/user/home/0" class="btn btn-color" disabled data-hover="Button">Most Recent</a>
         }
-        <i style="font-size:32px;cursor:pointer" onclick="reload()" data-toggle="tooltip" data-placement="down" title="Rebuild your feed" class="icon-reload pull-right tooltips"></i>
+        <i style="font-size: 32px; cursor: pointer" onclick="reload()" data-toggle="tooltip" data-placement="down" title="Rebuild your feed" class="icon-reload pull-right tooltips"></i>
         @if (ViewBag.Topics.Count > 1)
         {
             <div id="scroll0" class="row">
@@ -132,8 +132,9 @@
                         <img class="timg" src="@ViewBag.Topics[0].Img" />
                         <h2 style="font-size: 30px">@ViewBag.Topics[0].Title</h2>
                         <h4 class="RankBadge" data-fbn="@ViewBag.Topics[0].FB" data-twn="@ViewBag.Topics[0].TW">@(ViewBag.Topics[0].FB + @ViewBag.Topics[0].TW)</h4>
-                        <p style="font-size: 14px">@ViewBag.Topics[0].ReadyDescription</p>
                     </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[0].ReadyDescription</p>
+
                     <h3 style="font-size: 12px; color: #888"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[0].Sources.SourceName)">@ViewBag.Topics[0].Sources.SourceName </a>on @ViewBag.Topics[0].PubDate.ToShortDateString()</h3>
                 </div>
                 <div class="col-sm-5 col-md-5">
@@ -142,8 +143,8 @@
                         <img class="timg" src="@ViewBag.Topics[1].Img" />
                         <h2>@ViewBag.Topics[1].Title</h2>
                         <h4 class="RankBadge" data-fbn="@ViewBag.Topics[1].FB" data-twn="@ViewBag.Topics[1].TW">@(ViewBag.Topics[1].FB + @ViewBag.Topics[1].TW)</h4>
-                        <p style="font-size: 14px">@ViewBag.Topics[1].ReadyDescription</p>
                     </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[1].ReadyDescription</p>
                     <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[1].Sources.SourceName)">@ViewBag.Topics[1].Sources.SourceName </a>on @ViewBag.Topics[1].PubDate.ToShortDateString()</h3>
                 </div>
             </div>
@@ -155,10 +156,10 @@
                     <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[2].Tags"></i>
                     <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[2].Id">
                         <img class="timg" src="@ViewBag.Topics[2].Img" />
-                         <h2 style="font-size: 30px">@ViewBag.Topics[2].Title</h2>
+                        <h2 style="font-size: 30px">@ViewBag.Topics[2].Title</h2>
                         <h4 class="RankBadge" data-fbn="@ViewBag.Topics[2].FB" data-twn="@ViewBag.Topics[2].TW">@(ViewBag.Topics[2].FB + @ViewBag.Topics[2].TW)</h4>
-                        <p style="font-size: 14px">@ViewBag.Topics[2].ReadyDescription</p>
                     </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[2].ReadyDescription</p>
                     <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[2].Sources.SourceName)">@ViewBag.Topics[2].Sources.SourceName </a>on @ViewBag.Topics[2].PubDate.ToShortDateString()</h3>
                 </div>
             }
@@ -168,10 +169,10 @@
                     <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[3].Tags"></i>
                     <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[3].Id">
                         <img class="timg" src="@ViewBag.Topics[3].Img" />
-                         <h2 style="font-size: 30px">@ViewBag.Topics[3].Title</h2>
+                        <h2 style="font-size: 30px">@ViewBag.Topics[3].Title</h2>
                         <h4 class="RankBadge" data-fbn="@ViewBag.Topics[3].FB" data-twn="@ViewBag.Topics[3].TW">@(ViewBag.Topics[3].FB + @ViewBag.Topics[3].TW)</h4>
-                        <p style="font-size: 14px">@ViewBag.Topics[3].ReadyDescription</p>
                     </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[3].ReadyDescription</p>
                     <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[3].Sources.SourceName)">@ViewBag.Topics[3].Sources.SourceName </a>on @ViewBag.Topics[3].PubDate.ToShortDateString()</h3>
                 </div>
             }
@@ -181,11 +182,77 @@
                     <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[4].Tags"></i>
                     <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[4].Id">
                         <img class="timg" src="@ViewBag.Topics[4].Img" />
-                         <h2 style="font-size: 30px">@ViewBag.Topics[4].Title</h2>
+                        <h2 style="font-size: 30px">@ViewBag.Topics[4].Title</h2>
                         <h4 class="RankBadge" data-fbn="@ViewBag.Topics[4].FB" data-twn="@ViewBag.Topics[4].TW">@(ViewBag.Topics[4].FB + @ViewBag.Topics[4].TW)</h4>
-                        <p style="font-size: 14px">@ViewBag.Topics[4].ReadyDescription</p>
                     </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[4].ReadyDescription</p>
                     <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[4].Sources.SourceName)">@ViewBag.Topics[4].Sources.SourceName </a>on @ViewBag.Topics[4].PubDate.ToShortDateString()</h3>
+                </div>
+            }
+        </div>
+        @if (ViewBag.Topics.Count > 5)
+        {
+            <div id="scrol11" class="row">
+                <div class="col-sm-7 col-md-7">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[5].Tags"></i>
+                    <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[5].Id">
+                        <img class="timg" src="@ViewBag.Topics[5].Img" />
+                        <h2 style="font-size: 30px">@ViewBag.Topics[5].Title</h2>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[5].FB" data-twn="@ViewBag.Topics[5].TW">@(ViewBag.Topics[5].FB + @ViewBag.Topics[5].TW)</h4>
+                    </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[5].ReadyDescription</p>
+                    <h3 style="font-size: 12px; color: #888"><a href="/topics/filter/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[5].Sources.SourceName)">@ViewBag.Topics[5].Sources.SourceName </a>on @ViewBag.Topics[5].PubDate.ToShortDateString()</h3>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[6].Tags"></i>
+                    <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[6].Id">
+                        <img class="timg" src="@ViewBag.Topics[6].Img" />
+                        <h2>@ViewBag.Topics[6].Title</h2>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[6].FB" data-twn="@ViewBag.Topics[6].TW">@(ViewBag.Topics[6].FB + @ViewBag.Topics[6].TW)</h4>
+                    </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[6].ReadyDescription</p>
+                    <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[6].Sources.SourceName)">@ViewBag.Topics[6].Sources.SourceName </a>on @ViewBag.Topics[6].PubDate.ToShortDateString()</h3>
+                </div>
+            </div>
+        }
+        <div class="row">
+            @if (ViewBag.Topics.Count > 6)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[7].Tags"></i>
+                    <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[7].Id">
+                        <img class="timg" src="@ViewBag.Topics[7].Img" />
+                        <h2 style="font-size: 30px">@ViewBag.Topics[7].Title</h2>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[7].FB" data-twn="@ViewBag.Topics[7].TW">@(ViewBag.Topics[7].FB + @ViewBag.Topics[7].TW)</h4>
+                    </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[7].ReadyDescription</p>
+                    <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[7].Sources.SourceName)">@ViewBag.Topics[7].Sources.SourceName </a>on @ViewBag.Topics[7].PubDate.ToShortDateString()</h3>
+                </div>
+            }
+            @if (ViewBag.Topics.Count > 7)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[8].Tags"></i>
+                    <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[8].Id">
+                        <img class="timg" src="@ViewBag.Topics[8].Img" />
+                        <h2 style="font-size: 30px">@ViewBag.Topics[8].Title</h2>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[8].FB" data-twn="@ViewBag.Topics[8].TW">@(ViewBag.Topics[8].FB + @ViewBag.Topics[8].TW)</h4>
+                    </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[8].ReadyDescription</p>
+                    <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[8].Sources.SourceName)">@ViewBag.Topics[8].Sources.SourceName </a>on @ViewBag.Topics[8].PubDate.ToShortDateString()</h3>
+                </div>
+            }
+            @if (ViewBag.Topics.Count > 8)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-6 feature item yo-anim yo-anim-fade yo-anim-start" data-animation-delay="100">
+                    <i class="icon-tag tagicon" data-tags="@ViewBag.Topics[9].Tags"></i>
+                    <a style="color:#000" target="_blank" href="/Topics/View/@ViewBag.Topics[9].Id">
+                        <img class="timg" src="@ViewBag.Topics[9].Img" />
+                        <h2 style="font-size: 30px">@ViewBag.Topics[9].Title</h2>
+                        <h4 class="RankBadge" data-fbn="@ViewBag.Topics[9].FB" data-twn="@ViewBag.Topics[9].TW">@(ViewBag.Topics[9].FB + @ViewBag.Topics[9].TW)</h4>
+                    </a>
+                    <p style="font-size: 14px">@ViewBag.Topics[9].ReadyDescription</p>
+                    <h3 style="font-size: 12px; color: #ddd"><a href="/sources/@System.Web.HttpUtility.UrlEncode(@ViewBag.Topics[9].Sources.SourceName)">@ViewBag.Topics[9].Sources.SourceName </a>on @ViewBag.Topics[9].PubDate.ToShortDateString()</h3>
                 </div>
             }
         </div>
@@ -195,8 +262,7 @@
             <div class="row">
                 <nav class="col-md-12">
                     <ul class="pull-right footer-nav">
-                        <li>
-                            Contact us | help-me@sundoq.com
+                        <li>Contact us | help-me@sundoq.com
                         </li>
                     </ul>
                     <div class="pull-left copyright">Copyright 2014 © <a href="http://Sundoq.com" title="Sundoq INC">Sundoq</a></div>

@@ -17,6 +17,7 @@ namespace SundooqLanding.Models
                 return ((DateTime)PubDate).ToShortDateString();
             }
         }
+
         public string ReadyDescription
         {
             get
@@ -27,6 +28,7 @@ namespace SundooqLanding.Models
                     return Descr;
             }
         }
+
         public int CustomRank(int _val)
         {
             Users Current = (Users)HttpContext.Current.Session["User"];
@@ -50,6 +52,7 @@ namespace SundooqLanding.Models
             else
                 return (int)Rank;
         }
+
         public int MatchTags(string Tags1, string Tags2)
         {
             int Matches = 0;
@@ -60,6 +63,7 @@ namespace SundooqLanding.Models
             }
             return Matches;
         }
+
         public IEnumerable<Topics> GetUserTopics(int days = -1)
         {
             Users Current = HttpContext.Current.Session["User"] as Users;

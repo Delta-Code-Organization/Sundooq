@@ -136,21 +136,33 @@
         });
 
     })(jQuery, window, document);
-    $('.btn-outline-dark').click(function () {
-        $(this).removeClass('btn-outline-dark');
-        $(this).addClass('btn-dark');
-        $('.btn-dark').click(function () {
-            $(this).addClass('btn-outline-dark');
-            $(this).removeClass('btn-dark');
-        });
-    });
-    $('.btn-dark').click(function () {
+    //$('.btn-outline-dark').click(function () {
+    //    $(this).removeClass('btn-outline-dark');
+    //    $(this).addClass('btn-dark');
+    //    $('.btn-dark').click(function () {
+    //        $(this).addClass('btn-outline-dark');
+    //        $(this).removeClass('btn-dark');
+    //    });
+    //});
+    //$('.btn-dark').click(function () {
+    //    $(this).addClass('btn-outline-dark');
+    //    $(this).removeClass('btn-dark');
+    //    $('.btn-outline-dark').click(function () {
+    //        $(this).removeClass('btn-outline-dark');
+    //        $(this).addClass('btn-dark');
+    //    });
+    //});
+
+    $('body').on('click', '.btn-dark', function () {
         $(this).addClass('btn-outline-dark');
         $(this).removeClass('btn-dark');
-        $('.btn-outline-dark').click(function () {
-            $(this).removeClass('btn-outline-dark');
-            $(this).addClass('btn-dark');
-        });
+        Manage($(this).text());
+    });
+
+    $('body').on('click', '.btn-outline-dark', function () {
+        $(this).addClass('btn-dark');
+        $(this).removeClass('btn-outline-dark');
+        Manage($(this).text());
     });
 });
 

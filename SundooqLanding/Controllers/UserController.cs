@@ -682,34 +682,41 @@ namespace SundooqLanding.Controllers
                 }
                 else
                 {
-                    using (SundooqDBEntities2 db = new SundooqDBEntities2())
+                    if (!RSS(RssURL))
                     {
-                        string SourceName = GetDomain.GetDomainFromUrl(RssURL);
-                        SourceName = SourceName.Substring(0, SourceName.LastIndexOf('.'));
-                        if (!db.Sources.Any(p => p.URL == RssURL))
+                        return "This source cannot be added at current time ...";
+                    }
+                    else
+                    {
+                        using (SundooqDBEntities2 db = new SundooqDBEntities2())
                         {
-                            Sources newSource = new Sources();
-                            newSource.Description = "";
-                            newSource.LogoURL = RssURL;
-                            newSource.Rank = 1;
-                            newSource.SourceName = SourceName;
-                            newSource.Status = 1;
-                            newSource.Tags = newSource.SourceName;
-                            newSource.URL = RssURL;
-                            db.Sources.Add(newSource);
-                            db.SaveChanges();
-                        }
-                        Users CurrentUser = Session["User"] as Users;
-                        if (!CurrentUser.Tags.ToLower().Contains(SourceName))
-                        {
-                            CurrentUser.Tags += "#" + SourceName;
-                            bool successMsg;
-                            CurrentUser.Update(out successMsg);
-                            return "Source added successfully to your following sources ...";
-                        }
-                        else
-                        {
-                            return "You are already following this source ...";
+                            string SourceName = GetDomain.GetDomainFromUrl(RssURL);
+                            SourceName = SourceName.Substring(0, SourceName.LastIndexOf('.'));
+                            if (!db.Sources.Any(p => p.URL == RssURL))
+                            {
+                                Sources newSource = new Sources();
+                                newSource.Description = "";
+                                newSource.LogoURL = RssURL;
+                                newSource.Rank = 1;
+                                newSource.SourceName = SourceName;
+                                newSource.Status = 1;
+                                newSource.Tags = newSource.SourceName;
+                                newSource.URL = RssURL;
+                                db.Sources.Add(newSource);
+                                db.SaveChanges();
+                            }
+                            Users CurrentUser = Session["User"] as Users;
+                            if (!CurrentUser.Tags.ToLower().Contains(SourceName))
+                            {
+                                CurrentUser.Tags += "#" + SourceName;
+                                bool successMsg;
+                                CurrentUser.Update(out successMsg);
+                                return "Source added successfully to your following sources ...";
+                            }
+                            else
+                            {
+                                return "You are already following this source ...";
+                            }
                         }
                     }
                 }

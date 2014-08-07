@@ -64,7 +64,7 @@ namespace SundooqLanding.Models
                 }
                 Helpers.sendEmail(this.Email, "Activate your SUNDOQ account ", Msg, MailTypes.Register, this.Id);
                 _success = true;
-                return "You're In! Now you need click on the link we sent to your email to activate your account.";
+                return "You're In! Now you need click on the link we sent to your email to activate your account! check your junk folder.";
             }
         }
 
@@ -190,6 +190,10 @@ namespace SundooqLanding.Models
                 {
                     if (count == 5)
                         break;
+                    if (db.Topics.Where(p => p.Tags.Contains(pair.Key)).Count() < 5)
+                    {
+                        continue;
+                    }
                     Tags += "#" + pair.Key;
                     count++;
                 }

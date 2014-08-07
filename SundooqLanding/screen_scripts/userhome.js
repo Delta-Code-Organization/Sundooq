@@ -55,8 +55,8 @@ function loadMore() {
                         <img class="timg" src="' + data[0].Img + '" />\
                          <h2 style="font-size: 30px">' + data[0].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="'+ data[0].FB + '" data-twn="' + data[0].TW + '">' + parseInt(data[0].TW) + parseInt(data[0].FB) + '</h4>\
-                        <p style="font-size: 14px">' + data[0].ReadyDescription + '</p>\
                         </a>\
+                        <p style="font-size: 14px">' + data[0].ReadyDescription + '</p>\
                         <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[0].Source.SourceName) + '">' + data[0].Source.SourceName + '</a> on ' + data[0].formatedDate + '</p>\
                         </div>\
                         <div class="col-sm-5 col-md-5">\
@@ -65,8 +65,8 @@ function loadMore() {
                         <img class="timg" src="' + data[1].Img + '" />\
                          <h2 style="font-size: 30px">' + data[1].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[1].FB + '" data-twn="' + data[1].TW + '">' + parseInt(data[1].TW) + parseInt(data[1].FB) + '</h4>\
-                        <p style="font-size: 14px">' + data[1].ReadyDescription + '</p>\
                         </a>\
+                        <p style="font-size: 14px">' + data[1].ReadyDescription + '</p>\
                         <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[1].Source.SourceName) + '">' + data[1].Source.SourceName + '</a> on ' + data[1].formatedDate + '</p>\
                         </div>\
                         </div>';
@@ -79,8 +79,8 @@ function loadMore() {
                         <img class="timg" src="' + data[2].Img + '" />\
                          <h2 style="font-size: 30px">' + data[2].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[2].FB + '" data-twn="' + data[2].TW + '">' + parseInt(data[2].TW) + parseInt(data[2].FB) + '</h4>\
-                        <p style="font-size: 14px">' + data[2].ReadyDescription + '</p>\
                         </a>\
+                        <p style="font-size: 14px">' + data[2].ReadyDescription + '</p>\
                         <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[2].Source.SourceName) + '">' + data[2].Source.SourceName + '</a> on ' + data[2].formatedDate + '</p></div>';
             }
             if (data.length > 3) {
@@ -90,8 +90,8 @@ function loadMore() {
                         <img class="timg" src="' + data[3].Img + '" />\
                          <h2 style="font-size: 30px">' + data[3].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[3].FB + '" data-twn="' + data[3].TW + '">' + (parseInt(data[3].TW) + parseInt(data[3].FB)) + '</h4>\
-                        <p style="font-size: 14px">' + data[3].ReadyDescription + '</p>\
                         </a>\
+                        <p style="font-size: 14px">' + data[3].ReadyDescription + '</p>\
                         <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[3].Source.SourceName) + '">' + data[3].Source.SourceName + '</a> on ' + data[3].formatedDate + '</p></div>';
             }
             if (data.length > 4) {
@@ -101,8 +101,8 @@ function loadMore() {
                         <img class="timg" src="' + data[4].Img + '" />\
                          <h2 style="font-size: 30px">' + data[4].Title + '</h2>\
                         <h4 class="RankBadge" data-fbn="' + data[4].FB + '" data-twn="' + data[4].TW + '">' + parseInt(data[4].TW) + parseInt(data[4].FB) + '</h4>\
-                        <p style="font-size: 14px">' + data[4].ReadyDescription + '</p>\
                         </a>\
+                        <p style="font-size: 14px">' + data[4].ReadyDescription + '</p>\
                         <p style="font-size: 12px; color: #ddd"><a href="/sources/' + encodeURI(data[4].Source.SourceName) + '">' + data[4].Source.SourceName + '</a> on ' + data[4].formatedDate + '</p></div>';
             }
             html += '</div>';
@@ -123,6 +123,7 @@ function loadMore() {
         }
     });
 }
+
 function loadSuggested() {
     $.ajax({
         url: '/User/GetSuggested',
@@ -230,24 +231,35 @@ function Manage(tag) {
     });
 }
 function HookupTags() {
-    $('.btn-outline-dark').click(function () {
-        $(this).removeClass('btn-outline-dark');
-        $(this).addClass('btn-dark');
-        $('.btn-dark').click(function () {
-            $(this).addClass('btn-outline-dark');
-            $(this).removeClass('btn-dark');
-        });
-        Manage($(this).text());
-    });
-    $('.btn-dark').click(function () {
+    $('body').on('click', '.btn-dark', function () {
         $(this).addClass('btn-outline-dark');
         $(this).removeClass('btn-dark');
-        $('.btn-outline-dark').click(function () {
-            $(this).removeClass('btn-outline-dark');
-            $(this).addClass('btn-dark');
-        });
         Manage($(this).text());
     });
+
+    $('body').on('click', '.btn-outline-dark', function () {
+        $(this).addClass('btn-dark');
+        $(this).removeClass('btn-outline-dark');
+        Manage($(this).text());
+    });
+    //$('.btn-outline-dark').click(function () {
+    //    $(this).removeClass('btn-outline-dark');
+    //    $(this).addClass('btn-dark');
+    //    $('.btn-dark').click(function () {
+    //        $(this).addClass('btn-outline-dark');
+    //        $(this).removeClass('btn-dark');
+    //    });
+    //    Manage($(this).text());
+    //});
+    //$('.btn-dark').click(function () {
+    //    $(this).addClass('btn-outline-dark');
+    //    $(this).removeClass('btn-dark');
+    //    $('.btn-outline-dark').click(function () {
+    //        $(this).removeClass('btn-outline-dark');
+    //        $(this).addClass('btn-dark');
+    //    });
+    //    Manage($(this).text());
+    //});
 }
 function handleBadges() {
     $('.RankBadge').click(function () {

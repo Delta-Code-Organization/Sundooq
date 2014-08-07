@@ -60,7 +60,12 @@ content="@ViewBag.Topic.Img" />
                                 <a href="/user/home/@ViewBag.Sorting"><i class="fa fa-home"></i></a>
                             </li>
                             <li>
-                                <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
+                                @{
+                                    if (Session["User"] != null)
+                                    {
+                                        <a onclick="toggleTags()"><i class="fa fa-tag"></i></a>
+                                    }
+                                }
                             </li>
                             <li>
                                 <a style="cursor:pointer"  onclick="showPopup('https://www.facebook.com/sharer.php?u=@HttpUtility.UrlEncode(Request.Url.ToString())')"><i class="fa fa-facebook"></i>Share</a>
@@ -150,7 +155,7 @@ content="@ViewBag.Topic.Img" />
         </div>
         @{
             SundooqLanding.Models.Users Current2 = (SundooqLanding.Models.Users)Session["User"];
-            if (Current2== null)
+            if (Current2 == null)
             {
             <div id="guestdiv" style="border-top: 2px solid #666; font-size: 16px; padding: 1%; opacity: .9; display: block; position: fixed; width: 100%; bottom: 0px; left: 0px; background-color: #fff">
                 <b>SUNDOQ is your morning coffee.</b>
@@ -159,7 +164,7 @@ content="@ViewBag.Topic.Img" />
                                         <br />
                 Rid your inbox of newsletters overload, and keep social media for socializing!
             <br />
-                <a href="/#register">Try it now | </a> <a href="/home/login">Login</a> 
+                <a href="/#register">Try it now | </a><a href="/home/login">Login</a>
             </div>
             }
         }

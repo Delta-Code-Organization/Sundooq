@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SundooqLanding.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -110,7 +112,18 @@
         </header>
     </div>
     <section class="container">
-        <h1 style="margin-bottom:10px;">Topics from @ViewBag.sourcename</h1>
+        <h1 style="margin-bottom:10px; padding-top:10px;">Topics from @ViewBag.sourcename &nbsp
+            @{
+                if ((Session["User"] as Users).Tags.ToLower().Contains(((string)(ViewBag.sourcename)).ToLower()))
+                {
+                    <a href="javascript:followUnfollow('@ViewBag.sourcename','following');"><i id="followIcon" class="icon-close"></i></a>
+                }
+                else
+                {
+                    <a href="javascript:followUnfollow('@ViewBag.sourcename','Unfollowing');"><i id="followIcon" class="icon-check"></i></a>
+                }
+                }
+        </h1>
         <p class="header-text">@ViewBag.Description</p>
         <div class="row form">
             <div class="input-wrapper">
