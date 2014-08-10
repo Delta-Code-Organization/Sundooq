@@ -652,76 +652,87 @@ namespace SundooqLanding.Controllers
 
         public string AddCustomSource(string URL)
         {
-            string URLSourceCode = "";
-            Uri myUri;
-            bool RssFound = false;
-            string RssURL = "";
-            if (Uri.TryCreate(URL, UriKind.RelativeOrAbsolute, out myUri))
+            try
             {
-                using (WebClient WC = new WebClient())
+                if (!URL.ToLower().Contains("http://") && !URL.ToLower().Contains("https://"))
                 {
-                    URLSourceCode = WC.DownloadString(myUri);
+                    URL = "http://" + URL;
                 }
-                HtmlDocument Doc = new HtmlDocument();
-                Doc.LoadHtml(URLSourceCode);
-                List<HtmlNode> LOE = Doc.DocumentNode.Descendants().Where(p => p.Name == "link").ToList();
-                foreach (HtmlNode Node in LOE)
+                string URLSourceCode = "";
+                Uri myUri;
+                bool RssFound = false;
+                string RssURL = "";
+                if (Uri.TryCreate(URL, UriKind.RelativeOrAbsolute, out myUri))
                 {
-                    HtmlAttribute Attr = Node.Attributes["type"];
-                    if (Attr != null && Attr.Value == "application/rss+xml")
+                    using (WebClient WC = new WebClient())
                     {
-                        RssFound = true;
-                        HtmlAttribute URLAttr = Node.Attributes["href"];
-                        RssURL = URLAttr.Value;
-                        break;
+                        URLSourceCode = WC.DownloadString(myUri);
                     }
-                }
-                if (RssFound == false)
-                {
-                    return "This source cannot be added at current time ...";
-                }
-                else
-                {
-                    if (!RSS(RssURL))
+                    HtmlDocument Doc = new HtmlDocument();
+                    Doc.LoadHtml(URLSourceCode);
+                    List<HtmlNode> LOE = Doc.DocumentNode.Descendants().Where(p => p.Name == "link").ToList();
+                    foreach (HtmlNode Node in LOE)
+                    {
+                        HtmlAttribute Attr = Node.Attributes["type"];
+                        if (Attr != null && Attr.Value == "application/rss+xml")
+                        {
+                            RssFound = true;
+                            HtmlAttribute URLAttr = Node.Attributes["href"];
+                            RssURL = URLAttr.Value;
+                            break;
+                        }
+                    }
+                    if (RssFound == false)
                     {
                         return "This source cannot be added at current time ...";
                     }
                     else
                     {
-                        using (SundooqDBEntities2 db = new SundooqDBEntities2())
+                        if (!RSS(RssURL))
                         {
-                            string SourceName = GetDomain.GetDomainFromUrl(RssURL);
-                            SourceName = SourceName.Substring(0, SourceName.LastIndexOf('.'));
-                            if (!db.Sources.Any(p => p.URL == RssURL))
+                            return "This source cannot be added at current time ...";
+                        }
+                        else
+                        {
+                            using (SundooqDBEntities2 db = new SundooqDBEntities2())
                             {
-                                Sources newSource = new Sources();
-                                newSource.Description = "";
-                                newSource.LogoURL = RssURL;
-                                newSource.Rank = 1;
-                                newSource.SourceName = SourceName;
-                                newSource.Status = 1;
-                                newSource.Tags = newSource.SourceName;
-                                newSource.URL = RssURL;
-                                db.Sources.Add(newSource);
-                                db.SaveChanges();
-                            }
-                            Users CurrentUser = Session["User"] as Users;
-                            if (!CurrentUser.Tags.ToLower().Contains(SourceName))
-                            {
-                                CurrentUser.Tags += "#" + SourceName;
-                                bool successMsg;
-                                CurrentUser.Update(out successMsg);
-                                return "Source added successfully to your following sources ...";
-                            }
-                            else
-                            {
-                                return "You are already following this source ...";
+                                string SourceName = GetDomain.GetDomainFromUrl(RssURL);
+                                SourceName = SourceName.Substring(0, SourceName.LastIndexOf('.'));
+                                if (!db.Sources.Any(p => p.URL == RssURL))
+                                {
+                                    Sources newSource = new Sources();
+                                    newSource.Description = "";
+                                    newSource.LogoURL = RssURL;
+                                    newSource.Rank = 1;
+                                    newSource.SourceName = SourceName;
+                                    newSource.Status = 1;
+                                    newSource.Tags = newSource.SourceName;
+                                    newSource.URL = RssURL;
+                                    db.Sources.Add(newSource);
+                                    db.SaveChanges();
+                                }
+                                Users CurrentUser = Session["User"] as Users;
+                                if (!CurrentUser.Tags.ToLower().Contains(SourceName))
+                                {
+                                    CurrentUser.Tags += "#" + SourceName;
+                                    bool successMsg;
+                                    CurrentUser.Update(out successMsg);
+                                    return "Source added successfully to your following sources ...";
+                                }
+                                else
+                                {
+                                    return "You are already following this source ...";
+                                }
                             }
                         }
                     }
                 }
+                else
+                {
+                    return "This source cannot be added at current time ...";
+                }
             }
-            else
+            catch (Exception)
             {
                 return "This source cannot be added at current time ...";
             }
